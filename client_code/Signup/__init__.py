@@ -1,7 +1,6 @@
 from ._anvil_designer import SignupTemplate
 from anvil import *
 import anvil.server
-import bcrypt
 import re
 
 class Signup(SignupTemplate):
@@ -55,14 +54,12 @@ class Signup(SignupTemplate):
               self.text_box_8.focus()
         
           if count==4:
-            # Hash the password
-            hashed_password = self.hash_password(self.text_box_3.text)
-                
+            
             anvil.server.call(
               'add_info', 
               self.text_box_1.text, 
               self.text_box_2.text, 
-              hashed_password,
+              self.text_box_3.text,
               self.text_box_4.text,
               self.text_box_5.text,
               self.text_box_6.text,
@@ -71,11 +68,7 @@ class Signup(SignupTemplate):
             alert (self.text_box_2.text + ' added')
             open_form('Login')
 
-  def hash_password(self, password):
-        # Hash a password for the first time
-        # Using bcrypt
-        hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-        return hashed.decode('utf-8')  # Convert bytes to string for storage and comparison
+  
 
 
   def link_1_click(self, **event_args):

@@ -4,7 +4,8 @@ from anvil.tables import app_tables
 from datetime import datetime
 import anvil.server
 from anvil import tables, app
-import bcrypt
+import hashlib
+import secrets
 import random
 import uuid
 
@@ -45,10 +46,15 @@ def add_info(email, username, password, pan, address, phone, aadhar):
     )
     return user_row
 def hash_password(password):
-    # Hash a password for the first time
-    # Using bcrypt
-    hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-    return hashed.decode('utf-8')  # Convert bytes to string for storage and comparison
+    # Generate a salt for hashing
+    salt = secrets.token_hex(16)
+    
+    # Combine salt and password and hash them
+    hashed = hashlib.sha256((password + app.secrets['password_secret']).encode()).hexdigest()
+    
+    # Store salt along with hashed password
+    hashed_password = salt + hashed
+    return hashed_password
 
 
 @anvil.server.callable
