@@ -4,6 +4,7 @@ from anvil.tables import app_tables
 from datetime import datetime
 import anvil.server
 from anvil import tables, app
+import bcrypt
 import random
 import uuid
 
@@ -27,10 +28,12 @@ def get_user_for_login(login_input):
 
 @anvil.server.callable
 def add_info(email, username, password, pan, address, phone, aadhar):
+    # Hash the password
+    hashed_password = hash_password(password)
     user_row = app_tables.wallet_users.add_row(
         email=email,
         username=username,
-        password=password,
+        password=hashed_password,
         pan=pan,
         address=address,
         phone=phone,
@@ -41,7 +44,11 @@ def add_info(email, username, password, pan, address, phone, aadhar):
         last_login = datetime.now()
     )
     return user_row
-
+def hash_password(password):
+    # Hash a password for the first time
+    # Using bcrypt
+    hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    return hashed.decode('utf-8')  # Convert bytes to string for storage and comparison
 
 
 @anvil.server.callable
