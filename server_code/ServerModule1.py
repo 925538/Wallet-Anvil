@@ -26,11 +26,11 @@ def get_user_for_login(login_input):
             return None
 
 @anvil.server.callable
-def add_info(email, username, password, pan, address, phone, aadhar):
+def add_info(email, username, encrypted_password, pan, address, phone, aadhar):
     user_row = app_tables.wallet_users.add_row(
         email=email,
         username=username,
-        password=password,
+        password=encrypted_password,
         pan=pan,
         address=address,
         phone=phone,
