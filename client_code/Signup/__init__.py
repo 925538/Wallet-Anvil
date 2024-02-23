@@ -54,7 +54,6 @@ class Signup(SignupTemplate):
               self.text_box_8.focus()
         
           if count==4:
-            
             anvil.server.call(
               'add_info', 
               self.text_box_1.text, 
@@ -67,9 +66,6 @@ class Signup(SignupTemplate):
             )
             alert (self.text_box_2.text + ' added')
             open_form('Login')
-
-  
-
 
   def link_1_click(self, **event_args):
     open_form('Home')

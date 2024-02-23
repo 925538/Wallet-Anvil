@@ -4,8 +4,6 @@ from anvil.tables import app_tables
 from datetime import datetime
 import anvil.server
 from anvil import tables, app
-import hashlib
-import secrets
 import random
 import uuid
 
@@ -29,12 +27,10 @@ def get_user_for_login(login_input):
 
 @anvil.server.callable
 def add_info(email, username, password, pan, address, phone, aadhar):
-    # Hash the password
-    hashed_password = hash_password(password)
     user_row = app_tables.wallet_users.add_row(
         email=email,
         username=username,
-        password=hashed_password,
+        password=password,
         pan=pan,
         address=address,
         phone=phone,
@@ -45,16 +41,7 @@ def add_info(email, username, password, pan, address, phone, aadhar):
         last_login = datetime.now()
     )
     return user_row
-def hash_password(password):
-    # Generate a salt for hashing
-    salt = secrets.token_hex(16)
-    
-    # Combine salt and password and hash them
-    hashed = hashlib.sha256((password + app.secrets['password_secret']).encode()).hexdigest()
-    
-    # Store salt along with hashed password
-    hashed_password = salt + hashed
-    return hashed_password
+
 
 
 @anvil.server.callable
