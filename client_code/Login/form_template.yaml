@@ -50,11 +50,6 @@ components:
       properties: {text: 'Company  ', align: center, bold: false, foreground: black,
         font_size: 15}
       type: Link
-    - name: button_3
-      properties: {text: Home, bold: false, foreground: black, font_size: 15, role: null,
-        background: ''}
-      type: Button
-      event_bindings: {click: button_3_click}
   - name: image_1
     properties: {source: 'https://as1.ftcdn.net/v2/jpg/02/58/08/00/1000_F_258080094_ZZBJctFXuoz3GweY4mzGN5nGCXHEsRTI.jpg',
       background: '', display_mode: zoom_to_fill, height: 172.39999389648438, spacing_above: none,

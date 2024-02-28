@@ -45,10 +45,10 @@ class report_analysis(report_analysisTemplate):
           else:
               money_amount = 0  # Default to 0 if 'fund' is neither a string nor a number
   
-          if trans_type == 'Deposit':
-              data_for_plot[date]['Deposit'] += money_amount
-          elif trans_type == 'Withdrawal':
-              data_for_plot[date]['Withdrawal'] += money_amount
+          if trans_type == 'Debit':
+              data_for_plot[date]['Debit'] += money_amount
+          elif trans_type == 'Credit':
+              data_for_plot[date]['Credit'] += money_amount
           elif trans_type == 'Account to E-wallet':
               data_for_plot[date]['Account to E-wallet'] += money_amount
   
@@ -57,13 +57,13 @@ class report_analysis(report_analysisTemplate):
           self.plot_1.visible = False
       else:
           categories = list(data_for_plot.keys())
-          deposit_values = [data['Deposit'] for data in data_for_plot.values()]
-          withdrawal_values = [data['Withdrawal'] for data in data_for_plot.values()]
+          deposit_values = [data['Debit'] for data in data_for_plot.values()]
+          withdrawal_values = [data['Credit'] for data in data_for_plot.values()]
           e_wallet_values = [data['Account to E-wallet'] for data in data_for_plot.values()]
   
           self.plot_1.data = [
-              {'x': categories, 'y': deposit_values, 'type': 'bar', 'name': 'Deposit'},
-              {'x': categories, 'y': withdrawal_values, 'type': 'bar', 'name': 'Withdrawal'},
+              {'x': categories, 'y': deposit_values, 'type': 'bar', 'name': 'Debit'},
+              {'x': categories, 'y': withdrawal_values, 'type': 'bar', 'name': 'Credit'},
               {'x': categories, 'y': e_wallet_values, 'type': 'bar', 'name': 'Account to E-wallet'}
           ]
   
