@@ -39,10 +39,16 @@ components:
     properties: {text: Help, align: center, bold: true, foreground: black}
     type: Link
     event_bindings: {click: link_7_click}
+  - name: button_2
+    properties: {text: HOME, bold: true, foreground: black}
+    type: Button
+    layout_properties: {}
+    event_bindings: {click: button_2_click}
   - name: link_13
     properties: {align: center, bold: true, text: Logout, foreground: black, icon: 'fa:sign-out'}
     type: Link
     event_bindings: {click: link_13_click}
+    components: []
   - name: spacer_3_copy
     properties: {height: -1.800018310546875}
     type: Spacer

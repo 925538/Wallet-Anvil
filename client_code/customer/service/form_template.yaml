@@ -31,7 +31,7 @@ components:
       type: Spacer
       layout_properties: {width: 414.6999755859375}
     - name: column_panel_1_copy
-      properties: {foreground: '', col_spacing: none, col_widths: '{"DZACHX":9,"EQLJSK":9,"IYMZZI":9,"QMIILD":9,"YSLIKN":6,"LADGEM":10}'}
+      properties: {foreground: '', col_spacing: none, col_widths: '{"DZACHX":9,"EQLJSK":9,"IYMZZI":9,"YSLIKN":6,"LADGEM":10}'}
       type: ColumnPanel
       layout_properties: {width: 700, expand: false}
       components:
@@ -50,6 +50,11 @@ components:
         type: Link
         layout_properties: {grid_position: 'MNPBPI,IYMZZI'}
         event_bindings: {click: link_4_click}
+      - name: link_1
+        properties: {text: Help, bold: true, foreground: black, align: center}
+        type: Link
+        layout_properties: {grid_position: 'MNPBPI,CMXHLE'}
+        event_bindings: {click: link_1_click}
       - name: link_7
         properties: {text: Home, align: center, bold: true, foreground: black}
         type: Link
