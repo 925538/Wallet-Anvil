@@ -132,6 +132,14 @@ db_schema:
       admin_ui: {width: 200, order: 5}
       type: number
     title: wallet_users_transaction
+  table_5:
+    client: none
+    server: full
+    columns:
+    - name: Column1
+      admin_ui: {width: 200, order: 0}
+      type: media
+    title: Table 5
 secrets:
   ? ''
   : value: {? '' : t60Z4iDuhInEOjWQ4bU7PdzvFnQ38Weuirbdt/MNZ1p+CqpxVOavkKZ1bDUo1ShCnx3gvrNyXfCOegbjGO03zKgd/dZ/sSrIaLqzHogAmtBqwHDHHoPTvQfjSLbWktutA6/SM5YCSoxPtfcumUJZX6zZuGH8tRQ=}
