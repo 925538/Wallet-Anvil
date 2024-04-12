@@ -138,36 +138,13 @@ components:
       layout_properties: {width: 809.4379267578125}
       components:
       - name: link_8
-        properties: {text: Wallet for consumer, font: a, bold: true, align: center,
-          underline: false, font_size: 20}
+        properties: {text: Home, font: a, bold: true, align: center, underline: false,
+          font_size: 20, icon: 'fa:home'}
         type: Link
         layout_properties: {x: 14.300000000745058, y: 3.899999428540468, width: 192.0500030517578}
         data_bindings:
         - {property: border, code: 'self.item[''line'']', writeback: false}
         event_bindings: {click: link_8_click, show: link_8_show, hide: link_8_hide}
-      - name: card_1
-        properties: {role: card, col_widths: '{}', background: 'theme:White', visible: true}
-        type: ColumnPanel
-        layout_properties: {x: 24.187512207776308, y: 34.600006103515625, width: 164.8249969482422}
-        components:
-        - name: link_9
-          properties: {role: null, url: '', align: left, tooltip: '', border: '',
-            foreground: 'theme:Black', visible: true, text: Wallet Topup, font_size: 15,
-            wrap_on: mobile, font: a, col_spacing: medium, spacing_above: small, icon_align: right_edge,
-            col_widths: '', spacing_below: small, italic: false, background: '', bold: true,
-            underline: false, icon: 'fa:angle-right'}
-          type: Link
-          layout_properties: {grid_position: 'WLXEXV,IZKUGJ'}
-          event_bindings: {click: link_9_click}
-        - name: link_10
-          properties: {role: null, url: '', align: left, tooltip: '', border: '',
-            foreground: 'theme:Black', visible: true, text: Auto Topup, font_size: 15,
-            wrap_on: mobile, font: a, col_spacing: medium, spacing_above: small, icon_align: right_edge,
-            col_widths: '', spacing_below: small, italic: false, background: '', bold: true,
-            underline: false, icon: 'fa:angle-right'}
-          type: Link
-          layout_properties: {grid_position: 'JEAGUN,IPRRDG'}
-          event_bindings: {click: link_10_click}
       - name: link_13
         properties: {text: Products, font: a, font_size: 20, bold: true, align: center}
         type: Link

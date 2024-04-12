@@ -11,11 +11,11 @@ components:
   - name: spacer_1
     properties: {height: 23.199981689453125}
     type: Spacer
-    layout_properties: {grid_position: 'KZCFLX,POBQTX'}
+    layout_properties: {grid_position: 'OQAXDV,LSDEES'}
   - name: xy_panel_1
     properties: {height: 167.39993286132812, background: '#1eb0ed'}
     type: XYPanel
-    layout_properties: {grid_position: 'RDDKQY,TAHJSQ', full_width_row: true}
+    layout_properties: {grid_position: 'ZEHXVW,XAROBG', full_width_row: true}
     components:
     - name: label_1
       properties: {text: Contact Customer Support, font: a, font_size: 45, foreground: 'theme:White',
@@ -23,139 +23,94 @@ components:
       type: Label
       layout_properties: {x: 554.9861246757209, y: 42.31943766400218, width: 520.388916015625}
   - name: xy_panel_2
-    properties: {height: 912.7999267578125}
+    properties: {height: 1193.3999633789062}
     type: XYPanel
-    layout_properties: {grid_position: 'COFPSY,XBFHZG', full_width_row: true}
+    layout_properties: {grid_position: 'OFRDHJ,WBSLJO', full_width_row: true}
     components:
     - name: label_2
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#11466e',
-        visible: true, text: 'What can we help you with?', font_size: 40, font: a,
-        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '', bold: true, underline: false, icon: ''}
+      properties: {text: 'Your issue: Negative Balance', font: a, font_size: 25, align: left}
       type: Label
-      layout_properties: {x: 262.38751220703125, y: 44.225006103515625, width: 513}
-    - name: text_area_1
-      properties: {role: null, align: left, height: 40.6, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: Search for your issue,
-        font_size: null, auto_expand: false, font: a, spacing_above: small, spacing_below: small,
-        italic: false, background: '', bold: false, underline: false}
-      type: TextArea
-      layout_properties: {x: 262.38751220703125, y: 125.20001220703125, width: 789.2625122070311}
-      event_bindings: {change: text_area_1_change}
-    - name: label_3
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: Common Issues, font_size: 28, font: a, spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
-      type: Label
-      layout_properties: {x: 262.38751220703125, y: 192.03750610351562, width: 180}
+      layout_properties: {x: 259, y: 17.63751220703125, width: 970}
+    - name: link_1
+      properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Back, font_size: 20, wrap_on: mobile, font: a, col_spacing: medium,
+        spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+        italic: false, background: '', bold: true, underline: false, icon: 'fa:arrow-left'}
+      type: Link
+      layout_properties: {x: 259, y: 72.82501220703125, width: 106.20001220703125}
+      event_bindings: {click: link_1_click}
     - name: xy_panel_3
-      properties: {height: 64}
+      properties: {height: 792}
       type: XYPanel
-      layout_properties: {x: 262.38751220703125, y: 264.3874816894531, width: 866}
+      layout_properties: {x: 259, y: 127.82501220703125, width: 993.4000244140625}
       components:
-      - name: link_1
-        properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'Password and account access ', font_size: 25, wrap_on: mobile,
-          font: a, col_spacing: medium, spacing_above: small, icon_align: right_edge,
-          col_widths: '{}', spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: 'fa:angle-right'}
-        type: Link
-        layout_properties: {x: 0, y: 0, width: 395.58798779296876}
-        event_bindings: {click: link_1_click}
       - name: label_4
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'Resets, unlock account, unknown charges', font_size: 18,
-          font: a, spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-          background: '', bold: false, underline: false, icon: ''}
-        type: Label
-        layout_properties: {grid_position: 'YTJKDR,WUZTWI', x: 0, y: 35.08746337890625,
-          width: 346.788}
-    - name: button_1
-      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
-        foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: 'theme:Gray
-          300', bold: false, underline: false, icon: 'fa:search'}
-      type: Button
-      layout_properties: {x: 1061.6500244140625, y: 125.20001220703125, width: 52.4}
-    - name: xy_panel_8
-      properties: {height: 64}
-      type: XYPanel
-      layout_properties: {x: 262.38751220703125, y: 551.5874938964844, width: 866}
-      components:
-      - name: link_5
-        properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'Disputes and account limitations ', font_size: 25,
-          wrap_on: mobile, font: a, col_spacing: medium, spacing_above: small, icon_align: right_edge,
-          col_widths: '{}', spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: 'fa:angle-right'}
-        type: Link
-        layout_properties: {x: 0, y: 0, width: 402.837}
-        event_bindings: {click: link_5_click}
-      - name: label_4_copy_copy_3
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'Payment dispute, chargeback, limitation', font_size: 18,
-          font: a, spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-          background: '', bold: false, underline: false, icon: ''}
-        type: Label
-        layout_properties: {grid_position: 'YTJKDR,WUZTWI', x: 0, y: 35.07501220703125,
-          width: 346.788}
-      - name: label_9
         properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-          visible: true, text: Chat with G-wallet Assistant immediately, font_size: 18,
-          font: a, spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          visible: true, text: This information might help, font_size: 20, font: a,
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
           background: '', bold: false, underline: false, icon: ''}
         type: Label
-        layout_properties: {x: 0, y: 270.4000244140625, width: 176}
-    - name: xy_panel_7
-      properties: {height: 64}
-      type: XYPanel
-      layout_properties: {x: 262.38751220703125, y: 454.5874938964844, width: 866}
-      components:
-      - name: link_4
-        properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'Account profile and set up ', font_size: 25, wrap_on: mobile,
-          font: a, col_spacing: medium, spacing_above: small, icon_align: right_edge,
-          col_widths: '{}', spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: 'fa:angle-right'}
-        type: Link
-        layout_properties: {x: 0, y: 0, width: 401.837}
-        event_bindings: {click: link_4_click}
-      - name: label_4_copy_copy_2
+        layout_properties: {x: 20, y: 19.7874755859375, width: 323.79998779296875}
+      - name: image_1
+        properties: {role: null, vertical_align: center, height: 27.999996662139893,
+          tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
+          alt_text: '', spacing_above: small, source: 'data:image/jpeg;base64,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',
+          spacing_below: small, background: '', horizontal_align: center}
+        type: Image
+        layout_properties: {x: 20, y: 27.75, width: 51}
+      - name: label_5
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'Bank account, credit card, email, phone', font_size: 18,
-          font: a, spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          visible: true, text: 'What should I do if my balance is negative?', font_size: 18,
+          font: a, spacing_above: small, icon_align: left, spacing_below: small, italic: true,
           background: '', bold: false, underline: false, icon: ''}
         type: Label
-        layout_properties: {grid_position: 'YTJKDR,WUZTWI', x: 0, y: 35.07501220703125,
-          width: 346.788}
-    - name: xy_panel_6
-      properties: {height: 64}
-      type: XYPanel
-      layout_properties: {x: 262.38751220703125, y: 355.5874938964844, width: 866}
-      components:
-      - name: link_3
-        properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'Payments ', font_size: 25, wrap_on: mobile, font: a,
-          col_spacing: medium, spacing_above: small, icon_align: right_edge, col_widths: '{}',
-          spacing_below: small, italic: false, background: '', bold: false, underline: false,
-          icon: 'fa:angle-right'}
-        type: Link
-        layout_properties: {x: 0, y: 0, width: 396.837}
-        event_bindings: {click: link_3_click}
-      - name: label_4_copy_copy
+        layout_properties: {x: 69, y: 65.72502136230469, width: 335.4}
+      - name: label_6
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'Holds, declines, refunds, balance', font_size: 18,
-          font: a, spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-          background: '', bold: false, underline: false, icon: ''}
+          visible: true, text: 'Your G-wallet account balance could be negative for
+            many reasons, such as:', font_size: 18, font: a, spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
         type: Label
-        layout_properties: {grid_position: 'YTJKDR,WUZTWI', x: 0, y: 35.07501220703125,
-          width: 346.788}
-    - name: xy_panel_5_copy
+        layout_properties: {x: 69, y: 102.80000305175781, width: 580.4}
+      - name: label_7
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: "      \u2022\tA refund issued to cover a dispute or\
+            \ claim.\n      \u2022\tReceiving a chargeback without sufficient funds.\n\
+            \      \u2022\tReversal of a payment ineligible for protection.\n    \
+            \  \u2022\tUnauthorized transactions debiting your account.\n1.What You\
+            \ Can Do:\n      \u2022\tReview recent activity to understand the cause\
+            \ of the negative \n        balance.\n      \u2022\tIf you suspect unauthorized\
+            \ activity, please reach out to our \n        support team for assistance.\n\
+            2.Resolving Negative Balances:\n      \u2022\tMake a payment to restore\
+            \ your balance to zero.\n      \u2022\tPayments can be made via bank transfer\
+            \ or other available \n        methods within the app.\n3.Sending Payment:\n\
+            \      \u2022\tEnsure payments are made to \"G-Wallet Inc.\"\n      \u2022\
+            \tInclude your name and registered email address with G-Wallet on the\
+            \ payment.\n4.Please Note:\n      \u2022\tWe accept payments in [List\
+            \ currencies].\n      \u2022\tAccounts paid by personal check must remain\
+            \ in good standing for 30 days before review.\n5.Account Implications:\n\
+            \      \u2022\tPayments received will be applied to the negative balance.\n\
+            \      \u2022\tRefunds will be funded from your primary bank account.\n\
+            6.Failure to Resolve:\n      \u2022\tUnresolved balances may lead to account\
+            \ suspension.\n      \u2022\tWe may engage a debt collection agency for\
+            \ unresolved debts.\n", font_size: 18, font: a, spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        type: Label
+        layout_properties: {x: 88, y: 135.8000030517578, width: 936.8}
+    - name: xy_panel_5
       properties: {height: 256}
       type: XYPanel
-      layout_properties: {x: 257.45002441480756, y: 651.9875183105469, width: 353.7875061035156}
+      layout_properties: {x: 259, y: 929.6000366210938, width: 477}
       components:
+      - name: label_8
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'If you still need help, we recommend you', font_size: 18,
+          font: a, spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false, icon: ''}
+        type: Label
+        layout_properties: {x: 10, y: 12, width: 326.5999755859375}
       - name: image_2
         properties: {role: null, vertical_align: center, height: 49.399932861328125,
           tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
@@ -172,13 +127,13 @@ components:
         type: Link
         layout_properties: {x: 37, y: 120, width: 102}
         event_bindings: {click: link_2_click}
-      - name: label_8
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: Recommended, font_size: 25, font: a, spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-          underline: false, icon: ''}
+      - name: label_9
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          visible: true, text: Chat with G-wallet Assistant immediately, font_size: 18,
+          font: a, spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false, icon: ''}
         type: Label
-        layout_properties: {x: 0, y: 12, width: 326.575}
+        layout_properties: {x: 0, y: 152, width: 176}
 - type: FlowPanel
   properties: {}
   name: navbar_links

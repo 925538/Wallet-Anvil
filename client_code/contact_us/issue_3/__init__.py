@@ -8,3 +8,15 @@ class issue_3(issue_3Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def link_1_click(self, **event_args):
+    open_form('contact_us')
+
+  def link_8_click(self, **event_args):
+    open_form('Home')
+
+  def link_16_click(self, **event_args):
+    open_form('contact_us')
+
+  def button_3_click(self, **event_args):
+    open_form('Login')
