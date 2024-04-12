@@ -101,7 +101,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: content_panel
-    properties: {visible: true, border: ''}
+    properties: {visible: true, border: '', col_widths: '{}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'MALMZL,HWVFYO'}
     components:
@@ -372,6 +372,28 @@ components:
       properties: {height: 45}
       type: Spacer
       layout_properties: {grid_position: 'GVMIZU,OABKWL'}
+    - name: column_panel_2
+      properties: {col_widths: '{"HOONMY":15,"UJUEWI":5,"TTXUAS":40}'}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'QOUKTE,VNIUYL'}
+      components:
+      - name: label_1
+        properties: {text: Key Feature, align: right, font_size: 36}
+        type: Label
+        layout_properties: {grid_position: 'RYSWXV,HOONMY'}
+      - name: label_25
+        properties: {text: With, foreground: 'theme:Primary 500', bold: true, font_size: 36,
+          align: right}
+        type: Label
+        layout_properties: {grid_position: 'RYSWXV,UJUEWI'}
+      - name: label_32
+        properties: {text: G-Wallet, font_size: 36}
+        type: Label
+        layout_properties: {grid_position: 'RYSWXV,TTXUAS'}
+    - name: spacer_4
+      properties: {height: 46.399932861328125}
+      type: Spacer
+      layout_properties: {grid_position: 'LORHRN,CLFADP'}
     - name: xy_panel_2
       properties: {height: 246.22216796875}
       type: XYPanel
