@@ -605,24 +605,24 @@ components:
       - name: xy_panel_2_copy_2
         properties: {role: null, width: null, align: center, height: 280.20001220703125,
           tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
-          spacing_below: small, background: 'theme:Gray 200'}
+          spacing_below: small, background: 'theme:Primary 500'}
         type: XYPanel
         layout_properties: {grid_position: 'TERBSD,EBOTKO', full_width_row: true}
         components:
         - name: label_21_copy
           properties: {text: 'G-Wallet is your trusted companion for effortless financial
               transactions, providing a secure and intuitive platform to manage your
-              money with ease.', align: center, font_size: 16, font: ''}
+              money with ease.', align: center, font_size: 16, font: '', foreground: 'theme:White'}
           type: Label
           layout_properties: {x: 22, y: 102.7626953125, width: 359.788}
         - name: label_22_copy
           properties: {text: '   Quick Links', align: left, bold: true, font: verdana,
-            font_size: 16}
+            font_size: 16, foreground: 'theme:White'}
           type: Label
           layout_properties: {x: 637.7125244140625, y: 53.91269531250009, width: 200}
         - name: label_23_copy
           properties: {text: '     Mail to us', align: left, bold: true, font: verdana,
-            font_size: 15}
+            font_size: 15, foreground: 'theme:White'}
           type: Label
           layout_properties: {x: 1084.8499755859375, y: 56.7626953125, width: 200}
         - name: column_panel_9_copy
@@ -652,7 +652,7 @@ components:
             layout_properties: {grid_position: 'JBVNGZ,ZAJCNM'}
         - name: label_24_copy
           properties: {text: '            Find us', align: left, bold: true, font: verdana,
-            font_size: 15}
+            font_size: 15, foreground: 'theme:White'}
           type: Label
           layout_properties: {x: 1052.3875732421875, y: 138.212646484375, width: 200}
         - name: link_24
@@ -683,7 +683,7 @@ components:
           type: Image
           layout_properties: {x: 51.937496948987246, y: 46.412498474121094, width: 94.5875015258789}
         - name: label_3
-          properties: {text: G-Wallet, bold: true, font: '', font_size: 28}
+          properties: {text: G-Wallet, bold: true, font: '', font_size: 28, foreground: 'theme:White'}
           type: Label
           layout_properties: {x: 131.98750000074506, y: 51.51249694824219, width: 200}
         - name: link_8_copy
@@ -691,7 +691,8 @@ components:
           type: Link
           layout_properties: {x: 1070.4000244140625, y: 89.20000457763672, width: 200}
         - name: label_25
-          properties: {font_size: 20, text: Code Of Commitment, bold: true, align: right}
+          properties: {font_size: 20, text: Code Of Commitment, bold: true, align: right,
+            foreground: 'theme:White'}
           type: Label
           layout_properties: {x: 1112.7625427246094, y: 235.63751220703125, width: 246.3999267578125}
         - name: spacer_1
@@ -699,14 +700,14 @@ components:
           type: Spacer
           layout_properties: {x: 5.900013733655214, y: 221, width: 1218.0000244140624}
         - name: label_19
-          properties: {text: CopyRight2024@G-wallet, bold: true, font_size: 20}
+          properties: {text: CopyRight2024@G-wallet, bold: true, font_size: 20, foreground: 'theme:White'}
           type: Label
           layout_properties: {x: 34.587494660168886, y: 235.63751220703125, width: 281.9875183105469}
         - name: label_20
-          properties: {text: Disclaimer, bold: true, font_size: 20}
+          properties: {text: Disclaimer, bold: true, font_size: 20, foreground: 'theme:White'}
           type: Label
           layout_properties: {x: 446.73750000074506, y: 235.63751220703125, width: 200}
         - name: label_24
-          properties: {text: Privacy Policy, bold: true, font_size: 20}
+          properties: {text: Privacy Policy, bold: true, font_size: 20, foreground: 'theme:White'}
           type: Label
           layout_properties: {x: 807.6624877937138, y: 235.63751220703125, width: 200}
