@@ -52,6 +52,12 @@ class Login(LoginTemplate):
     def link_11_copy_click(self, **event_args):
         open_form('Home')
 
+    def link_1_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('forgot_password')
+
+    
+
     
 
 

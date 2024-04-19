@@ -71,12 +71,17 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'HZHRFI,HBEOBR'}
   - name: label_6
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
       visible: true, text: Check your details here, font_size: 19, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: true, icon: ''}
     type: Label
-    layout_properties: {grid_position: 'YTBIFZ,XVTVGK'}
+    layout_properties: {grid_position: 'ISFSPW,HOWKXC'}
+  - name: button_2
+    properties: {text: Reset Password, background: '#258ee0', foreground: white, bold: true}
+    type: Button
+    layout_properties: {grid_position: 'ISFSPW,ZGIOZP'}
+    event_bindings: {click: button_2_click}
   - name: grid_panel_1
     properties: {}
     type: GridPanel

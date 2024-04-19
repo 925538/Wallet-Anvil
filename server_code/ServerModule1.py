@@ -6,6 +6,7 @@ import anvil.server
 from anvil import tables, app
 import random
 import uuid
+import anvil.email
 
 @anvil.server.callable
 def get_user_for_login(login_input):
@@ -261,7 +262,35 @@ def get_currency_balance(user_phone, currency_type):
 
 
 
+@anvil.server.callable
+def send_otp_email(email, otp):
+    """
+    Sends an OTP to the specified email address and stores it in the OTPStorage table.
+    """
+    # Compose email message
+    subject = "Your One Time Password (OTP)"
+    message = f"Your OTP is: {otp}"
+    
+    # Send email
+    anvil.email.send(
+        to=email,
+        subject=subject,
+        text=message
+    )
 
+    # Store the OTP in the OTPStorage table
+    app_tables.OTPStorage.add_row(otp=otp)
+
+    print("OTP sent:", otp)
+@anvil.server.callable
+def get_stored_otp():
+    """
+    Returns the stored OTP.
+    """
+    global stored_otp
+    print("Stored OTP:", stored_otp)
+    return stored_otp
+    
 
 
 

@@ -125,3 +125,9 @@ components:
       type: Button
       layout_properties: {row: IOYNMJ, width_xs: 12, col_xs: 0}
       event_bindings: {click: button_2_click}
+  - name: link_1
+    properties: {text: Reset password, align: right, font_size: 15, foreground: black,
+      bold: true}
+    type: Link
+    layout_properties: {row: EPWBFS, width_xs: 3, col_xs: 5}
+    event_bindings: {click: link_1_click}
