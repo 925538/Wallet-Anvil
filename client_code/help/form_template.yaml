@@ -9,7 +9,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: content_panel_copy
-    properties: {col_widths: '{"JYXOAL":25,"KJMZAQ":10,"VMDFYM":25}'}
+    properties: {col_widths: '{"JYXOAL":25,"KJMZAQ":10,"VMDFYM":25,"EODYWI":10,"TQDPNT":50}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'ZNSGMO,MGLAMR', full_width_row: true}
     components:
@@ -143,9 +143,9 @@ components:
       type: TextBox
       layout_properties: {grid_position: 'WKRQHJ,KCXQVI'}
     - name: label_2
-      properties: {text: '   Message:', font_size: 15, align: left, bold: true}
+      properties: {text: '   Message:', font_size: 15, align: center, bold: true}
       type: Label
-      layout_properties: {grid_position: 'YFTSZG,PXLAJJ'}
+      layout_properties: {grid_position: 'RGAABI,EODYWI'}
     - name: text_area_4
       properties: {placeholder: Add your message, height: 118}
       type: TextArea

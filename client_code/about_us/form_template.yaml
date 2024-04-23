@@ -111,15 +111,15 @@ components:
       type: Spacer
       layout_properties: {grid_position: 'YJTXTC,NLJTZA'}
     - name: column_panel_3
-      properties: {col_widths: '{"SYIJXB":23}', col_spacing: none, background: 'theme:Primary
-          500'}
+      properties: {col_widths: '{"SYIJXB":23}', col_spacing: none, background: 'theme:Gray
+          50'}
       type: ColumnPanel
       layout_properties: {grid_position: 'CQJJSL,AYXWUG', full_width_row: true}
       components:
       - name: label_4
-        properties: {text: 'Send Money Money with 3 Easy Steps ', align: center, font_size: 42,
-          font: '', bold: true, background: 'theme:Primary 500', foreground: 'theme:Gray
-            50'}
+        properties: {text: 'Send Money with 3 Easy Steps ', align: center, font_size: 42,
+          font: '', bold: true, background: 'theme:Gray 50', foreground: 'theme:Primary
+            700'}
         type: Label
         layout_properties: {grid_position: 'UNWVHS,SYIJXB'}
     - name: column_panel_4
@@ -138,7 +138,7 @@ components:
           layout_properties: {grid_position: 'WFRIBP,RRLIIY'}
         - name: label_7
           properties: {text: Create Account, align: center, font: '', font_size: 20,
-            bold: false}
+            bold: true}
           type: Label
           layout_properties: {grid_position: 'NOFYEH,AOVRHM'}
         - name: label_10
@@ -158,7 +158,8 @@ components:
           type: Image
           layout_properties: {grid_position: 'GTTRLH,PJTORH'}
         - name: label_8
-          properties: {text: Recharge Your Wallet, align: center, font: '', font_size: 20}
+          properties: {text: Recharge Your Wallet, align: center, font: '', font_size: 20,
+            bold: true}
           type: Label
           layout_properties: {grid_position: 'GCEECY,OGLOJC'}
         - name: label_11
@@ -177,7 +178,7 @@ components:
           layout_properties: {grid_position: 'SIOUON,QUDHNF'}
         - name: label_9
           properties: {align: center, text: Provide Receiver Information, font: '',
-            font_size: 20}
+            font_size: 20, bold: true}
           type: Label
           layout_properties: {grid_position: 'QMVPUF,LORNNF'}
         - name: label_12
