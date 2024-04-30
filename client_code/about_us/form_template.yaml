@@ -8,92 +8,68 @@ components:
   type: ColumnPanel
   layout_properties: {slot: default}
   components:
-  - name: navbar_links_copy
-    properties: {background: ''}
-    type: FlowPanel
-    layout_properties: {grid_position: 'BPOIEV,XFRHIA', full_width_row: true}
-    event_bindings: {show: navbar_links_show}
-    components:
-    - name: grid_panel_1
-      properties: {}
-      type: GridPanel
-      layout_properties: {width: 24.800010681152344}
-    - name: grid_panel_1_copy
-      properties: {}
-      type: GridPanel
-      components:
-      - name: flow_panel_1_copy_copy
-        properties: {}
-        type: FlowPanel
-        layout_properties: {row: VWOLFN, width_xs: 3, col_xs: 0}
-        components:
-        - name: image_1_copy_copy
-          properties: {height: 55.22221374511719, source: _/theme/letter-g.png, display_mode: shrink_to_fit,
-            background: ''}
-          type: Image
-          layout_properties: {width: 61.98611374511719}
-        - name: label_1_copy
-          properties: {text: G-Wallet, bold: true, font: '', font_size: 30, background: '',
-            foreground: 'theme:Primary 500'}
-          type: Label
-          layout_properties: {}
-      - name: flow_panel_1_copy_copy_copy
-        properties: {visible: true}
-        type: FlowPanel
-        layout_properties: {row: VWOLFN, width_xs: 9, col_xs: 3}
-        components:
-        - name: xy_panel_6
-          properties: {height: 55.55555725097656}
-          type: XYPanel
-          layout_properties: {width: 1078.7455419921876}
-          components:
-          - name: help
-            properties: {text: Help, bold: true, foreground: '', icon: 'fa:question-circle',
-              font_size: 18, font: '', align: center}
-            type: Link
-            layout_properties: {x: 736.1389414481819, y: 8.541667938232422, width: 93.58333587646484}
-            event_bindings: {click: help_click}
-          - name: contact_us
-            properties: {text: Contact, bold: true, foreground: '', icon: 'fa:phone',
-              font_size: 18, font: '', align: center}
-            type: Link
-            layout_properties: {x: 607.9583384208381, y: 8.541667938232422, width: 109.79166412353516}
-            event_bindings: {click: contact_click}
-          - name: products
-            properties: {text: Products, icon: 'fa:cart-arrow-down', foreground: '',
-              bold: true, font_size: 18, font: '', align: center}
-            type: Link
-            layout_properties: {x: 463.2083384208381, y: 8.541667938232422, width: 126.47222137451172}
-            event_bindings: {click: products_click}
-          - name: about_us
-            properties: {text: About us, foreground: '', bold: true, icon: 'fa:adn',
-              font_size: 18, font: '', align: center}
-            type: Link
-            layout_properties: {x: 340.77785746380687, y: 8.541667938232422, width: 112.42895507812497}
-            event_bindings: {click: about_us_click}
-          - name: home
-            properties: {text: Home, icon: 'fa:home', foreground: '', bold: true,
-              font: '', font_size: 18, align: center}
-            type: Link
-            layout_properties: {x: 218.40278116986156, y: 8.541667938232422, width: 105.70833587646484}
-            event_bindings: {click: home_click}
-          - name: button_4
-            properties: {text: 'Login ', background: 'theme:Primary 500', foreground: 'theme:White',
-              bold: true, font_size: 16}
-            type: Button
-            layout_properties: {x: 855.4028269462287, y: 9.930552165955305, width: 90.22222137451172}
-            event_bindings: {click: button_4_click}
-          - name: button_3
-            properties: {text: Signup, background: 'theme:Primary 500', foreground: 'theme:White',
-              font_size: 16, bold: true}
-            type: Button
-            layout_properties: {x: 958.1252390556037, y: 9.194460552185774, width: 100.19444274902344}
-            event_bindings: {click: button_3_click}
   - name: content_panel
     properties: {visible: true, border: '', col_widths: '{}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'MZNBLW,UNWEJW', full_width_row: true}
     components:
+    - name: navbar_link
+      properties: {background: 'theme:White'}
+      type: FlowPanel
+      layout_properties: {grid_position: 'UGMXGS,GWGJBX', full_width_row: true}
+      event_bindings: {}
+      components:
+      - name: spacer_5_copy
+        properties: {height: 32}
+        type: Spacer
+        layout_properties: {width: 62.99998321533203}
+      - name: xy_panel_6_copy
+        properties: {height: 55.55555725097656}
+        type: XYPanel
+        layout_properties: {width: 1356.599951171875}
+        components:
+        - name: label_7_copy_2_copy_copy_copy
+          properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
+            font: '', italic: false, underline: false, foreground: black}
+          type: Label
+          layout_properties: {x: 76.45000152662396, y: 3.8374977111816406, width: 131.9500045776367}
+        - name: image_1_copy_copy_copy_copy
+          properties: {role: null, vertical_align: center, height: 51.80000305175781,
+            tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
+            spacing_above: small, source: _/theme/letter-g.png, spacing_below: small,
+            background: white, horizontal_align: right}
+          type: Image
+          layout_properties: {x: 0, y: 1.199993897229433, width: 60.39999694824219}
+        - name: about_us_copy
+          properties: {text: About us, foreground: '', bold: true, icon: 'fa:adn',
+            font_size: 18, font: '', align: center}
+          type: Link
+          layout_properties: {x: 472.87499694898725, y: 10.237498093396425, width: 155.675048828125}
+          event_bindings: {click: about_us_click}
+        - name: products_copy
+          properties: {text: Products, icon: 'fa:shopping-cart', foreground: '', bold: true,
+            font_size: 18, font: '', align: center}
+          type: Link
+          layout_properties: {x: 638.5500457771122, y: 10.549999237060547, width: 133.13801220703124}
+          event_bindings: {click: products_click}
+        - name: contact_us_copy
+          properties: {text: Contact, bold: true, foreground: '', icon: 'fa:phone',
+            font_size: 18, font: '', align: center}
+          type: Link
+          layout_properties: {x: 789.7375457771122, y: 10.549999237060547, width: 108.5880244140625}
+          event_bindings: {click: contact_click}
+        - name: help_copy
+          properties: {text: Help, bold: true, foreground: '', icon: 'fa:question-circle',
+            font_size: 18, font: '', align: center}
+          type: Link
+          layout_properties: {x: 921.0875213630497, y: 10.549999237060547, width: 89.6500244140625}
+          event_bindings: {click: help_click}
+        - name: home_copy
+          properties: {text: Home, icon: 'fa:home', foreground: '', bold: true, font: '',
+            font_size: 18, align: center}
+          type: Link
+          layout_properties: {x: 344.1499908454716, y: 10.549999237060547, width: 119.9000015258789}
+          event_bindings: {click: home_click}
     - name: label_2
       properties: {text: About G-Wallet, align: center, bold: true, font: '', background: 'theme:Primary
           500', foreground: 'theme:White'}
@@ -139,6 +115,7 @@ components:
           500', bold: true, underline: false, icon: 'fa:arrow-circle-o-right'}
       type: Button
       layout_properties: {grid_position: 'GSZCJX,MHXAAN'}
+      event_bindings: {click: primary_color_1_click}
     - name: spacer_2
       properties: {height: 56.79998779296875}
       type: Spacer

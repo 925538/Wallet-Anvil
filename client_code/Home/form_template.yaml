@@ -25,7 +25,7 @@ components:
       components:
       - name: label_7_copy_2_copy_copy_copy
         properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
-          font: a, italic: false, underline: false, foreground: black}
+          font: '', italic: false, underline: false, foreground: black}
         type: Label
         layout_properties: {x: 76.45000152662396, y: 3.8374977111816406, width: 131.9500045776367}
       - name: image_1_copy_copy_copy_copy
