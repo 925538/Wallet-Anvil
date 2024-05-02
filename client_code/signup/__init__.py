@@ -66,6 +66,18 @@ class signup(signupTemplate):
                 count += 1
                 self.label_17.text = "Password meets criteria"
                 self.label_17.foreground = "#008000"
+        
+                # Proceed with password match validation
+                if self.text_box_5.text != '' and self.text_box_5.text == self.text_box_6.text:
+                    count += 1
+                else:
+                    self.pass_card.visible = True
+                    self.label_17.text = "Passwords don't match"
+                    self.label_17.foreground = "#990000"
+                    self.text_box_5.text =''
+                    self.text_box_5.focus()
+                    self.text_box_6.text =''
+                    self.text_box_6.focus()
             else:
                 self.pass_card.visible = True
                 self.label_17.text = "Password must have at least 1 number, 1 character, 1 symbol, and be at least 8 characters long."
@@ -73,31 +85,26 @@ class signup(signupTemplate):
                 self.text_box_5.text = ''
                 self.text_box_6.text = ''
                 self.text_box_5.focus()
-
-            if self.text_box_5.text != '' and self.text_box_5.text == self.text_box_6.text:
-                count += 1
+            if not self.text_box_9.visible:
+                alert("verify your email")
             else:
-                self.pass_card.visible = True
-                self.label_17.text = "Passwords don't match"
-                self.label_17.foreground = "#990000"
-                self.text_box_5.text =''
-                self.text_box_5.focus()
-                self.text_box_6.text =''
-                self.text_box_6.focus()
-
-            if count == 5:
-                anvil.server.call(
-                    'add_info', 
-                    self.text_box_1.text, 
-                    self.text_box_2.text,
-                    self.drop_down_1.selected_value,
-                    self.text_box_3.text,
-                    self.text_box_7.text,
-                    self.text_box_8.text,
-                    self.text_box_6.text
-                )
-                alert ("Thank you "+ self.text_box_1.text + ", for signing up! Your account has been successfully created")
-                open_form('login')
+                # If email verification is not yet completed, wait for it to complete
+                if not self.email_verified:
+                    return
+                else:
+                    # Email verified, proceed with account creation
+                    anvil.server.call(
+                        'add_info',
+                        self.text_box_1.text,
+                        self.text_box_2.text,
+                        self.drop_down_1.selected_value,
+                        self.text_box_3.text,
+                        self.text_box_7.text,
+                        self.text_box_8.text,
+                        self.text_box_6.text
+                    )
+                    alert("Thank you " + self.text_box_1.text + ", for signing up! Your account has been successfully created")
+                    open_form('login')
   def link_1_click(self, **event_args):
     open_form('Home')
 
@@ -188,5 +195,7 @@ class signup(signupTemplate):
         else:
             # OTP is invalid, display a message
             self.label_3.text = "Invalid OTP. Please try again."
+
+      
             self.label_3.foreground = "#FF0000"  # Red color
             

@@ -19,8 +19,14 @@ class login(loginTemplate):
         login_input = self.text_box_1.text.strip()
         # Get the password
         password = self.text_box_3.text.strip()
+
+        # Check if either login input or password is not entered
+        if not login_input or not password:
+            alert("Please enter both username and password.")
+            return
+
         # Get the user based on login input
-        user = anvil.server.call('get_user_for_login',login_input)
+        user = anvil.server.call('get_user_for_login', login_input)
 
         # Check if user exists and password matches
         if user is not None and user['password'] == password:
@@ -41,11 +47,15 @@ class login(loginTemplate):
             elif user_type == 'customer':
                 open_form('customer', user=user)
         elif user is not None and user['password'] != password:
-            
             self.card_3.visible = True
             self.label_4.visible = True
             self.label_5.visible = False
             self.label_6.visible = False
+            self.text_box_3.text = ''
+            self.text_box_3.focus()
+        else:
+            # Alert if either username or password is incorrect
+            alert("Incorrect username or password. Please try again.")
             self.text_box_3.text = ''
             self.text_box_3.focus()
 
