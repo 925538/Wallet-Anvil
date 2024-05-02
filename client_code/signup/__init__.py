@@ -152,7 +152,7 @@ class signup(signupTemplate):
 
   def button_1_click(self, **event_args):
         
-        
+
         user_email = self.text_box_2.text
         
         # Check if the email exists in the database
