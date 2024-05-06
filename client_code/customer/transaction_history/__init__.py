@@ -75,3 +75,15 @@ class transaction_history(transaction_historyTemplate):
     def link_1_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form('customer',user=self.user)
+
+    def link_24_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('about_us')
+
+    def link_25_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('product')
+
+    def primary_color_8_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      pass

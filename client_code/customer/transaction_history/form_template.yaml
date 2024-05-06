@@ -5,14 +5,18 @@ container:
     role: null, html: ''}
 components:
 - type: ColumnPanel
-  properties: {role: card}
+  properties: {role: card, col_widths: '{"XBPZES":50,"GCHBOP":10,"ABWOPB":55,"EKRLIS":5,"BTKNXA":50,"XDDGTA":10,"KAFQLQ":40,"BVQGFV":20}'}
   name: card_1
   layout_properties: {slot: default}
   components:
+  - name: label_13
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'BEPTES,UHXMEB'}
   - name: flow_panel_1_copy
     properties: {}
     type: FlowPanel
-    layout_properties: {grid_position: 'CIJOVI,FJCSFZ', full_width_row: true}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ CIJOVI,FJCSFZ', full_width_row: true}
     components:
     - name: image_1_copy_copy
       properties: {role: null, vertical_align: center, height: 44.80000305175781,
@@ -68,84 +72,299 @@ components:
         event_bindings: {click: link_13_click}
   - name: label_1
     properties: {role: null, align: center, tooltip: '', border: '', foreground: white,
-      visible: true, text: '', font_size: 25, font: a, spacing_above: small, icon_align: left,
-      spacing_below: small, italic: false, background: '#258ee1', bold: true, underline: true,
-      icon: ''}
+      visible: true, text: Transactions, font_size: 25, font: a, spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '#258ee1',
+      bold: true, underline: true, icon: ''}
     type: Label
-    layout_properties: {grid_position: 'YSPRHY,XBPZES', full_width_row: true}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ YSPRHY,XBPZES', full_width_row: true}
+  - name: column_panel_1
+    properties: {}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ YSPRHY,GCHBOP'}
+    components:
+    - name: primary_color_1
+      properties: {text: '', role: primary-color, icon: 'fa:download'}
+      type: Button
+      layout_properties: {grid_position: 'WOZITK,SJBKJM FOZCQF,YHMRTV'}
+    - name: label_9
+      properties: {text: Download Recipt, align: center, italic: true, bold: true,
+        font_size: 13}
+      type: Label
+      layout_properties: {grid_position: 'WOZITK,SJBKJM XZXIVA,BPAOVX'}
+    - name: grid_panel_1
+      properties: {}
+      type: GridPanel
+      layout_properties: {grid_position: 'WOZITK,BLZEOF'}
+  - name: text_box_1
+    properties: {align: center}
+    type: TextBox
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ QFSTSY,ABWOPB'}
+  - name: primary_color_6
+    properties: {text: '', role: primary-color, icon: 'fa:search'}
+    type: Button
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ QFSTSY,EKRLIS'}
   - name: spacer_3
     properties: {height: 7.399993896484375}
     type: Spacer
-    layout_properties: {grid_position: 'ROVZIS,GUWWIV'}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ ROVZIS,GUWWIV'}
   - name: label_2
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
       visible: true, text: Transaction History, font_size: 18, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: true, icon: ''}
     type: Label
-    layout_properties: {grid_position: 'WZHIRN,BTKNXA'}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ WZHIRN,BTKNXA', full_width_row: true}
+  - name: button_2
+    properties: {text: Filters, icon: 'fa:filter'}
+    type: Button
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ WZHIRN,XDDGTA'}
   - name: spacer_2
     properties: {height: 14.599990844726562}
     type: Spacer
-    layout_properties: {grid_position: 'ZHBJBU,XHUJUE'}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ ZHBJBU,XHUJUE'}
   - name: label_3
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Date:', font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     type: Label
-    layout_properties: {grid_position: 'ALXXSO,KVZJAT', full_width_row: true}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ ALXXSO,KVZJAT', full_width_row: true}
   - name: label_4
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Fund:', font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     type: Label
-    layout_properties: {grid_position: 'ALXXSO,HUOQYX', full_width_row: true}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ ALXXSO,HUOQYX', full_width_row: true}
   - name: label_5
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Transaction_type:', font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     type: Label
-    layout_properties: {grid_position: 'ALXXSO,RTYCHG', full_width_row: true}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ ALXXSO,RTYCHG', full_width_row: true}
   - name: label_6
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Transaction_status:', font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     type: Label
-    layout_properties: {grid_position: 'ALXXSO,ENNRGN', full_width_row: true}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ ALXXSO,ENNRGN', full_width_row: true}
   - name: label_7
     properties: {text: 'Receiver_phone:', align: center, bold: true}
     type: Label
-    layout_properties: {grid_position: 'ALXXSO,TPXXXK', full_width_row: true}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ ALXXSO,TPXXXK', full_width_row: true}
   - name: label_8
     properties: {text: 'Phone:', align: center, bold: true}
     type: Label
-    layout_properties: {grid_position: 'ALXXSO,WXAKSH', full_width_row: true}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ ALXXSO,WXAKSH', full_width_row: true}
   - name: repeating_panel_1
     properties: {item_template: customer.transaction_history.ItemTemplate4}
     type: RepeatingPanel
-    layout_properties: {grid_position: 'MDWPWY,SYXHHC', full_width_row: true}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ MYVTZK,OBLBXP MDWPWY,SYXHHC',
+      full_width_row: true}
   - name: button_3
     properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
       foreground: white, visible: true, text: back, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: true, background: '#1d86da',
       bold: true, underline: false, icon: 'fa:backward'}
     type: Button
-    layout_properties: {grid_position: 'OKADAQ,EBCSPU', full_width_row: true}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ OKADAQ,EBCSPU', full_width_row: true}
     event_bindings: {click: button_3_click}
   - name: spacer_1
     properties: {height: 42}
     type: Spacer
-    layout_properties: {grid_position: 'PTNUBU,QZFWOX'}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ PTNUBU,QZFWOX'}
+  - name: card_2
+    properties: {role: card, col_widths: '{"WIXRYD":10,"FRTBLB":25,"QBJIGX":27}'}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'TBFFHP,BVQGFV'}
+    components:
+    - name: column_panel_2
+      properties: {visible: true, col_widths: '{"XHTAYE":70,"NSPUKC":10}'}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'XCOHIG,TQWOYV'}
+      components:
+      - name: text_box_2
+        properties: {}
+        type: TextBox
+        layout_properties: {grid_position: 'RXZHDX,XHTAYE'}
+      - name: primary_color_7
+        properties: {text: '', role: primary-color, icon: 'fa:search'}
+        type: Button
+        layout_properties: {grid_position: 'RXZHDX,NSPUKC'}
+    - name: grid_panel_2
+      properties: {}
+      type: GridPanel
+      layout_properties: {grid_position: 'EEFBAS,FRTBLB'}
+      components:
+      - name: label_15
+        properties: {}
+        type: Label
+        layout_properties: {row: LKHILA, width_xs: 12, col_xs: 0}
+      - name: label_12
+        properties: {}
+        type: Label
+        layout_properties: {row: LKHILA, width_xs: 12, col_xs: 0}
+    - name: image_1
+      properties: {height: 68.79998779296875}
+      type: Image
+      layout_properties: {grid_position: 'EEFBAS,WIXRYD'}
+    - name: grid_panel_3
+      properties: {}
+      type: GridPanel
+      layout_properties: {grid_position: 'EEFBAS,QBJIGX'}
+    - name: label_10
+      properties: {align: center}
+      type: Label
+      layout_properties: {grid_position: 'HRYCYQ,ICVZYP'}
+    - name: label_11
+      properties: {align: center}
+      type: Label
+      layout_properties: {grid_position: 'SXQMZZ,EKYVMS'}
+    - name: column_panel_3
+      properties: {}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'RPLIJN,UZPDVE'}
+      components:
+      - name: primary_color_8
+        properties: {text: '', role: primary-color, icon: 'fa:inr'}
+        type: Button
+        layout_properties: {grid_position: 'UVPPBN,BTAKGI'}
+        event_bindings: {click: primary_color_8_click}
+      - name: primary_color_9
+        properties: {text: '', role: primary-color, icon: 'fa:usd'}
+        type: Button
+        layout_properties: {grid_position: 'UVPPBN,LLUEGR'}
+        event_bindings: {click: primary_color_9_click}
+      - name: primary_color_10
+        properties: {text: '', role: primary-color, icon: 'fa:eur'}
+        type: Button
+        layout_properties: {grid_position: 'UVPPBN,UZCUWU'}
+      - name: primary_color_11
+        properties: {text: '', role: primary-color, icon: 'fa:gbp'}
+        type: Button
+        layout_properties: {grid_position: 'UVPPBN,OSAVSE'}
+    - name: card_4
+      properties: {role: card}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'QFHBRA,UUEXVH MXZWVJ,NKNJJP'}
+      components:
+      - name: linear_panel_2
+        properties: {}
+        type: LinearPanel
+        layout_properties: {grid_position: 'KBKNWO,ETRTKE'}
+        components:
+        - name: text_box_3
+          properties: {align: center}
+          type: TextBox
+          layout_properties: {}
+        - name: label_14
+          properties: {align: center, text: Today's, bold: true, italic: true}
+          type: Label
+          layout_properties: {}
+    - name: card_5
+      properties: {role: card}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'QFHBRA,UUEXVH WSFTSL,SZMVAQ'}
+      components:
+      - name: linear_panel_4
+        properties: {}
+        type: LinearPanel
+        layout_properties: {grid_position: 'OGSVCQ,TVVCEN'}
+        components:
+        - name: text_box_5
+          properties: {align: center}
+          type: TextBox
+          layout_properties: {}
+        - name: label_17
+          properties: {align: center, text: This Month, italic: true, bold: true}
+          type: Label
+          layout_properties: {}
+    - name: card_7
+      properties: {role: card}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'QFHBRA,UUEXVH LOMTMR,GANOZB'}
+      components:
+      - name: linear_panel_6
+        properties: {}
+        type: LinearPanel
+        layout_properties: {grid_position: 'JYEOFK,LDHBSF'}
+        components:
+        - name: text_box_7
+          properties: {align: center}
+          type: TextBox
+          layout_properties: {}
+        - name: label_19
+          properties: {align: center, text: Total Spendo}
+          type: Label
+          layout_properties: {}
+    - name: linear_panel_1
+      properties: {}
+      type: LinearPanel
+      layout_properties: {grid_position: 'QFHBRA,ZMNQZY FHGDFL,WRUICZ'}
+      components:
+      - name: card_3
+        properties: {role: card}
+        type: ColumnPanel
+        components:
+        - name: linear_panel_3
+          properties: {}
+          type: LinearPanel
+          layout_properties: {grid_position: 'VKRKJS,LDSJNK'}
+          components:
+          - name: text_box_4
+            properties: {align: center}
+            type: TextBox
+            layout_properties: {}
+          - name: label_16
+            properties: {align: center, text: This Week, bold: true, italic: true}
+            type: Label
+            layout_properties: {}
+    - name: card_6
+      properties: {role: card}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'QFHBRA,ZMNQZY LPAMQR,MWFGPJ'}
+      components:
+      - name: linear_panel_5
+        properties: {}
+        type: LinearPanel
+        layout_properties: {grid_position: 'BFUWUB,WOPWHR'}
+        components:
+        - name: text_box_6
+          properties: {align: center}
+          type: TextBox
+          layout_properties: {}
+        - name: label_18
+          properties: {align: center, italic: true, bold: true, text: 'This Year
+
+              '}
+          type: Label
+          layout_properties: {}
+    - name: card_8
+      properties: {role: card}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'QFHBRA,ZMNQZY LSNBOC,TKTGUV'}
+      components:
+      - name: linear_panel_7
+        properties: {}
+        type: LinearPanel
+        layout_properties: {grid_position: 'PWIXXK,EDTQNC'}
+        components:
+        - name: text_box_8
+          properties: {align: center}
+          type: TextBox
+          layout_properties: {}
+        - name: label_20
+          properties: {align: center}
+          type: Label
+          layout_properties: {}
   - name: xy_panel_2_copy_2
     properties: {role: null, width: null, align: center, height: 288.5999755859375,
       tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
       spacing_below: small, background: 'theme:Gray 200'}
     type: XYPanel
-    layout_properties: {grid_position: 'UVNTFL,CGYNVK', full_width_row: true}
+    layout_properties: {grid_position: 'TBFFHP,KAFQLQ UVNTFL,CGYNVK', full_width_row: true}
     components:
     - name: label_21_copy
       properties: {text: 'G-Wallet is your trusted companion for effortless financial
