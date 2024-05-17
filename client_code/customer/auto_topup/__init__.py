@@ -180,7 +180,7 @@ class auto_topup(auto_topupTemplate):
       self.minimum_balance_topup.enabled=True
      
     def link_1_click(self, **event_args):
-      open_form('customer',user=self.user)
+      open_form('customer_page',user=self.user)
 
     def minimum_balance_topup_click(self, **event_args):
       self.minimum_balance_topup.enabled=True
