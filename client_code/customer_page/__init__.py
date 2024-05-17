@@ -192,7 +192,7 @@ class customer_page(customer_pageTemplate):
       open_form('customer.transaction_history', user=self.user)
 
     def link_4_click(self, **event_args):
-      open_form('customer.transfer', user=self.user)
+      open_form('customer.deposit', user=self.user)
 
     def link_5_click(self, **event_args):
       open_form('customer.withdraw', user=self.user)
