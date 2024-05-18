@@ -37,13 +37,13 @@ components:
         layout_properties: {x: 0, y: 1.199993897229433, width: 60.39999694824219}
       - name: button_3
         properties: {text: Signup, background: 'theme:Primary 500', foreground: 'theme:White',
-          font_size: 16, bold: true}
+          font_size: 16, bold: true, role: null}
         type: Button
         layout_properties: {x: 1243.7750213630497, y: 6.837502289563417, width: 100.1875}
         event_bindings: {click: button_3_click}
       - name: button_4
         properties: {text: 'Login ', background: 'theme:Primary 500', foreground: 'theme:White',
-          bold: true, font_size: 16}
+          bold: true, font_size: 16, role: null}
         type: Button
         layout_properties: {x: 1144.3375213630497, y: 7.662501145154238, width: 101.0124267578125}
         event_bindings: {click: button_4_click}
