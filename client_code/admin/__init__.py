@@ -17,7 +17,7 @@ class admin(adminTemplate):
         transactions = anvil.server.call('get_transactions')
       
         # Organize data for plotting (aggregate by date and type)
-        data_for_plot = {'credit': {}, 'debit': {}}  # Separate dictionaries for Credit and Debit transactions
+        data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
         for transaction in transactions:
             date = transaction['date'].strftime("%Y-%m-%d")  # Format date as string for grouping
         
@@ -44,13 +44,13 @@ class admin(adminTemplate):
                 data_for_plot[trans_type][date] += money_amount
       
         # Plot the data
-        categories = list(set(data_for_plot['credit'].keys()) | set(data_for_plot['debit'].keys()))  # Combine dates from Credit and Debit transactions
-        credit_values = [data_for_plot['credit'].get(date, 0) for date in categories]  # Get credit values for each date or 0 if date not present
-        debit_values = [data_for_plot['debit'].get(date, 0) for date in categories]    # Get debit values for each date or 0 if date not present
+        categories = list(set(data_for_plot['Credit'].keys()) | set(data_for_plot['Debit'].keys()))  # Combine dates from Credit and Debit transactions
+        credit_values = [data_for_plot['Credit'].get(date, 0) for date in categories]  # Get credit values for each date or 0 if date not present
+        debit_values = [data_for_plot['Debit'].get(date, 0) for date in categories]    # Get debit values for each date or 0 if date not present
         
         self.plot_1.data = [
-            {'x': categories, 'y': debit_values, 'type': 'bar', 'name': 'debit', 'marker': {'color': 'gray'}},
-            {'x': categories, 'y': credit_values, 'type': 'bar', 'name': 'credit', 'marker': {'color': 'lightblue'}}
+            {'x': categories, 'y': debit_values, 'type': 'bar', 'name': 'Debit', 'marker': {'color': 'gray'}},
+            {'x': categories, 'y': credit_values, 'type': 'bar', 'name': 'Credit', 'marker': {'color': 'lightblue'}}
         ]
       
         self.plot_1.visible = True

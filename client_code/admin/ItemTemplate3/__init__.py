@@ -30,7 +30,7 @@ class ItemTemplate3(ItemTemplate3Template):
     phone_number = selected_user['phone']  # Assuming 'phone_number' is the key for the phone number in your data
     
     # Open the admin_view form and pass the phone number
-    open_form('admin.', phone_number=phone_number)
+    open_form('admin.admin_view', phone_number=phone_number)
 
   def check_status(self):
       now = datetime.now(anvil.tz.tzlocal())

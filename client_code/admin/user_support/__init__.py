@@ -38,11 +38,11 @@ class user_support(user_supportTemplate):
     serves_data = app_tables.wallet_users_service.search()
 
     # Open the admin.user_support form and pass the serves_data
-    user_support_form = open_form('admin.user_support', serves_data=serves_data,user=self.user)
+    open_form('admin.user_support', serves_data=serves_data,user=self.user)
 
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
-    show_users_form = open_form('admin.show_users',user=self.user)
+    open_form('admin.show_users',user=self.user)
 
   def link_8_copy_click(self, **event_args):
     """This method is called when the link is clicked"""

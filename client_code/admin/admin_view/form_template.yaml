@@ -23,92 +23,115 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'NVVJQP,MRKVLQ'}
   - name: label_1
-    properties: {align: center, text: Balance, bold: true, font_size: 25}
+    properties: {align: center, text: Balance, bold: true, font_size: 30, italic: true}
     type: Label
     layout_properties: {grid_position: 'XQYNRA,LUYAVP'}
-  - name: card_1
-    properties: {role: card}
+  - name: column_panel_2
+    properties: {col_widths: '{"NJAIFI":25,"RHASDK":10,"AZDPBQ":25}'}
     type: ColumnPanel
-    layout_properties: {grid_position: 'ABCUME,SVXMUQ'}
+    layout_properties: {grid_position: 'YZIEVT,FRZARJ'}
     components:
-    - name: image_5
-      properties: {height: 36.090911865234375, source: _/theme/flag (1).png}
-      type: Image
-      layout_properties: {grid_position: 'NTSKHB,WKXVYB'}
-    - name: label_10
-      properties: {align: center, bold: true, font_size: 18}
-      type: Label
-      layout_properties: {grid_position: 'NTSKHB,MVPIXK'}
-  - name: card_2
-    properties: {role: card}
+    - name: card_1
+      properties: {role: card}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'LWINVI,NJAIFI'}
+      components:
+      - name: image_5
+        properties: {height: '72', source: _/theme/flag (1).png}
+        type: Image
+        layout_properties: {grid_position: 'NTSKHB,WKXVYB'}
+      - name: spacer_2
+        properties: {height: 11}
+        type: Spacer
+        layout_properties: {grid_position: 'NTSKHB,MVPIXK OYZXYI,CQQXNJ'}
+      - name: label_10
+        properties: {align: center, bold: true, font_size: 18, icon: ''}
+        type: Label
+        layout_properties: {grid_position: 'NTSKHB,MVPIXK ICTPSN,CWJBGC'}
+    - name: grid_panel_1
+      properties: {}
+      type: GridPanel
+      layout_properties: {grid_position: 'LWINVI,RHASDK'}
+    - name: card_2
+      properties: {role: card}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'LWINVI,AZDPBQ'}
+      components:
+      - name: image_2
+        properties: {height: '72', source: _/theme/724-7242767_us-flag-circle-png-transparent-png-removebg-preview.png}
+        type: Image
+        layout_properties: {grid_position: 'QNTFCY,ZBLPMY'}
+      - name: label_11
+        properties: {align: center, bold: true, font_size: 18}
+        type: Label
+        layout_properties: {grid_position: 'QNTFCY,LRXKNN'}
+  - name: column_panel_3
+    properties: {col_widths: '{"DFXUZP":25,"ISMTUO":10,"THFQLS":25}'}
     type: ColumnPanel
-    layout_properties: {grid_position: 'ABCUME,PUSXNM'}
+    layout_properties: {grid_position: 'QNBALA,GKHOUJ'}
     components:
-    - name: image_2
-      properties: {height: 40.727294921875, source: _/theme/64b82a703428b050ac974f6c_us dollar.svg}
-      type: Image
-      layout_properties: {grid_position: 'QNTFCY,ZBLPMY'}
-    - name: label_11
-      properties: {align: center, bold: true, font_size: 18}
-      type: Label
-      layout_properties: {grid_position: 'QNTFCY,LRXKNN'}
-  - name: card_3
-    properties: {role: card}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'ABCUME,FOCZIJ'}
-    components:
-    - name: image_3
-      properties: {height: 40.3636474609375, source: _/theme/64b82a87cb0494dc2f745ac8_euro.svg}
-      type: Image
-      layout_properties: {grid_position: 'POZUCQ,XAGPEJ'}
-    - name: label_12
-      properties: {align: center, bold: true, font_size: 18}
-      type: Label
-      layout_properties: {grid_position: 'POZUCQ,MTIEMD'}
-  - name: card_4
-    properties: {role: card}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'ABCUME,ZLDUUR'}
-    components:
-    - name: image_4
-      properties: {height: 42.454559326171875, source: _/theme/64b82a9880d5dc8e8d299cd7_pounds.svg}
-      type: Image
-      layout_properties: {grid_position: 'WCTVWR,BKFEDQ'}
-    - name: label_13
-      properties: {align: center, font_size: 18, bold: true}
-      type: Label
-      layout_properties: {grid_position: 'WCTVWR,KWILKZ'}
+    - name: card_3
+      properties: {role: card}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'MGFYJV,DFXUZP'}
+      components:
+      - name: image_3
+        properties: {height: '72', source: _/theme/EUlogo-1024x1024.png}
+        type: Image
+        layout_properties: {grid_position: 'POZUCQ,XAGPEJ'}
+      - name: label_12
+        properties: {align: center, bold: true, font_size: 18}
+        type: Label
+        layout_properties: {grid_position: 'POZUCQ,MTIEMD'}
+    - name: grid_panel_2
+      properties: {}
+      type: GridPanel
+      layout_properties: {grid_position: 'MGFYJV,ISMTUO'}
+    - name: card_4
+      properties: {role: card}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'MGFYJV,THFQLS'}
+      components:
+      - name: image_4
+        properties: {height: '72', source: _/theme/th__11_-removebg-preview.png}
+        type: Image
+        layout_properties: {grid_position: 'WCTVWR,BKFEDQ'}
+      - name: label_13
+        properties: {align: center, font_size: 18, bold: true}
+        type: Label
+        layout_properties: {grid_position: 'WCTVWR,KWILKZ'}
   - name: label_9
-    properties: {align: center, bold: true, text: PROFILE, font_size: 25}
+    properties: {align: center, bold: true, text: Profile, font_size: 30, italic: true}
     type: Label
     layout_properties: {grid_position: 'TOLYJZ,JCJNCT'}
   - name: card_6
-    properties: {role: card, col_widths: '{"FEXRBT":10,"PXTDBV":10,"DGSGDL":35,"HIHIRW":40}'}
+    properties: {role: card, col_widths: '{"DGSGDL":35,"YFPEJW":55,"SDETFE":5}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'VPXWZY,OFKNFV'}
     components:
-    - name: image_1
-      properties: {height: 95.45455932617188, source: _/theme/account.png}
-      type: Image
+    - name: xy_panel_1
+      properties: {height: 100.39999389648438}
+      type: XYPanel
       layout_properties: {grid_position: 'DUBTZX,YFPEJW'}
+      components:
+      - name: image_1
+        properties: {height: 91, source: _/theme/account.png}
+        type: Image
+        layout_properties: {x: 0, y: 4.549995422363281, width: 865.8375244140625}
+      - name: file_loader_1
+        properties: {font_size: 22, text: '', icon: 'fa:camera'}
+        type: FileLoader
+        layout_properties: {x: 415.56254272535443, y: 52.57500076293945, width: 97.17500305175781}
+        event_bindings: {change: file_loader_1_change}
+    - name: button_4
+      properties: {text: '', icon: 'fa:trash', font_size: 22}
+      type: Button
+      layout_properties: {grid_position: 'DUBTZX,SDETFE'}
+      event_bindings: {click: button_4_click}
     - name: spacer_3
       properties: {height: 32}
       type: Spacer
       layout_properties: {grid_position: 'BHLFIJ,DGSGDL'}
-    - name: file_loader_1
-      properties: {font_size: 15, text: '', icon: 'fa:camera'}
-      type: FileLoader
-      layout_properties: {grid_position: 'BHLFIJ,FEXRBT'}
-      event_bindings: {change: file_loader_1_change}
-    - name: button_4
-      properties: {text: '', icon: 'fa:trash', font_size: 18}
-      type: Button
-      layout_properties: {grid_position: 'BHLFIJ,PXTDBV'}
-      event_bindings: {click: button_4_click}
-    - name: spacer_4
-      properties: {height: 32}
-      type: Spacer
-      layout_properties: {grid_position: 'BHLFIJ,HIHIRW'}
     - name: label_1_copy
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Username:', font_size: null, font: '', spacing_above: small,
@@ -227,44 +250,49 @@ components:
       type: TextBox
       layout_properties: {grid_position: 'IKRANZ,KCFPLU GBAIIU,SZDRUU'}
     - name: button_5
-      properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
         foreground: white, visible: true, text: Freeze, font_size: 20, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: true, background: '#1d86da',
-        bold: true, underline: false, icon: ''}
+        bold: true, underline: false, icon: 'fa:snowflake-o'}
       type: Button
-      layout_properties: {grid_position: 'IKRANZ,KCFPLU WDCZEX,CMEZFG'}
+      layout_properties: {grid_position: 'QCZHYJ,PGROGH'}
       event_bindings: {click: button_5_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
   components:
-  - name: button_1
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:Primary 500', visible: true, text: '', font_size: 25, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: true,
-      background: '', bold: true, underline: false, icon: 'fa:pencil'}
-    type: Button
-    event_bindings: {click: button_1_click}
-  - name: button_2
-    properties: {text: '', icon: 'fa:trash', icon_align: top, font_size: 25, background: '',
-      foreground: red}
-    type: Button
-    event_bindings: {click: button_2_click}
-  - name: image_2_copy
-    properties: {role: null, vertical_align: center, height: 35.090911865234375, tooltip: '',
-      border: '', foreground: '', visible: true, display_mode: shrink_to_fit, alt_text: '',
-      spacing_above: small, source: 'data:image/png;base64,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',
-      spacing_below: small, background: '', horizontal_align: center}
-    type: Image
+  - name: column_panel_4
+    properties: {col_widths: '{"VSLNKV":15,"DRDTLY":15,"XQRAOJ":15}', col_spacing: none}
+    type: ColumnPanel
+    components:
+    - name: button_1
+      properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
+        foreground: black, visible: true, text: '', font_size: 22, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: true, background: '', bold: true,
+        underline: false, icon: 'fa:pencil'}
+      type: Button
+      event_bindings: {click: button_1_click}
+      layout_properties: {grid_position: 'QIFTVS,VSLNKV'}
+    - name: button_2
+      properties: {text: '', icon: 'fa:trash', icon_align: top, font_size: 22, background: '',
+        foreground: black, align: left}
+      type: Button
+      event_bindings: {click: button_2_click}
+      layout_properties: {grid_position: 'QIFTVS,DRDTLY'}
+    - name: button_6
+      properties: {text: '', icon: 'fa:bell', font_size: 22, foreground: black}
+      type: Button
+      layout_properties: {grid_position: 'QIFTVS,TQESZR'}
+    - name: button_3
+      properties: {role: outlined-button, align: right, tooltip: '', border: '', enabled: true,
+        foreground: black, visible: true, text: '', font_size: 22, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: true, background: '', bold: true,
+        underline: false, icon: 'fa:backward'}
+      type: Button
+      event_bindings: {click: button_3_click}
+      layout_properties: {grid_position: 'QIFTVS,XQRAOJ'}
     layout_properties: {}
-  - name: button_3
-    properties: {role: outlined-button, align: right, tooltip: '', border: '', enabled: true,
-      foreground: black, visible: true, text: '', font_size: 25, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: true, background: '', bold: true,
-      underline: false, icon: 'fa:backward'}
-    type: Button
-    event_bindings: {click: button_3_click}
 - name: column_panel_1
   properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',

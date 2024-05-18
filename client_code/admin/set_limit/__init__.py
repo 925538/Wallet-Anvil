@@ -106,5 +106,9 @@ class set_limit(set_limitTemplate):
     options_list = ['Daily', 'Monthly', 'Annually']
     self.drop_down_2.items = []
     self.drop_down_2.items = options_list
+
+  def primary_color_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
     
     

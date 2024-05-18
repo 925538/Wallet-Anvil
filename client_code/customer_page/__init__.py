@@ -63,11 +63,11 @@ class customer_page(customer_pageTemplate):
                         receiver_username = "Unknown"
 
                     # Set the transaction text and color based on transaction type
-                    if transaction_type == 'credit':
+                    if transaction_type == 'Credit':
                         transaction_text = "Received"
                         fund_display = "+" + str(fund)
                         fund_color = "green"
-                    elif transaction_type == 'debit':
+                    elif transaction_type == 'Debit':
                         transaction_text = "Sent"
                         fund_display = "-" + str(fund)
                         fund_color = "blue"
@@ -122,7 +122,7 @@ class customer_page(customer_pageTemplate):
           print("Number of transactions after filtering:", len(transactions))
           
           # Organize data for plotting (aggregate by date and type)
-          data_for_plot = {'credit': {}, 'debit': {}}  # Separate dictionaries for Credit and Debit transactions
+          data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
           for transaction in transactions:
               date = transaction['date'].strftime("%Y-%m-%d")  # Format date as string for grouping
               
@@ -152,9 +152,9 @@ class customer_page(customer_pageTemplate):
           print("Data for plotting:", data_for_plot)
           
           # Plot the data
-          categories = list(set(data_for_plot['credit'].keys()) | set(data_for_plot['debit'].keys()))  # Combine dates from Credit and Debit transactions
-          credit_values = [data_for_plot['credit'].get(date, 0) for date in categories]  # Get credit values for each date or 0 if date not present
-          debit_values = [data_for_plot['debit'].get(date, 0) for date in categories]    # Get debit values for each date or 0 if date not present
+          categories = list(set(data_for_plot['Credit'].keys()) | set(data_for_plot['Debit'].keys()))  # Combine dates from Credit and Debit transactions
+          credit_values = [data_for_plot['Credit'].get(date, 0) for date in categories]  # Get credit values for each date or 0 if date not present
+          debit_values = [data_for_plot['Debit'].get(date, 0) for date in categories]    # Get debit values for each date or 0 if date not present
           
           # Define colors
           credit_color = '#023c9c'

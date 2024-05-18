@@ -1,0 +1,163 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: ''}
+components:
+- type: ColumnPanel
+  properties: {}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - name: card_1
+    properties: {role: card, col_widths: '{}'}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'FBZXZJ,SKFDLS', full_width_row: true}
+    components:
+    - name: column_panel_2
+      properties: {col_widths: '{"CDCBZX":93,"EUDSPS":10}', border: soli}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'YECPCJ,QPMSGN', full_width_row: true}
+      components:
+      - name: image_1
+        properties: {height: 58.79998779296875, source: _/theme/th__6_-removebg-preview.png,
+          display_mode: shrink_to_fit}
+        type: Image
+        layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+      - name: spacer_1
+        properties: {height: -61}
+        type: Spacer
+        layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
+      - name: link_3
+        properties: {text: '', bold: true, font_size: 25}
+        type: Link
+        layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
+        event_bindings: {click: link_3_click}
+        components:
+        - name: label_1
+          properties: {text: Default Currency}
+          type: Label
+          layout_properties: {grid_position: 'XGAWAJ,MIFHEZ', full_width_row: true}
+    - name: column_panel_3
+      properties: {col_widths: '{"CDCBZX":93,"EUDSPS":10}', border: soli}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'UWFZUV,QTSPPB', full_width_row: true}
+      components:
+      - name: image_1_copy
+        properties: {height: 58.79998779296875, source: _/theme/vector-wallet-icon-design-removebg-preview.png,
+          display_mode: shrink_to_fit}
+        type: Image
+        layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+      - name: spacer_1_copy
+        properties: {height: -61}
+        type: Spacer
+        layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
+      - name: link_3_copy
+        properties: {text: '', bold: true, font_size: 25}
+        type: Link
+        layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
+        event_bindings: {click: link_3_click}
+        components:
+        - name: label_1_copy
+          properties: {text: 'Payment Settings
+
+              '}
+          type: Label
+          layout_properties: {grid_position: 'XGAWAJ,MIFHEZ', full_width_row: true}
+    - name: column_panel_4
+      properties: {col_widths: '{"CDCBZX":93,"EUDSPS":10}', border: soli}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'LKQYDI,OSBMIU', full_width_row: true}
+      components:
+      - name: image_1_copy_2
+        properties: {height: 58.79998779296875, source: _/theme/Black-Question-mark-PNG-Images-HD.png,
+          display_mode: shrink_to_fit}
+        type: Image
+        layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+      - name: spacer_1_copy_2
+        properties: {height: -61}
+        type: Spacer
+        layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
+      - name: link_3_copy_2
+        properties: {text: '', bold: true, font_size: 25}
+        type: Link
+        layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
+        event_bindings: {click: link_3_click}
+        components:
+        - name: label_1_copy_2
+          properties: {text: Help & Support}
+          type: Label
+          layout_properties: {grid_position: 'XGAWAJ,MIFHEZ', full_width_row: true}
+    - name: column_panel_5
+      properties: {col_widths: '{"CDCBZX":93,"EUDSPS":10}', border: soli}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'UDAMWA,SUHDKP', full_width_row: true}
+      components:
+      - name: image_1_copy_2_copy
+        properties: {height: 58.79998779296875, source: _/theme/th__8_-removebg-preview.png,
+          display_mode: shrink_to_fit}
+        type: Image
+        layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+      - name: spacer_1_copy_2_copy
+        properties: {height: -61}
+        type: Spacer
+        layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
+      - name: link_3_copy_2_copy
+        properties: {text: '', bold: true, font_size: 25}
+        type: Link
+        layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
+        event_bindings: {click: link_3_click}
+        components:
+        - name: label_1_copy_2_copy
+          properties: {text: Profile Settings}
+          type: Label
+          layout_properties: {grid_position: 'XGAWAJ,MIFHEZ', full_width_row: true}
+    - name: column_panel_6
+      properties: {col_widths: '{"CDCBZX":93,"EUDSPS":10}', border: soli}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'RALKNW,AFFINX', full_width_row: true}
+      components:
+      - name: image_1_copy_2_copy_3
+        properties: {height: 58.79998779296875, source: _/theme/th (10).jpeg, display_mode: shrink_to_fit}
+        type: Image
+        layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+      - name: spacer_1_copy_2_copy_3
+        properties: {height: -61}
+        type: Spacer
+        layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
+      - name: link_3_copy_2_copy_3
+        properties: {text: '', bold: true, font_size: 25}
+        type: Link
+        layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
+        event_bindings: {click: link_3_click}
+        components:
+        - name: label_1_copy_2_copy_3
+          properties: {text: App Info}
+          type: Label
+          layout_properties: {grid_position: 'XGAWAJ,MIFHEZ', full_width_row: true}
+    - name: column_panel_7
+      properties: {col_widths: '{"CDCBZX":93,"EUDSPS":10}', border: soli}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'BBCNCD,IUUUDB', full_width_row: true}
+      components:
+      - name: image_1_copy_2_copy_2
+        properties: {height: 58.79998779296875, source: _/theme/th (9).jpeg, display_mode: shrink_to_fit}
+        type: Image
+        layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+      - name: spacer_1_copy_2_copy_2
+        properties: {height: -61}
+        type: Spacer
+        layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
+      - name: link_3_copy_2_copy_2
+        properties: {text: '', bold: true, font_size: 25}
+        type: Link
+        layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
+        event_bindings: {click: link_3_click}
+        components:
+        - name: label_1_copy_2_copy_2
+          properties: {text: Change Password}
+          type: Label
+          layout_properties: {grid_position: 'XGAWAJ,MIFHEZ', full_width_row: true}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}

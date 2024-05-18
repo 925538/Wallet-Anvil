@@ -189,6 +189,7 @@ components:
         properties: {text: Proceed, role: primary-color, align: left, font_size: 14}
         type: Button
         layout_properties: {grid_position: 'ZCZGJY,JIIQTF'}
+        event_bindings: {click: primary_color_1_click}
     - name: spacer_4
       properties: {height: 32}
       type: Spacer
