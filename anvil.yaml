@@ -86,9 +86,6 @@ db_schema:
     - name: users_minimum_topup
       admin_ui: {width: 200}
       type: bool
-    - name: users_profile_pic
-      admin_ui: {width: 200}
-      type: string
     - name: users_referral
       admin_ui: {width: 200}
       type: string
@@ -98,6 +95,9 @@ db_schema:
     - name: users_timely_topup_interval
       admin_ui: {width: 220}
       type: string
+    - name: users_profile_pic
+      admin_ui: {width: 200}
+      type: media
     title: wallet_users
   wallet_users_account:
     client: full
