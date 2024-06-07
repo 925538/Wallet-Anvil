@@ -2,6 +2,7 @@ from ._anvil_designer import adminTemplate
 from anvil import *
 import plotly.graph_objects as go
 import anvil.server
+import datetime
 
 
 class admin(adminTemplate):
@@ -17,55 +18,48 @@ class admin(adminTemplate):
         # Call the server function to get transactions data
         transactions = anvil.server.call('get_transactions')
 
-        # DEBUG: Print the number of transactions retrieved from the server
-        print("Number of transactions retrieved:", len(transactions))
+        # Filter transactions to include only 'Credit' type
+        credit_transactions = [t for t in transactions if t['users_transaction_type'] == 'Credit']
 
-        # Filter transactions to include only 'Credit' and 'Debit' types
-        filtered_transactions = [t for t in transactions if t['users_transaction_type'] in ['Credit', 'Debit']]
+        # Identify all years present in the transactions
+        years = sorted(set(transaction['users_transaction_date'].year for transaction in credit_transactions))
 
-        # DEBUG: Print the number of transactions after filtering
-        print("Number of transactions after filtering:", len(filtered_transactions))
+        # Organize data for plotting (aggregate by month and sum credit amounts)
+        credit_by_month = {}
+        for year in years:
+            for month in range(1, 13):
+                key = f"{year}-{month:02}"
+                credit_by_month[key] = 0
 
-        # Organize data for plotting (aggregate by date and type)
-        data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
-        for transaction in filtered_transactions:
-            date = transaction['users_transaction_date'].strftime("%Y-%m-%d")  # Format date as string for grouping
+        for transaction in credit_transactions:
+            date = transaction['users_transaction_date'].strftime("%Y-%m")  # Format date as string for grouping
+            credit_by_month[date] += transaction['users_transaction_fund']
 
-            trans_type = transaction['users_transaction_type']
-            fund = transaction['users_transaction_fund']  # Retrieve the 'fund' field
+        # Create data for plotting
+        all_months = sorted(credit_by_month.keys())
+        credit_values = [credit_by_month[month] for month in all_months]
 
-            if date not in data_for_plot[trans_type]:
-                data_for_plot[trans_type][date] = 0
-
-            # Ensure fund is a string or a number before conversion
-            if isinstance(fund, (int, float)):
-                money_amount = fund
-            elif isinstance(fund, str):
-                # Extract numeric value from the 'fund' field
-                try:
-                    money_amount = float(fund)
-                except ValueError:
-                    money_amount = 0  # Handle cases where conversion to float fails
-            else:
-                money_amount = 0  # Default to 0 if 'fund' is neither a string nor a number
-
-            # Aggregate transaction amounts by date and type
-            if trans_type in data_for_plot:
-                data_for_plot[trans_type][date] += money_amount
-
-        # DEBUG: Print the data for plotting
-        print("Data for plotting:", data_for_plot)
+        # Set the initial visible range to the last 12 months
+        initial_visible_range = [all_months[-12], all_months[-1]] if len(all_months) >= 12 else [all_months[0], all_months[-1]]
 
         # Plot the data
-        categories = list(set(data_for_plot['Credit'].keys()) | set(data_for_plot['Debit'].keys()))  # Combine dates from Credit and Debit transactions
-        categories.sort()  # Sort the dates for a proper time series plot
-        credit_values = [data_for_plot['Credit'].get(date, 0) for date in categories]  # Get credit values for each date or 0 if date not present
-        debit_values = [data_for_plot['Debit'].get(date, 0) for date in categories]    # Get debit values for each date or 0 if date not present
-
         self.plot_1.data = [
-            {'x': categories, 'y': debit_values, 'type': 'bar', 'name': 'Debit', 'marker': {'color': 'gray'}},
-            {'x': categories, 'y': credit_values, 'type': 'bar', 'name': 'Credit', 'marker': {'color': 'lightblue'}}
+            go.Bar(x=all_months, y=credit_values, name='Credit', marker_color='lightblue')
         ]
+
+        # Set the layout to include month and year labels, highlighting current year
+        self.plot_1.layout = go.Layout(
+            title='Monthly Credit Transactions',
+            xaxis=dict(
+                title='Month',
+                tickmode='array',
+                tickvals=all_months,
+                ticktext=[datetime.datetime.strptime(month, "%Y-%m").strftime("%Y-%b") for month in all_months],
+                range=initial_visible_range  # Set the initial visible range
+            ),
+            yaxis=dict(title='Amount'),
+            barmode='group'
+        )
 
         self.plot_1.visible = True
 
