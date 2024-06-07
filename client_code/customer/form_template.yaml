@@ -341,6 +341,7 @@ components:
               type: Button
               layout_properties: {x: 392.04547119140625, y: 10, width: 157.716}
               name: button_1_copy
+              event_bindings: {click: button_1_copy_click}
             - properties: {}
               type: FlowPanel
               layout_properties: {x: 0, y: 50.27499999999998, width: 570.285}
@@ -390,7 +391,7 @@ components:
                 spacing_below: none, italic: false, background: '', bold: false, underline: false,
                 icon: ''}
               type: Label
-              layout_properties: {x: 0, y: 56, width: 366.46900000000005}
+              layout_properties: {x: 0, y: 56, width: 652.469}
               name: label_5_copy_copy
             - properties: {height: 320.7818145751953}
               type: Plot
