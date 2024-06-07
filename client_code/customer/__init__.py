@@ -363,22 +363,7 @@ class customer(customerTemplate):
       """This method is called when a data point is clicked."""
       pass
 
-    def button_1_copy_click(self, **event_args):
-      """This method is called when the button is clicked"""
-      # Get the current plot data
-      fig = go.Figure(data=self.plot_1.data, layout=self.plot_1.layout)
-  
-      # Convert figure to PNG image bytes
-      png_bytes = fig.to_image(format="png")
-  
-      # Create a Media object from the PNG bytes
-      media_obj = Media(content=png_bytes, type="image/png", name="transactions_plot.png")
-  
-      # Create a download link for the PNG image
-      download_link = media_obj.get_url()
-  
-      # Open the download link in a new tab
-      open_url(download_link)
+   
 
 
 
