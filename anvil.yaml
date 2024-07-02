@@ -297,35 +297,6 @@ db_schema:
       admin_ui: {order: 5.5, width: 300}
       type: number
     title: wallet_users
-  users:
-    client: none
-    server: full
-    columns:
-    - name: email
-      admin_ui: {order: 0, width: 200}
-      type: string
-    - name: enabled
-      admin_ui: {order: 1, width: 200}
-      type: bool
-    - name: last_login
-      admin_ui: {order: 2, width: 200}
-      type: datetime
-    - name: password_hash
-      admin_ui: {order: 3, width: 200}
-      type: string
-    - name: n_password_failures
-      admin_ui: {order: 4, width: 200}
-      type: number
-    - name: confirmed_email
-      admin_ui: {order: 5, width: 200}
-      type: bool
-    - name: signed_up
-      admin_ui: {order: 6, width: 200}
-      type: datetime
-    - name: remembered_logins
-      admin_ui: {order: 7, width: 200}
-      type: simpleObject
-    title: Users
   wallet_admins_add_currency:
     title: wallet_admins_add_currency
     client: full
