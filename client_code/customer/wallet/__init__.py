@@ -30,10 +30,10 @@ class wallet(walletTemplate):
         self.button_save_bank_details.visible = False
         self.label_333.visible=False
         self.label_4444.visible=False
-        self.label_555.visible=False
+        # self.label_555.visible=False
         self.text_box_1.visible=False
         self.text_box_2.visible=False
-        self.drop_down_1.visible=False
+        # self.drop_down_1.visible=False
         self.populate_balances()
     def populate_balances(self):
       try:
@@ -104,10 +104,10 @@ class wallet(walletTemplate):
         self.button_save_bank_details.visible = self.bank_details_visible
         self.label_333.visible=self.bank_details_visible
         self.label_4444.visible=self.bank_details_visible
-        self.label_555.visible=self.bank_details_visible
+        # self.label_555.visible=self.bank_details_visible
         self.text_box_1.visible=self.bank_details_visible
         self.text_box_2.visible=self.bank_details_visible
-        self.drop_down_1.visible=self.bank_details_visible
+        # self.drop_down_1.visible=self.bank_details_visible
         self.drop_down_2.items = anvil.server.call('get_all_banks_name')
         
         self.label_bank_details_error.text = ""
@@ -118,9 +118,9 @@ class wallet(walletTemplate):
       ifsc_code = self.textbox_ifsc_code.text
       account_holder_name = self.text_box_1.text
       branch_name = self.text_box_2.text
-      account_Type = self.drop_down_1.selected_value
+      
   
-      if not (bank_name and account_number and ifsc_code and account_holder_name and branch_name and account_Type):
+      if not (bank_name and account_number and ifsc_code and account_holder_name and branch_name):
           anvil.alert("Please fill in all bank details.", title="", large=True)
           return
   
@@ -160,7 +160,7 @@ class wallet(walletTemplate):
           users_account_ifsc_code=ifsc_code,
           users_account_holder_name=account_holder_name,
           users_account_branch_name=branch_name,
-          users_account_type=account_Type,
+          users_account_type="savings",
           users_account_status_confirm=True
       )
   

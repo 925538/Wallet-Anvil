@@ -88,7 +88,12 @@ class transactions(transactionsTemplate):
 
     
   def all_transactions(self):
-    items = app_tables.wallet_users_transaction.search(users_transaction_phone=self.user['users_phone'])
+    
+    transactions = anvil.server.call('get_transactions')
+    items = [
+            t for t in transactions 
+            if ( t['users_transaction_phone'] == self.user['users_phone'] or t['users_transaction_receiver_phone'] == self.user['users_phone'])
+        ]
     self.grouped_transactions = {}
     print('yes')
     if items:

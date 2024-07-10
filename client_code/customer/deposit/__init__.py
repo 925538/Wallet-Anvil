@@ -99,51 +99,56 @@ class deposit(depositTemplate):
         #api_key = 'a2qfoReWfa7G3GiDHxeI1f9BFXYkZ2wT'
         api_key = 'lPBproNAjF3AjvE2nM1obshWlRMzvdQo'
         # Set base currency and any other parameters (replace 'USD' with your desired base currency
-      
-        
-        if self.drop_down_1.selected_value == None:
-          alert('Please select a bank account')
-        elif self.drop_down_2.selected_value == None:
-          alert('Please choose a currency')
-        else:
-          base_currency = 'INR'
-          resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
-          money_value=resp['response']['value']
-          if self.user :
-            # Check if a balance row already exists for the user
-            existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur)
 
-            if existing_balance:
-                # Update the existing balance
-                existing_balance['users_balance'] += money_value
-            else:
-                # Add a new row for the user if no existing balance
-                balance = app_tables.wallet_users_balance.add_row(
-                    users_balance_currency_type=cur,  # Replace with the actual currency type
-                    users_balance=money_value,
-                    users_balance_phone=self.user['users_phone']
-                )
+        if money > 0:
 
-            # Add a new transaction row
-            new_transaction = app_tables.wallet_users_transaction.add_row(
-                users_transaction_phone=self.user['users_phone'],
-                users_transaction_fund=money_value,
-                users_transaction_currency=cur,
-                users_transaction_date=current_datetime,
-                users_transaction_bank_name=acc,
-                users_transaction_type="Deposited",
-                users_transaction_status="Wallet-Topup",
-                users_transaction_receiver_phone=self.user['users_phone']
-            )
-
-            #self.label_200.text = "Money added successfully to the account."
-            alert("Money added successfully to the account.")
-            self.populate_balances()
-            self.text_box_2.text = ''
+          if self.drop_down_1.selected_value == None:
+            alert('Please select a bank account')
+          elif self.drop_down_2.selected_value == None:
+            alert('Please choose a currency')
           else:
-            #self.label_200.text = "Error: No matching accounts found for the user or invalid account number."
-            alert("Error: No matching accounts found for the user or invalid account number.")
-
+            base_currency = self.user['users_defaultcurrency']
+    
+            resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
+            money_value=resp['response']['value']
+            if self.user :
+              # Check if a balance row already exists for the user
+              existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur)
+  
+              if existing_balance:
+                  # Update the existing balance
+                  existing_balance['users_balance'] += money_value
+              else:
+                  # Add a new row for the user if no existing balance
+                  balance = app_tables.wallet_users_balance.add_row(
+                      users_balance_currency_type=cur,  # Replace with the actual currency type
+                      users_balance=money_value,
+                      users_balance_phone=self.user['users_phone']
+                  )
+  
+              # Add a new transaction row
+              new_transaction = app_tables.wallet_users_transaction.add_row(
+                  users_transaction_phone=self.user['users_phone'],
+                  users_transaction_fund=money_value,
+                  users_transaction_currency=cur,
+                  users_transaction_date=current_datetime,
+                  users_transaction_bank_name=acc,
+                  users_transaction_type="Deposited",
+                  users_transaction_status="Wallet-Topup",
+                  users_transaction_receiver_phone=self.user['users_phone']
+              )
+  
+              #self.label_200.text = "Money added successfully to the account."
+              alert("Money added successfully to the account.")
+              self.populate_balances()
+              self.text_box_2.text = ''
+            else:
+              #self.label_200.text = "Error: No matching accounts found for the user or invalid account number."
+              alert("Error: No matching accounts found for the user or invalid account number.")
+        else:
+          alert(f"deposit amount must be atleast 1 {cur}")
+          return -1
+      
     def drop_down_1_change(self, **event_args):
         self.display()
 
@@ -206,34 +211,56 @@ class deposit(depositTemplate):
       open_form("help",user=self.user)
 
     def text_box_2_change(self, **event_args):
-        """This method is called when the text in this text box is edited"""
-        self.timer_1.enabled = True
-        user_input = self.text_box_2.text
-        processed_value = self.process_input(user_input)
-        self.text_box_2.text = processed_value
+      """This method is called when the text in this text box is edited"""
+      user_input = self.text_box_2.text
+      print("Raw input:", user_input)
+      
+      allowed_characters = "0123456789."
   
-    
-    def process_input(self, user_input):
+      # Filter out any invalid characters and allow only one decimal point
+      filtered_text = ''
+      decimal_point_count = 0
+      
+      for char in user_input:
+        if char in allowed_characters:
+          if char == '.':
+            decimal_point_count += 1
+            if decimal_point_count > 1:
+              continue
+          filtered_text += char
+  
+      # Allow empty string and string with just a decimal point
+      if filtered_text == '' or filtered_text == '.':
+        self.text_box_2.text = filtered_text
+        return
+  
       try:
-        if user_input == None: # Convert the input to a float
-          formatted_value = ''
-        else:
-          value = float(user_input)
-          # Check if the value is an integer or a float with significant digits
-          if value.is_integer():
-              # If it's an integer, format without decimals
-              formatted_value = '{:.0f}'.format(value)
-          else:
-              # If it's a float, format with significant digits
-              formatted_value = '{:.15g}'.format(value)
-          
-        
-        return formatted_value
+        processed_value = self.process_input(filtered_text)
+        self.text_box_2.text = processed_value
       except ValueError:
-        return user_input 
+        self.text_box_2.text = filtered_text
+  
+    def process_input(self, user_input):
+      # Check if the input ends with a decimal point
+      if user_input.endswith('.'):
+        return user_input
+      
+      value = float(user_input)
+      
+      if value.is_integer():
+        # If it's an integer, format without decimals
+        formatted_value = '{:.0f}'.format(value)
+      else:
+        # If it's a float, format with significant digits
+        formatted_value = '{:.15g}'.format(value)
+
+      return formatted_value
   
     def timer_1_tick(self, **event_args):
       """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
       pass
+
+    
+      
 
 

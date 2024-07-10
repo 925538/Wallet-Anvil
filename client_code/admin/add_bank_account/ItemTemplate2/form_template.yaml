@@ -1,7 +1,7 @@
 is_package: true
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"YPPEOX":2,"HPJJER":23,"KZENVR":5,"VYKYNM":10,"OZFPPV":20}'}
+  properties: {col_widths: '{"YPPEOX":2,"HPJJER":23,"KZENVR":5,"VYKYNM":10,"XGQFKC":7,"TABPYH":13}'}
 components:
 - name: spacer_1
   properties: {height: 1}
@@ -30,4 +30,9 @@ components:
 - name: spacer_4
   properties: {height: 32}
   type: Spacer
-  layout_properties: {grid_position: 'UWYLLA,OZFPPV'}
+  layout_properties: {grid_position: 'UWYLLA,XGQFKC'}
+- name: button_delete
+  properties: {text: Delete}
+  type: Button
+  layout_properties: {grid_position: 'UWYLLA,TABPYH'}
+  event_bindings: {click: button_1_click}

@@ -83,7 +83,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
               self.label_901.text = "Inactive"
               self.label_901.foreground = "red"
           else:
-              self.label_901.text = "Active"
+              self.label_901.text = "Active   "
               self.label_901.foreground = "green"
       else:
           self.label_901.text = "No Data"
@@ -254,24 +254,6 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
         current_state = user_to_update['users_hold'] if user_to_update else None
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
         # Set the button text based on the current hold state
         self.button_5.text = "Unfreeze" if current_state else "Freeze"
 
@@ -301,37 +283,38 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
             # If the user has balances, inform the admin that they cannot delete the user
             alert("User has balances. Please clear the balances before deleting.", title="Status")
 
-    def log_action(self, username, actions):
-        # Log the action to the app_tables.admin_activity_log table
-        timestamp = datetime.now()
-        action_log = ", ".join(actions)
-
-        # Insert the log entry into the table
-        app_tables.wallet_admins_actions.add_row(
-            admins_actions_name=self.admin['users_username'],
-            admins_actions_username=username,
-            admins_actions_date=timestamp,
-            admins_actions=action_log
-        )
-
-    # def check_profile_pic(self):
-    #     phone_number = self.phone_number
-    #     user_data = app_tables.wallet_users.get(users_phone=phone_number)
-        
-    #     if user_data and user_data['users_profile_pic']:
-    #         self.image_1.source = user_data['users_profile_pic']
-
-    # def upload_file_1_change(self, file, **event_args):
-    #     if file is not None:
-    #         phone_number = self.phone_number
-    #         user_data = app_tables.wallet_users.get(users_phone=phone_number)
-            
-    #         if user_data is not None:
-    #             # Store the uploaded file in the database
-    #             user_data.update(users_profile_pic=file)
-                
-    #             # Update the profile picture in the form
-    #             self.image_1.source = file
+    def log_action(self, username,  actions):
+    # Log the action to the app_tables.admin_activity_log table
+      timestamp = datetime.now()
+      action_log = ", ".join(actions)
+  
+      # Insert the log entry into the table
+      app_tables.wallet_admins_actions.add_row(
+          admins_actions_name=self.admin['users_username'],
+          admins_actions_username=username,
+          
+          admins_actions_date=timestamp,
+          admins_actions=action_log
+      )
+  
+      # def check_profile_pic(self):
+      #     phone_number = self.phone_number
+      #     user_data = app_tables.wallet_users.get(users_phone=phone_number)
+          
+      #     if user_data and user_data['users_profile_pic']:
+      #         self.image_1.source = user_data['users_profile_pic']
+  
+      # def upload_file_1_change(self, file, **event_args):
+      #     if file is not None:
+      #         phone_number = self.phone_number
+      #         user_data = app_tables.wallet_users.get(users_phone=phone_number)
+              
+      #         if user_data is not None:
+      #             # Store the uploaded file in the database
+      #             user_data.update(users_profile_pic=file)
+                  
+      #             # Update the profile picture in the form
+      #             self.image_1.source = file
 
     def button_6_click(self, **event_args):
         phone_number = self.phone_number
@@ -485,7 +468,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
       open_form("admin.transaction_monitoring",user = self.user)
 
     def link6_copy_2_click(self, **event_args):
-      if self.user['users_usertype'] == 'super admin':
+      if self.user['users_usertype'] == 'super_admin':
           # Open the admin creation form
           open_form("admin.create_admin", user=self.user)
       else:
@@ -497,3 +480,5 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
 
     def link6_copy_4_click(self, **event_args):
       open_form("admin.add_bank_account",user = self.user)
+
+    

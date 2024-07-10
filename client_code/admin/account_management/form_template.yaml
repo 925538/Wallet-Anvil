@@ -239,9 +239,9 @@ components:
       type: Image
       layout_properties: {grid_position: 'NMGVCA,VYXSYB', x: 10, y: 0, width: 101.898}
     - name: label_656
-      properties: {text: '', bold: true, font_size: 14, spacing_above: medium, spacing_below: small, foreground: 'theme:White'}
+      properties: {text: '', bold: true, font_size: 14, spacing_above: large, spacing_below: small, foreground: 'theme:White'}
       type: Label
-      layout_properties: {grid_position: 'NMGVCA,QSUDAZ', x: 114.7337646484375, y: 0, width: 149.37}
+      layout_properties: {grid_position: 'NMGVCA,CXNNUK DVTWNK,GEPUIT', x: 121.89200000000005, y: 7.031199999999984, width: 275.66}
 - name: spacer_8
   properties: {height: 32}
   type: Spacer
@@ -249,7 +249,7 @@ components:
 - name: xy_panel_2
   properties: {height: 131, background: 'theme:Gray 50'}
   type: XYPanel
-  layout_properties: {grid_position: 'CBUYOA,GPRHZV IFTVGR,VZCNJM'}
+  layout_properties: {grid_position: 'CBUYOA,GPRHZV IFTVGR,VZCNJM', full_width_row: true}
   components:
   - name: card_3
     properties: {role: card, spacing_below: small, spacing_above: small}
@@ -264,23 +264,10 @@ components:
       properties: {bold: true, font_size: 25, spacing_above: none, spacing_below: none}
       type: Label
       layout_properties: {grid_position: 'UFNICA,RSKAPC'}
-  - name: card_5
-    properties: {role: card, spacing_above: small, spacing_below: small}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'SRYHFS,LVJCYR', x: 381.34722900390625, y: 16.620361328125, width: 253.032}
-    components:
-    - name: label_9
-      properties: {background: '', text: Admins, foreground: '#8a8a8a', spacing_below: none, spacing_above: none, font_size: 20, bold: true}
-      type: Label
-      layout_properties: {grid_position: 'NCNKXR,WYDQCY'}
-    - name: label_10
-      properties: {font_size: 25, bold: true, spacing_above: none, spacing_below: none}
-      type: Label
-      layout_properties: {grid_position: 'PRNLHX,IQGGQN'}
   - name: card_6
     properties: {role: card, spacing_above: small, spacing_below: small}
     type: ColumnPanel
-    layout_properties: {grid_position: 'SRYHFS,KMNBTI', x: 728.7269287109375, y: 16.608795166015625, width: 239.769}
+    layout_properties: {x: 928.75, y: 18.80859375, width: 257.01599999999996}
     components:
     - name: label_11
       properties: {text: Super Admins, foreground: '#8a8a8a', spacing_above: none, spacing_below: none, font_size: 20, bold: true}
@@ -290,6 +277,19 @@ components:
       properties: {font_size: 25, bold: true, spacing_above: none, spacing_below: none}
       type: Label
       layout_properties: {grid_position: 'HRRKCI,SOFVQU'}
+  - name: card_5
+    properties: {role: card, spacing_above: small, spacing_below: small}
+    type: ColumnPanel
+    layout_properties: {x: 486.3671875, y: 18.80859375, width: 266.527}
+    components:
+    - name: label_9
+      properties: {background: '', text: Admins, foreground: '#8a8a8a', spacing_below: none, spacing_above: none, font_size: 20, bold: true}
+      type: Label
+      layout_properties: {grid_position: 'NCNKXR,WYDQCY'}
+    - name: label_10
+      properties: {font_size: 25, bold: true, spacing_above: none, spacing_below: none}
+      type: Label
+      layout_properties: {grid_position: 'PRNLHX,IQGGQN'}
 - name: spacer_7
   properties: {height: 32}
   type: Spacer
@@ -359,7 +359,7 @@ components:
   data_bindings:
   - {property: tooltip, code: 'self.item['''']', writeback: false}
 - name: card_8
-  properties: {role: card, border: '0.5px solid #f5f5f5', col_spacing: none, spacing_below: none, spacing_above: none, col_widths: '{}'}
+  properties: {role: null, border: '', col_spacing: none, spacing_below: none, spacing_above: none, col_widths: '{}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'CBUYOA,GPRHZV IHBXPD,QYURUJ', full_width_row: true}
   components:
@@ -371,22 +371,22 @@ components:
     - name: xy_panel_1
       properties: {height: 46, background: '#efeff0'}
       type: XYPanel
-      layout_properties: {grid_position: 'YNHOGY,XNZQJQ'}
+      layout_properties: {grid_position: 'YNHOGY,XNZQJQ', full_width_row: true}
       components:
       - name: label_2
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: Phone}
+        properties: {role: null, bold: true, align: right, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: '   Phone'}
         type: Label
-        layout_properties: {x: 518.1041666679084, y: 8.583332061767578, width: 143.95834350585938}
+        layout_properties: {x: 518.1041666679084, y: 8.583332061767578, width: 195.164}
       - name: label_3
-        properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: Status}
+        properties: {role: null, bold: true, align: right, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: '      Status'}
         type: Label
-        layout_properties: {x: 683.4167277030647, y: 8.583332061767578, width: 137.6041717529297}
+        layout_properties: {x: 683.4167277030647, y: 8.583332061767578, width: 271.82}
       - name: label_7
-        properties: {text: Role, bold: true, font_size: 15, align: left}
+        properties: {text: Role, bold: true, font_size: 15, align: right}
         type: Label
-        layout_properties: {x: 310.20829264447093, y: 8.583332061767578, width: 132.95834350585938}
+        layout_properties: {x: 310.20829264447093, y: 8.583332061767578, width: 209.441}
       - name: label_1
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: Username}
+        properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: Username}
         type: Label
         layout_properties: {x: 4.27085367962718, y: 8.583332061767578, width: 168.9375}
   - name: spacer_1

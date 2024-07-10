@@ -91,6 +91,7 @@ components:
     properties: {role: null, bold: true, align: center, col_widths: '', spacing_above: small, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 14, tooltip: '', text: 'Sign up for new user?'}
     type: Link
     layout_properties: {grid_position: 'SBKSKE,CIJEPJ'}
+    event_bindings: {click: link_2_click}
 - name: spacer_1
   properties: {height: 32}
   type: Spacer

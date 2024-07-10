@@ -983,7 +983,7 @@ components:
           layout_properties: {grid_position: 'BCJRLN,OUNJCX CHIJGC,JIMDPD', x: 239.79165649414062, y: 83.807861328125, width: 425.961}
           event_bindings: {pressed_enter: text_box_2_pressed_enter}
         - name: text_box_3
-          properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: ''}
+          properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: ''}
           type: TextBox
           layout_properties: {x: 239.79165649414062, y: 23.25225830078125, width: 425.96099999999996}
           event_bindings: {change: text_box_3_change}

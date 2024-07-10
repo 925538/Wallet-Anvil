@@ -111,7 +111,7 @@ class customer(customerTemplate):
                         fund_display = "-" + str(fund)
                         fund_color = "red"
                     elif transaction['users_transaction_type'] == 'Deposited':
-                        transaction_text = "Deposit"
+                        transaction_text = "TopUp"
                         fund_display = "+" + str(fund)
                         fund_color = "green"
                     elif transaction['users_transaction_type'] == 'Auto Topup':
@@ -567,6 +567,7 @@ class customer(customerTemplate):
       open_form("customer.wallet", user = self.user)
 
     def link_help_click(self, **event_args):
+        
         open_form("help",user = self.user)
 
     def clik_dashboard(self, **event_args):

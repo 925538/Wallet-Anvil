@@ -29,3 +29,20 @@ class ItemTemplate8(ItemTemplate8Template):
   def text_box_1_pressed_enter(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
     pass
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    selected_currency = self.item
+    currency_code = selected_currency['admins_add_currency_code']
+    
+    # Find and delete the currency type
+    currency_type_record = app_tables.wallet_admins_add_currency.get(admins_add_currency_code=currency_code)
+    
+    if currency_type_record:
+      currency_type_record.delete()
+      alert(f"Deleted currency type {currency_code}")
+    else:
+      alert(f"Currency type {currency_code} not found")
+    
+    # Call the refresh method in the parent form
+    get_open_form().refresh_currency_data()

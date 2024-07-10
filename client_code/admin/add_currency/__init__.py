@@ -15,9 +15,9 @@ class add_currency(add_currencyTemplate):
     self.init_components(**properties)
     
     self.flow_panel_1.visible = False
-    self.refresh_users()
+    self.refresh_currency_data()
 
-  def refresh_users(self, country_filter=None):
+  def refresh_currency_data(self, country_filter=None):
     if country_filter:
       self.country_type_filter = [user for user in app_tables.wallet_admins_add_currency.search()
                                   if user['admins_add_currency_country'].lower().startswith(country_filter.lower())]
@@ -27,13 +27,13 @@ class add_currency(add_currencyTemplate):
 
   def button_1_click(self, **event_args):
     country_filter = self.textbox_search.text
-    self.refresh_users(country_filter)
+    self.refresh_currency_data(country_filter)
 
   def textbox_search_pressed_enter(self, **event_args):
     country_filter = self.textbox_search.text
-    self.refresh_users(country_filter)
+    self.refresh_currency_data(country_filter)
 
-  def button_2_click(self,add_country=None, **event_args):
+  def button_2_click(self, **event_args):
     self.flow_panel_1.visible = True
 
   def button_3_click(self, **event_args):
@@ -45,9 +45,12 @@ class add_currency(add_currencyTemplate):
         print(country_name)
         
         if len(currency_code) == 3 and currency_code.isalpha():
-            existing_country = app_tables.wallet_admins_add_currency.search(admins_add_currency_country=country_name) 
+            existing_entry = app_tables.wallet_admins_add_currency.search(
+                admins_add_currency_country=country_name,
+                admins_add_currency_code=currency_code.upper()
+            )
             
-            if len(existing_country) == 0:
+            if len(existing_entry) == 0:
                 # Check if an image has been uploaded
                 if self.file_loader_1.file:
                     # Save the uploaded image to the currency_icon column
@@ -64,44 +67,45 @@ class add_currency(add_currencyTemplate):
                         admins_add_currency_icon=None
                     )
                 
-                self.refresh_users()
+                self.refresh_currency_data()
                 self.text_box_1.text = ''
                 self.text_box_2.text = ''
                 self.flow_panel_1.visible = False
                 alert('Currency added successfully')
             else:
-                alert('Country already exists')
+                alert('Country with this currency code already exists')
         else:
             alert('Invalid currency code')
+
   def link_8_copy_click(self, **event_args):
     open_form('admin', user=self.user)
 
   def link_8_click(self, **event_args):
-    open_form('admin',user=self.user)
+    open_form('admin', user=self.user)
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.report_analysis',user=self.user)
+    open_form('admin.report_analysis', user=self.user)
 
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.account_management',user=self.user)
+    open_form('admin.account_management', user=self.user)
 
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.transaction_monitoring',user=self.user)
+    open_form('admin.transaction_monitoring', user=self.user)
 
   def link_4_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.admin_add_user',user=self.user)
+    open_form('admin.admin_add_user', user=self.user)
 
   def link_5_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.audit_trail',user=self.user)
+    open_form('admin.audit_trail', user=self.user)
 
   def link_6_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.user_support',user=self.user)
+    open_form('admin.user_support', user=self.user)
 
   def link_6_copy_2_click(self, **event_args):
     if self.user['users_usertype'] == 'super admin':
@@ -112,10 +116,10 @@ class add_currency(add_currencyTemplate):
          alert("You're not a super admin. Only super admins can perform this action.")
 
   def link_6_copy_3_click(self, **event_args):
-    open_form("admin.add_currency",user = self.user)
+    open_form("admin.add_currency", user=self.user)
 
   def link_6_copy_4_click(self, **event_args):
-    open_form("admin.add_bank_account",user = self.user)
+    open_form("admin.add_bank_account", user=self.user)
 
   def text_box_1_pressed_enter(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
@@ -124,4 +128,3 @@ class add_currency(add_currencyTemplate):
   def text_box_2_pressed_enter(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
     pass
-

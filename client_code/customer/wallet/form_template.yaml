@@ -740,36 +740,6 @@ components:
           properties: {background: white, font_size: 17}
           type: TextBox
           layout_properties: {row: DTYKKA, width_xs: 5, col_xs: 6}
-        - name: label_555
-          properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 17, tooltip: '', text: '      Account Type:'}
-          type: Label
-          layout_properties: {row: HCXDYN, width_xs: 5, col_xs: 0}
-        - name: drop_down_1
-          properties:
-            role: null
-            include_placeholder: false
-            bold: false
-            align: full
-            placeholder: ''
-            spacing_above: small
-            background: white
-            underline: false
-            font: ''
-            foreground: ''
-            items: [Select Account Type, Savings Account, Current Account, Personal Account]
-            spacing_below: small
-            visible: true
-            border: ''
-            italic: false
-            enabled: true
-            font_size: 17
-            tooltip: ''
-          type: DropDown
-          layout_properties: {row: HCXDYN, width_xs: 5, col_xs: 6}
-        - name: spacer_1_copy_1_copy_1
-          properties: {height: 38.24993896484375}
-          type: Spacer
-          layout_properties: {row: WZDLDK, width_xs: 10, col_xs: 1}
         - name: button_save_bank_details
           properties: {role: outlined-button, bold: true, align: center, spacing_above: small, background: '#2887d1', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 17, tooltip: '', text: ADD +}
           type: Button

@@ -4,7 +4,7 @@ container:
   properties: {tooltip: '', background: '', foreground: '', border: '', visible: true, role: null, html: ''}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"DWFZLO":15,"UFDLRC":45}'}
+  properties: {col_widths: '{"DWFZLO":13,"UFDLRC":47,"VFEAKH":7,"SJTXLV":10,"SRXWQW":9,"CWPOIH":69}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -227,42 +227,61 @@ components:
           layout_properties: {x: 37.99768829345703, y: 0.995361328125, width: 46.9907}
       event_bindings: {click: link6_copy_4_click}
   - name: headline_1
-    properties: {role: headline, bold: true, align: left, spacing_above: small, background: '#1d86da', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: '       Users complaint'}
+    properties: {role: headline, bold: true, align: left, spacing_above: small, background: '#1d86da', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: '  Users complaint'}
     type: Label
-    layout_properties: {grid_position: 'XCEXLR,UFDLRC TUCKUN,UXXMWS'}
+    layout_properties: {grid_position: 'XCEXLR,UFDLRC TUCKUN,UXXMWS', full_width_row: true}
   - name: spacer_2
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'XCEXLR,UFDLRC NBTWQK,FHAEJV'}
+  - name: link_12
+    properties: {spacing_above: small, spacing_below: none, text: All, align: center, bold: true}
+    type: Link
+    layout_properties: {grid_position: 'XCEXLR,UFDLRC GHCDWI,SRXWQW'}
+    event_bindings: {click: link_12_click}
+  - name: link_111
+    properties: {text: Solved, align: left, bold: true}
+    type: Link
+    layout_properties: {grid_position: 'XCEXLR,UFDLRC GHCDWI,VFEAKH'}
+    event_bindings: {click: link_111_click}
+  - name: link_22
+    properties: {text: Pending, bold: true}
+    type: Link
+    layout_properties: {grid_position: 'XCEXLR,UFDLRC GHCDWI,SJTXLV'}
+    event_bindings: {click: link_22_click}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'XCEXLR,UFDLRC GHCDWI,CWPOIH'}
   - name: card_3_copy
-    properties: {role: card, col_widths: '{"LZQPCJ":12,"JVTZFG":8,"QUSECK":20,"XIHXOC":10,"RFCJGF":22}', background: '#efeff0'}
+    properties: {role: card, col_widths: '{"LZQPCJ":13,"JVTZFG":12,"XIHXOC":17,"XXDLSC":9,"RFCJGF":9}', background: '#efeff0'}
     type: ColumnPanel
-    layout_properties: {grid_position: 'XCEXLR,UFDLRC LBTCKJ,PXAMDK'}
+    layout_properties: {grid_position: 'XCEXLR,UFDLRC LBTCKJ,PXAMDK', full_width_row: true}
     components:
     - name: label_6
-      properties: {bold: true, align: center, font_size: 15, text: Name}
+      properties: {bold: true, align: left, font_size: 15, text: '             Name'}
       type: Label
-      layout_properties: {grid_position: 'XZUHZG,LZQPCJ'}
+      layout_properties: {grid_position: 'XZUHZG,LZQPCJ', full_width_row: true}
     - name: label_7
-      properties: {align: center, bold: true, font_size: 15, text: Phone}
+      properties: {align: center, bold: true, font_size: 15, text: '      Phone'}
       type: Label
-      layout_properties: {grid_position: 'XZUHZG,JVTZFG'}
-    - name: label_8
-      properties: {align: center, bold: true, font_size: 15, text: Email}
-      type: Label
-      layout_properties: {grid_position: 'XZUHZG,QUSECK'}
+      layout_properties: {grid_position: 'XZUHZG,JVTZFG', full_width_row: true}
     - name: label_9
-      properties: {align: center, bold: true, font_size: 15, text: Query}
+      properties: {align: center, bold: true, font_size: 15, text: ' Query'}
       type: Label
-      layout_properties: {grid_position: 'XZUHZG,XIHXOC'}
+      layout_properties: {grid_position: 'XZUHZG,XIHXOC', full_width_row: true}
+    - name: label_2
+      properties: {text: Conclusion About Query, bold: true, font_size: 15, align: center}
+      type: Label
+      layout_properties: {grid_position: 'XZUHZG,XXDLSC', full_width_row: true}
     - name: label_1
-      properties: {text: Status, bold: true, align: center}
+      properties: {text: '               Status', bold: true, align: left}
       type: Label
-      layout_properties: {grid_position: 'XZUHZG,RFCJGF'}
+      layout_properties: {grid_position: 'XZUHZG,RFCJGF', full_width_row: true}
   - name: repeating_panel_1
     properties: {item_template: admin.user_support.ItemTemplate7}
     type: RepeatingPanel
-    layout_properties: {grid_position: 'XCEXLR,UFDLRC IYZXBY,KPOLYN'}
+    layout_properties: {grid_position: 'XCEXLR,UFDLRC IYZXBY,KPOLYN', full_width_row: true}
   - name: spacer_3
     properties: {height: 32}
     type: Spacer

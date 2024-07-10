@@ -96,3 +96,6 @@ class contact_us(contact_usTemplate):
 
   def button_5_click(self, **event_args):
     open_form("contact_us.issue_5")
+
+  def button_4_click(self, **event_args):
+    open_form("login")

@@ -993,7 +993,7 @@ components:
       type: Label
       layout_properties: {x: 150.00003051757812, y: 38.03936767578125, width: 120.058}
     - name: text_box_2
-      properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: ''}
+      properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: ''}
       type: TextBox
       layout_properties: {grid_position: 'ROLOOS,THTVNM', x: 389.79225317382827, y: 20.034758007812457, width: 375.15}
       event_bindings: {pressed_enter: text_box_2_pressed_enter, change: text_box_2_change}

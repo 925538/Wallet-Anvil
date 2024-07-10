@@ -6,7 +6,7 @@ services:
   server_config: {}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {custom_smtp: true, test_mode: false, smtp_host: smtp.gmail.com, smtp_port: 587, smtp_user: ascenddefilabs@gmail.com, smtp_password: GTkm7oNQL4cPlNlltcAWuXuazgXrH+B64e3lzwtacQ+yfoW5y4XO7Y6ZabwxacegD1Upcm4WXHQGK1xeVX+RThPQthyJsDtvESLlL6qQ1Xaq6onM2YHKMViEDe9h7K7TRQJz9dub9KSEFVY6tVAGx/W/fwjrky8Ime6A1FQbgKmAyRb2Isl76Id3HQ==, smtp_encryption: ''}
+  server_config: {custom_smtp: false, test_mode: false, smtp_host: smtp.gmail.com, smtp_port: 587, smtp_user: ascenddefilabs@gmail.com, smtp_password: GTkm7oNQL4cPlNlltcAWuXuazgXrH+B64e3lzwtacQ+yfoW5y4XO7Y6ZabwxacegD1Upcm4WXHQGK1xeVX+RThPQthyJsDtvESLlL6qQ1Xaq6onM2YHKMViEDe9h7K7TRQJz9dub9KSEFVY6tVAGx/W/fwjrky8Ime6A1FQbgKmAyRb2Isl76Id3HQ==, smtp_encryption: ''}
 - source: /runtime/services/anvil/secrets.yml
   client_config: {}
   server_config: {}
@@ -157,6 +157,12 @@ db_schema:
       type: string
     - name: users_service_email
       admin_ui: {width: 200, order: 3}
+      type: string
+    - name: users_update
+      admin_ui: {width: 200, order: 4}
+      type: bool
+    - name: users_conclusion_about_query
+      admin_ui: {order: 5, width: 200}
       type: string
     title: wallet_users_service
   wallet_admins_create_admin_account:

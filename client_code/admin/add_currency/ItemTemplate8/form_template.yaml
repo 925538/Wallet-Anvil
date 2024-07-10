@@ -1,14 +1,14 @@
 is_package: true
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"OXHOGY":20,"OUJISL":15,"EMRTBP":12,"MAAGXS":20,"CQHDBL":5,"YDWUMC":10}'}
+  properties: {col_widths: '{"OXHOGY":21,"OUJISL":12,"EMRTBP":13,"MAAGXS":20,"CQHDBL":5,"YDWUMC":7,"KZUWRB":12}'}
 components:
 - name: spacer_3
   properties: {height: 16}
   type: Spacer
   layout_properties: {grid_position: 'GGBXBF,YMRKHW'}
 - name: text_box_1
-  properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
+  properties: {role: null, bold: false, align: center, placeholder: '', spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
   type: TextBox
   layout_properties: {grid_position: 'LYTDQS,MAAGXS'}
   event_bindings: {pressed_enter: text_box_1_pressed_enter}
@@ -21,7 +21,7 @@ components:
     col_widths: {}
     grid_position: LYTDQS,YDWUMC
 - name: text_box_2
-  properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
+  properties: {role: null, bold: false, align: center, placeholder: '', spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
   type: TextBox
   layout_properties: {grid_position: 'LYTDQS,OXHOGY'}
   data_bindings:
@@ -44,3 +44,8 @@ components:
   type: Button
   layout_properties: {grid_position: 'LYTDQS,EMRTBP'}
   event_bindings: {click: view_user_click}
+- name: button_1
+  properties: {text: Delete, background: '#1d6eae', foreground: white, spacing_above: medium}
+  type: Button
+  layout_properties: {grid_position: 'LYTDQS,KZUWRB'}
+  event_bindings: {click: button_1_click}

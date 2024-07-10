@@ -103,59 +103,62 @@ class withdraw(withdrawTemplate):
     cur = self.drop_down_2.selected_value
     money_value = float(self.text_box_2.text)
 
-    if acc is None or cur is None:
-        alert('Please enter bank details')
+    if money_value >0:
+      if acc is None or cur is None:
+          alert('Please enter bank details')
+      else:
+          if self.user:
+              # Retrieve user data
+              user_data = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+              if not user_data:
+                  self.label_2.text = "Error: No matching accounts found for the user."
+                  return
+              
+              users_daily_limit = user_data['users_daily_limit']
+              users_user_limit = user_data['users_user_limit']
+  
+              # Check the limits
+              if money_value > users_daily_limit:
+                  alert("Daily limit exceeded.", buttons=[("OK", True)], large=True)
+                  open_form('customer', user=self.user)
+                  return
+              elif money_value > users_user_limit:
+                  alert("Monthly limit exceeded.", buttons=[("OK", True)], large=True)
+                  open_form('customer', user=self.user)
+                  return
+              
+              # Check if a balance row already exists for the user
+              existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'], users_balance_currency_type=cur)
+  
+              if existing_balance and existing_balance['users_balance'] >= money_value:
+                  # Update the existing balance
+                  existing_balance['users_balance'] -= money_value
+  
+                  # Add a new transaction row
+                  app_tables.wallet_users_transaction.add_row(
+                      users_transaction_phone=self.user['users_phone'],
+                      users_transaction_fund=money_value,
+                      users_transaction_currency=cur,
+                      users_transaction_date=current_datetime,
+                      users_transaction_bank_name=acc,
+                      users_transaction_type="Withdrawn",
+                      users_transaction_status="Wallet-Withdraw",
+                      users_transaction_receiver_phone=self.user['users_phone']
+                  )
+                  alert("Money withdrawn successfully from the account")
+              else:
+                  alert("Withdraw amount is more than the available balance")
+  
+              # Update the limits
+              user_data['users_daily_limit'] -= money_value
+              user_data['users_user_limit'] -= money_value
+  
+              self.populate_balances()
+          else:
+              alert("Error: No matching accounts found for the user or invalid account number.")
+
     else:
-        if self.user:
-            # Retrieve user data
-            user_data = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
-            if not user_data:
-                self.label_2.text = "Error: No matching accounts found for the user."
-                return
-            
-            users_daily_limit = user_data['users_daily_limit']
-            users_user_limit = user_data['users_user_limit']
-
-            # Check the limits
-            if money_value > users_daily_limit:
-                alert("Daily limit exceeded.", buttons=[("OK", True)], large=True)
-                open_form('customer', user=self.user)
-                return
-            elif money_value > users_user_limit:
-                alert("Monthly limit exceeded.", buttons=[("OK", True)], large=True)
-                open_form('customer', user=self.user)
-                return
-            
-            # Check if a balance row already exists for the user
-            existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'], users_balance_currency_type=cur)
-
-            if existing_balance and existing_balance['users_balance'] >= money_value:
-                # Update the existing balance
-                existing_balance['users_balance'] -= money_value
-
-                # Add a new transaction row
-                app_tables.wallet_users_transaction.add_row(
-                    users_transaction_phone=self.user['users_phone'],
-                    users_transaction_fund=money_value,
-                    users_transaction_currency=cur,
-                    users_transaction_date=current_datetime,
-                    users_transaction_bank_name=acc,
-                    users_transaction_type="Withdrawn",
-                    users_transaction_status="Wallet-Withdraw",
-                    users_transaction_receiver_phone=self.user['users_phone']
-                )
-                alert("Money withdrawn successfully from the account")
-            else:
-                alert("Withdraw amount is more than the available balance")
-
-            # Update the limits
-            user_data['users_daily_limit'] -= money_value
-            user_data['users_user_limit'] -= money_value
-
-            self.populate_balances()
-        else:
-            alert("Error: No matching accounts found for the user or invalid account number.")
-
+      alert(f"withdraw amount must be atleast 1 {cur}")
   def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form("customer.walletbalance",user=self.user)
@@ -207,30 +210,49 @@ class withdraw(withdrawTemplate):
 
   def text_box_2_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
-    self.timer_1.enabled = True
     user_input = self.text_box_2.text
-    processed_value = self.process_input(user_input)
-    self.text_box_2.text = processed_value
+    print("Raw input:", user_input)
+    
+    allowed_characters = "0123456789."
 
-  
-  def process_input(self, user_input):
+    # Filter out any invalid characters and allow only one decimal point
+    filtered_text = ''
+    decimal_point_count = 0
+    
+    for char in user_input:
+      if char in allowed_characters:
+        if char == '.':
+          decimal_point_count += 1
+          if decimal_point_count > 1:
+            continue
+        filtered_text += char
+
+    # Allow empty string and string with just a decimal point
+    if filtered_text == '' or filtered_text == '.':
+      self.text_box_2.text = filtered_text
+      return
+
     try:
-      if user_input == None: # Convert the input to a float
-        formatted_value = ''
-      else:
-        value = float(user_input)
-        # Check if the value is an integer or a float with significant digits
-        if value.is_integer():
-            # If it's an integer, format without decimals
-            formatted_value = '{:.0f}'.format(value)
-        else:
-            # If it's a float, format with significant digits
-            formatted_value = '{:.15g}'.format(value)
-        
-      
-      return formatted_value
+      processed_value = self.process_input(filtered_text)
+      self.text_box_2.text = processed_value
     except ValueError:
-      return user_input 
+      self.text_box_2.text = filtered_text
+
+  def process_input(self, user_input):
+    # Check if the input ends with a decimal point
+    if user_input.endswith('.'):
+      return user_input
+    
+    value = float(user_input)
+    
+    if value.is_integer():
+      # If it's an integer, format without decimals
+      formatted_value = '{:.0f}'.format(value)
+    else:
+      # If it's a float, format with significant digits
+      formatted_value = '{:.15g}'.format(value)
+
+    return formatted_value
 
   def timer_1_tick(self, **event_args):
     """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""

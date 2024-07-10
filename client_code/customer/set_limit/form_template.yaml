@@ -26,6 +26,7 @@ components:
     properties: {placeholder: Enter the amount, bold: false, align: center}
     type: TextBox
     layout_properties: {grid_position: 'WJMMJE,MRRLHD OSIYOX,TKTVKR', full_width_row: true}
+    event_bindings: {pressed_enter: text_box_1_pressed_enter, change: text_box_1_change}
   - name: drop_down_2
     properties: {align: full}
     type: DropDown

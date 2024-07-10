@@ -19,78 +19,84 @@ class admin_add_user(admin_add_userTemplate):
     def text_box_4_change(self, **event_args):
         # Convert the text in text_box_8 to uppercase as user types
         self.text_box_8.text = self.text_box_8.text.upper()
-    def button_1_click(self, **event_args): 
-        count = 0
-        if self.text_box_3.text != '':
-            if self.text_box_3.text != self.text_box_7.text:
+    def button_1_click(self, **event_args):
+      count = 0
+  
+      # Check if passwords match
+      if self.text_box_3.text != '' and self.text_box_3.text != self.text_box_7.text:
+          self.label_17.visible = True
+          self.label_17.foreground = "#990000"
+          self.label_17.text = "Passwords don't match"
+          self.text_box_3.text = ''
+          self.text_box_3.focus()
+          self.text_box_7.text = ''
+          self.text_box_7.focus()
+          return
+  
+      # Convert phone number to integer
+      # Convert phone number to integer
+      phone_number = int(self.text_box_6.text)
+      
+      # Check if phone number exists
+      phone_number_exists = any(user['users_phone'] == phone_number for user in app_tables.wallet_users.search())
 
-                # self.pass_card.visible = Tr90ue
-                self.label_17.visible = True
-                self.label_17.foreground = "#990000"
-                self.label_17.text = "Passwords don't match"
-                self.text_box_3.text = ''
-                self.text_box_3.focus()
-                self.text_box_7.text = ''
-                self.text_box_7.focus()
-            else:
-                self.label_17.visible = True
-                self.label_17.foreground = "green"
-                self.label_17.text = "Password matches"
-                count += 1
+      if phone_number_exists:
+          alert(f"Phone number '{self.text_box_6.text}' is already in use.")
+          return
+  
+      # Check if email exists
+      email = self.text_box_2.text.strip().lower()
+      email_exists = any(user['users_email'].strip().lower() == email for user in app_tables.wallet_users.search())
+      if email_exists:
+          alert(f"Email '{self.text_box_2.text}' is already in use.")
+          return
+  
+      # Validate other fields as before
+      if self.is_pan_card_detail(self.text_box_4.text):
+          self.label_14.visible = True
+          self.label_14.foreground = "green"
+          self.label_14.text = "Pan card is valid"
+          count += 1
+      else:
+          self.label_14.visible = True
+          self.label_14.foreground = "#990000"
+          self.label_14.text = "Please check the entered pan card details"
+          self.text_box_4.text = ''
+          self.text_box_4.focus()
+  
+      # Check Aadhar details
+      aadhar = str(self.text_box_8.text)
+      if len(aadhar) == 12 and aadhar.isdigit():
+          self.label_16.visible = True
+          self.label_16.foreground = "green"
+          self.label_16.text = "Aadhar details correct"
+          count += 1
+      else:
+          self.label_16.visible = True
+          self.label_16.foreground = "#990000"
+          self.label_16.text = "Please check the entered Aadhar details"
+          self.text_box_8.text = ''
+          self.text_box_8.focus()
+  
+      # If all validations pass, add the user
+      if count == 2:  # Adjust count based on validations you perform
+          try:
+              anvil.server.call(
+                  'add_info',
+                  self.text_box_1.text,
+                  self.text_box_2.text,
+                  self.text_box_5.text,
+                  str(phone_number),  # Convert back to string if needed
+                  self.text_box_8.text,
+                  self.text_box_4.text,
+                  self.text_box_3.text,
+                  ""
+              )
+              alert(self.text_box_2.text + ' added')
+              open_form('admin.account_management', user=self.user)
+          except Exception as e:
+              alert(f"Error adding user: {str(e)}")
 
-            if self.is_pan_card_detail(self.text_box_4.text):
-                self.label_14.visible = True
-                self.label_14.foreground = "green"
-                self.label_14.text = "Pan card is valid"
-                count += 1
-            else:
-                self.label_14.visible = True
-                self.label_14.foreground = "#990000"
-                self.label_14.text = "Please check the entered pan card details"
-                self.text_box_4.text = ''
-                self.text_box_4.focus()
-
-            if self.validate_phone_number(self.text_box_6.text):
-                self.label_15.visible = True
-                self.label_15.foreground = "green"
-                self.label_15.text = "Phone number is correct"
-                count += 1
-            else:
-                self.label_15.visible = True
-                self.label_15.foreground = "#990000"
-                self.label_15.text = "Please check the entered phone number"
-                self.text_box_6.text = ''
-                self.text_box_6.focus()
-
-            aadhar = str(self.text_box_8.text)
-            if len(aadhar) == 12 and aadhar.isdigit():
-                self.label_16.visible = True
-                self.label_16.foreground = "green"
-                self.label_16.text = "Aadhar details correct"
-                count += 1
-            else:
-                self.label_16.visible = True
-                self.label_16.foreground = "#990000"
-                self.label_16.text = "Please check the entered Aadhar details"
-                self.text_box_8.text = ''
-                self.text_box_8.focus()
-
-        if count == 4:
-            try:
-                anvil.server.call(
-                    'add_info',
-                    self.text_box_1.text,
-                    self.text_box_2.text,
-                    self.text_box_5.text,
-                    self.text_box_6.text,
-                    self.text_box_8.text,
-                    self.text_box_4.text,
-                    self.text_box_3.text
-                )
-                alert(self.text_box_2.text + ' added')
-                open_form('login')
-            except Exception as e:
-                alert(f"Error adding user: {str(e)}")
 
     def text_box_4_change(self, **event_args):
         self.text_box_4.text = self.text_box_4.text.upper()
@@ -152,7 +158,7 @@ class admin_add_user(admin_add_userTemplate):
       open_form("admin.admin_add_user",user = self.user)
 
     def link_6_copy_3_click(self, **event_args):
-      if self.user['users_usertype'] == 'super admin':
+      if self.user['users_usertype'] == 'super_admin':
           # Open the admin creation form
           open_form("admin.create_admin", user=self.user)
       else:
@@ -162,7 +168,7 @@ class admin_add_user(admin_add_userTemplate):
     def link_6_copy_4_click(self, **event_args):
       open_form("admin.add_bank_account",user = self.user)
 
-    def text_box_2_show(self, **event_args):
+    def text_box_1_show(self, **event_args):
       """This method is called when the TextBox is shown on the screen"""
       pass
 
@@ -171,5 +177,13 @@ class admin_add_user(admin_add_userTemplate):
       pass
 
     def text_box_8_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
+
+    def text_box_7_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
+
+    def text_box_3_pressed_enter(self, **event_args):
       """This method is called when the user presses Enter in this text box"""
       pass

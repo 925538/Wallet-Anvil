@@ -36,6 +36,8 @@ class set_limit(set_limitTemplate):
         new_limit = float(self.text_box_1.text)
         limit_type = self.drop_down_2.selected_value
 
+        if new_limit == None or new_limit <=0:
+          return 
         # Determine which limit to update based on the selection
         if limit_type == 'Daily':
             field_to_update = 'users_daily_limit'

@@ -735,7 +735,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
       pass
 
     def link6_copy_2_click(self, **event_args):
-      if self.user['users_usertype'] == 'super admin':
+      if self.user['users_usertype'] == 'super_admin':
           # Open the admin creation form
           open_form("admin.create_admin", user=self.user)
       else:

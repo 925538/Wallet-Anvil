@@ -73,37 +73,41 @@ class auto_topup(auto_topupTemplate):
         base_currency = 'INR'
         resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
         money_value=resp['response']['value']
-        if self.user :
-          # Check if a balance row already exists for the user
-          existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur) 
-          if existing_balance['users_balance'] < int(w_bal):
-            self.user['users_minimum_topup'] = True
-            self.user['users_minimum_topup_amount_below']=int(self.drop_down_1.selected_value)
-            existing_balance['users_balance'] += money_value
-            
-            new_transaction = app_tables.wallet_users_transaction.add_row(
-                  users_transaction_phone=self.user['users_phone'],
-                  users_transaction_fund=money_value,
-                  users_transaction_date=current_datetime,
-                  users_transaction_currency=cur,
-                  users_transaction_type="Auto Topup",
-                  users_transaction_status="Minimum-Topup",
-                  users_transaction_receiver_phone=self.user['users_phone']
-              )
-            #self.label_4.text = "Minimum-topup payment has been successfully added to your account."
-            alert("Minimum-topup payment has been successfully added to your account.")
-            self.text_box_1.text = ""
-            print("minimum topup added") 
-            #open_form('customer_page', user=self.user)
+        if money >0:
+          if self.user :
+            # Check if a balance row already exists for the user
+            existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur) 
+            if existing_balance['users_balance'] < int(w_bal):
+              self.user['users_minimum_topup'] = True
+              self.user['users_minimum_topup_amount_below']=int(self.drop_down_1.selected_value)
+              existing_balance['users_balance'] += money_value
+              
+              new_transaction = app_tables.wallet_users_transaction.add_row(
+                    users_transaction_phone=self.user['users_phone'],
+                    users_transaction_fund=money_value,
+                    users_transaction_date=current_datetime,
+                    users_transaction_currency=cur,
+                    users_transaction_type="Auto Topup",
+                    users_transaction_status="Minimum-Topup",
+                    users_transaction_receiver_phone=self.user['users_phone']
+                )
+              #self.label_4.text = "Minimum-topup payment has been successfully added to your account."
+              alert("Minimum-topup payment has been successfully added to your account.")
+              self.text_box_1.text = ""
+              print("minimum topup added") 
+              #open_form('customer_page', user=self.user)
+            else:
+              # No minimum top-up required
+              self.user['users_minimum_topup'] = False
+              anvil.alert("Auto-topup is not required.")
+              print("Your balance is not below the limit")
+              open_form('customer', user=self.user)
           else:
-            # No minimum top-up required
-            self.user['users_minimum_topup'] = False
-            anvil.alert("Auto-topup is not required.")
-            print("Your balance is not below the limit")
-            open_form('customer', user=self.user)
+            self.label_4.text = "Error: No matching accounts found for the user or invalid account number."
+            #open_form('customer', user=self.user)
         else:
-          self.label_4.text = "Error: No matching accounts found for the user or invalid account number."
-          #open_form('customer', user=self.user)
+          alert(f"topup amount must be atleast 1{cur}")
+        
       else:
         alert("Please enable the auto-topup switch to proceed.")
       
@@ -254,6 +258,54 @@ class auto_topup(auto_topupTemplate):
 
     def add_bank_click(self, **event_args):
         open_form("customer.wallet",user = self.user)
+
+    
+
+    def text_box_1_change(self, **event_args):
+      """This method is called when the text in this text box is edited"""
+      user_input = self.text_box_1.text
+      print("Raw input:", user_input)
+      
+      allowed_characters = "0123456789."
+  
+      # Filter out any invalid characters and allow only one decimal point
+      filtered_text = ''
+      decimal_point_count = 0
+      
+      for char in user_input:
+        if char in allowed_characters:
+          if char == '.':
+            decimal_point_count += 1
+            if decimal_point_count > 1:
+              continue
+          filtered_text += char
+  
+      # Allow empty string and string with just a decimal point
+      if filtered_text == '' or filtered_text == '.':
+        self.text_box_1.text = filtered_text
+        return
+  
+      try:
+        processed_value = self.process_input(filtered_text)
+        self.text_box_1.text = processed_value
+      except ValueError:
+        self.text_box_1.text = filtered_text
+  
+    def process_input(self, user_input):
+      # Check if the input ends with a decimal point
+      if user_input.endswith('.'):
+        return user_input
+      
+      value = float(user_input)
+      
+      if value.is_integer():
+        # If it's an integer, format without decimals
+        formatted_value = '{:.0f}'.format(value)
+      else:
+        # If it's a float, format with significant digits
+        formatted_value = '{:.15g}'.format(value)
+  
+      return formatted_value
 
 
    

@@ -16,7 +16,10 @@ from io import BytesIO
 import requests
 #import datetime
 
-
+@anvil.server.callable
+def check_email_exists(email):
+    user = app_tables.wallet_users.get(users_email=email)
+    return user is not None
 
 @anvil.server.callable
 def get_user_for_login(login_input):
@@ -54,6 +57,20 @@ def add_info(username, email, address, phone, aadhar, pan, password, currency):
         users_defaultcurrency=currency  # Store the currency
     )
     return user_row
+@anvil.server.callable
+def send_email_otp(email):
+    otp = random.randint(100000, 999999)
+
+    from_email = "gtpltechnologies@gmail.com"  # Use your verified email address
+    subject = "OTP Verification"
+    content = f"Your OTP is: {otp}"
+
+    try:
+        anvil.email.send(to=email, from_address=from_email, subject=subject, text=content)
+        return otp  # If successful, return OTP
+    except Exception as e:
+        print(f"Error sending email: {e}")
+        return str(e)  # Return error message
 
 @anvil.server.callable
 def get_currency_by_country(country_name):
@@ -481,8 +498,20 @@ def get_notifications(user_phone):
   a=app_tables.wallet_users_notifications.search(users_notification_phone=user_phone)
   return a
 
+
+
 @anvil.server.callable
-def get_notification_details(phone,text,date):
-  a=app_tables.wallet_users_notifications.get(users_notification_date_time=date,users_notification_phone=phone,users_notification_text=text)
-  a.update(users_notification_read=True)
-  return a
+def update_user_status(item_id):
+    row = app_tables.wallet_users_service.get_by_id(item_id)
+    if row:
+        row['users_update'] = True
+        return row['users_update']
+    return False
+
+@anvil.server.callable
+def update_user_conclusion(item_id, conclusion):
+    row = app_tables.wallet_users_service.get_by_id(item_id)
+    if row:
+        row['users_conclusion_about_query'] = conclusion
+        return True
+    return False
