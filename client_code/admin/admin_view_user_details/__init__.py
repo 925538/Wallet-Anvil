@@ -283,20 +283,26 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
             # If the user has balances, inform the admin that they cannot delete the user
             alert("User has balances. Please clear the balances before deleting.", title="Status")
 
-    def log_action(self, username,  actions):
-    # Log the action to the app_tables.admin_activity_log table
+    def log_action(self, username, actions):
+    # Log the action to the app_tables.wallet_admins_actions table
       timestamp = datetime.now()
       action_log = ", ".join(actions)
   
-      # Insert the log entry into the table
-      app_tables.wallet_admins_actions.add_row(
-          admins_actions_name=self.admin['users_username'],
-          admins_actions_username=username,
-          
-          admins_actions_date=timestamp,
-          admins_actions=action_log
-      )
+      # Retrieve user data based on phone number
+      user_data = app_tables.wallet_users.get(users_phone=self.phone_number)
   
+      if user_data:
+          # Insert the log entry into the table using user's phone number and username
+          app_tables.wallet_admins_actions.add_row(
+              admins_actions_name=self.admin['users_username'],
+              admins_actions_username=username,  # Use provided username
+              admins_actions_phone=user_data['users_phone'],  # Use user's phone number
+              admins_actions_date=timestamp,
+              admins_actions=action_log
+          )
+      else:
+          print(f"User with phone number {self.phone_number} not found.")  # Handle case where user data is not found
+
       # def check_profile_pic(self):
       #     phone_number = self.phone_number
       #     user_data = app_tables.wallet_users.get(users_phone=phone_number)

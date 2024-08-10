@@ -278,7 +278,7 @@ components:
         type: Link
         layout_properties: {grid_position: 'FKNAUJ,PHDNWO QGHTTX,YIAQIN'}
         event_bindings: {click: button_2_click}
-    - name: card_5
+    - name: card_5555
       properties: {role: card, col_widths: '{"RSXIZS":16,"WLBTOZ":44}'}
       type: ColumnPanel
       layout_properties: {grid_position: 'SDUPHT,LHWPUW AMFBGI,ORYCCH'}
@@ -534,7 +534,7 @@ components:
           properties: {height: -1}
           type: Spacer
           layout_properties: {grid_position: 'MXJVRD,QVTRHS'}
-      - name: card_5_copy
+      - name: card_5
         properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
         type: ColumnPanel
         layout_properties: {grid_position: 'XKQBLK,EENMQE'}
@@ -573,7 +573,7 @@ components:
           properties: {height: 32}
           type: Spacer
           layout_properties: {grid_position: 'MXJVRD,HWKYZL'}
-      - name: card_6_copy
+      - name: card_6
         properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
         type: ColumnPanel
         layout_properties: {grid_position: 'XKQBLK,AGJJRN'}

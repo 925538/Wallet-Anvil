@@ -1,8 +1,50 @@
 is_package: true
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"TLXYAK":70,"HYQOOY":58,"XMTYSY":2}'}
+  properties: {col_widths: '{"TLXYAK":70,"HYQOOY":58,"XMTYSY":2,"ERISEI":5,"ABKMIN":23,"HRMPYZ":37,"PDVSUI":10}'}
 components:
+- name: image_1_copy_copy_copy_copy
+  properties: {role: null, vertical_align: center, spacing_above: small, background: white, horizontal_align: right, source: _/theme/letter-g.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 51.80000305175781}
+  type: Image
+  layout_properties: {grid_position: 'EULRWV,ERISEI', full_width_row: true}
+- name: label_7_copy_2_copy_copy_copy
+  properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true, font: '', italic: false, underline: false, foreground: black}
+  type: Label
+  layout_properties: {grid_position: 'EULRWV,ABKMIN'}
+- name: flow_panel_1
+  properties: {}
+  type: FlowPanel
+  layout_properties: {grid_position: 'EULRWV,HRMPYZ', full_width_row: true}
+  components:
+  - name: home
+    properties: {text: Home, icon: 'fa:home', foreground: '', bold: true, font: '', font_size: 18, align: center}
+    type: Link
+    event_bindings: {click: home_click}
+  - name: about_us
+    properties: {text: About us, foreground: '', bold: true, icon: 'fa:adn', font_size: 18, font: '', align: center}
+    type: Link
+    event_bindings: {click: about_us_click}
+  - name: contact_us
+    properties: {text: Contact, bold: true, foreground: '', icon: 'fa:phone', font_size: 18, font: '', align: center}
+    type: Link
+    event_bindings: {click: contact_click}
+  - name: products
+    properties: {text: Products, icon: 'fa:shopping-cart', foreground: '', bold: true, font_size: 18, font: '', align: center}
+    type: Link
+    event_bindings: {click: products_click}
+  - name: help
+    properties: {text: Help, bold: true, foreground: '', icon: 'fa:question-circle', font_size: 18, font: '', align: center}
+    type: Link
+    event_bindings: {click: help_click}
+  - name: button_4
+    properties: {text: 'Login ', background: 'theme:Primary 500', foreground: 'theme:White', bold: true, font_size: 16, align: left}
+    type: Button
+    event_bindings: {click: button_4_click}
+- name: button_4
+  properties: {text: 'Login ', background: 'theme:Primary 500', foreground: 'theme:White', bold: true, font_size: 16, align: left}
+  type: Button
+  layout_properties: {grid_position: 'EULRWV,PDVSUI'}
+  event_bindings: {click: button_4_click}
 - name: navbar_link
   properties: {background: 'theme:White'}
   type: FlowPanel
@@ -13,49 +55,7 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {width: 62.99998321533203}
-  - name: xy_panel_6
-    properties: {height: 55.55555725097656}
-    type: XYPanel
-    layout_properties: {width: 1356.599951171875}
-    components:
-    - name: label_7_copy_2_copy_copy_copy
-      properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true, font: '', italic: false, underline: false, foreground: black}
-      type: Label
-      layout_properties: {x: 76.45000152662396, y: 3.8374977111816406, width: 131.9500045776367}
-    - name: image_1_copy_copy_copy_copy
-      properties: {role: null, vertical_align: center, spacing_above: small, background: white, horizontal_align: right, source: _/theme/letter-g.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 51.80000305175781}
-      type: Image
-      layout_properties: {x: 0, y: 1.199993897229433, width: 60.39999694824219}
-    - name: about_us
-      properties: {text: About us, foreground: '', bold: true, icon: 'fa:adn', font_size: 18, font: '', align: center}
-      type: Link
-      layout_properties: {x: 472.87499694898725, y: 10.237498093396425, width: 155.675048828125}
-      event_bindings: {click: about_us_click}
-    - name: products
-      properties: {text: Products, icon: 'fa:shopping-cart', foreground: '', bold: true, font_size: 18, font: '', align: center}
-      type: Link
-      layout_properties: {x: 638.5500457771122, y: 10.549999237060547, width: 133.13801220703124}
-      event_bindings: {click: products_click}
-    - name: contact_us
-      properties: {text: Contact, bold: true, foreground: '', icon: 'fa:phone', font_size: 18, font: '', align: center}
-      type: Link
-      layout_properties: {x: 789.7375457771122, y: 10.549999237060547, width: 108.5880244140625}
-      event_bindings: {click: contact_click}
-    - name: help
-      properties: {text: Help, bold: true, foreground: '', icon: 'fa:question-circle', font_size: 18, font: '', align: center}
-      type: Link
-      layout_properties: {x: 921.0875213630497, y: 10.549999237060547, width: 89.6500244140625}
-      event_bindings: {click: help_click}
-    - name: home
-      properties: {text: Home, icon: 'fa:home', foreground: '', bold: true, font: '', font_size: 18, align: center}
-      type: Link
-      layout_properties: {x: 344.1499908454716, y: 10.549999237060547, width: 119.9000015258789}
-      event_bindings: {click: home_click}
-    - name: button_4
-      properties: {text: 'Login ', background: 'theme:Primary 500', foreground: 'theme:White', bold: true, font_size: 16}
-      type: Button
-      layout_properties: {x: 1241.9875457771122, y: 4.5124996192753315, width: 101}
-      event_bindings: {click: button_4_click}
+- properties: {role: card, col_widths: '{"SJQQKA":25,"CSNCEC":26,"LUUEUF":25,"KKATXZ":20,"VVBRYN":15}', background: '#1eb0ed'}
 - properties: {role: card, col_widths: '{"SJQQKA":25,"CSNCEC":26,"HFTKJH":55,"WZIVOF":35,"LUUEUF":25,"KKATXZ":20,"VVBRYN":15}', background: '#1eb0ed'}
   type: ColumnPanel
   layout_properties: {grid_position: 'MGOYDV,TLXYAK', full_width_row: true}
@@ -65,15 +65,6 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'TVMMKC,KKATXZ'}
     name: spacer_2
-  - properties: {role: card, background: '#cfe4e8'}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'TVMMKC,HFTKJH'}
-    name: card_2
-    components:
-    - properties: {text: Unlock the world with a multi-currency wallet, bold: true, foreground: black, background: '#cfe4e8', font_size: 18}
-      type: Label
-      layout_properties: {grid_position: 'NPEIEB,NOLIEZ'}
-      name: label_2
   - properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'TVMMKC,VVBRYN'}
@@ -86,7 +77,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'HCNRNM,SJQQKA DHQTPH,LIETRQ'}
     name: spacer_1
-  - properties: {text: AVAILABLE CURRENCIES YOU CAN CREATE A WALLET, bold: true, font_size: 13}
+  - properties: {text: AVAILABLE CURRENCIES YOU CAN CREATE A WALLET, bold: true, font_size: 13, foreground: white}
     type: Label
     layout_properties: {grid_position: 'HCNRNM,SJQQKA ZSBXUP,AZKMHC'}
     name: label_4
@@ -119,7 +110,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'HCNRNM,CSNCEC GFYDRS,IOBRAO'}
     name: spacer_3
-  - properties: {text: 'Imagine a world without borders. A world where managing multiple currencies is effortless-securely hold, send,and receive money in various currencies, all within a single wallet.', font_size: 18, bold: true, italic: true}
+  - properties: {text: 'Imagine a world without borders. A world where managing multiple currencies is effortless-securely hold, send,and receive money in various currencies, all within a single wallet.', font_size: 18, bold: true, italic: true, foreground: white}
     type: Label
     layout_properties: {grid_position: 'HCNRNM,CSNCEC IGKFTN,WGJTFL'}
     name: label_3
@@ -128,11 +119,11 @@ components:
     layout_properties: {grid_position: 'PVOJYW,RLBVSQ'}
     name: card_4
     components:
-    - properties: {text: Feel Local Wherever You Choose to Go, bold: true, font_size: 35, background: '#1eb0ed'}
+    - properties: {text: Feel Local Wherever You Choose to Go, bold: true, font_size: 35, background: '#1eb0ed', foreground: white}
       type: Label
       layout_properties: {grid_position: 'WUYLFZ,ECWZNI LKCXGD,WDQULM'}
       name: label_5
-    - properties: {text: 'Whether you''re a global traveler, an individual living abroad, or just a curious explorer, with a Multi-Currency Wallet you can stay connected with people and places in crucial financial moments. Enjoy instant money transfers, fair exchange rates, and access to funds wherever you go.', bold: true, background: '#1eb0ed', font_size: 17}
+    - properties: {text: 'Whether you''re a global traveler, an individual living abroad, or just a curious explorer, with a Multi-Currency Wallet you can stay connected with people and places in crucial financial moments. Enjoy instant money transfers, fair exchange rates, and access to funds wherever you go.', bold: true, background: '#1eb0ed', font_size: 17, foreground: white}
       type: Label
       layout_properties: {grid_position: 'WUYLFZ,ECWZNI YRRDCL,PPPZEF'}
       name: label_6

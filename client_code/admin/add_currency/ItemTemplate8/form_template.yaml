@@ -1,7 +1,7 @@
 is_package: true
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"OXHOGY":21,"OUJISL":12,"EMRTBP":13,"MAAGXS":20,"CQHDBL":5,"YDWUMC":7,"KZUWRB":12}'}
+  properties: {col_widths: '{"OXHOGY":21,"OUJISL":16,"EMRTBP":13,"MAAGXS":20,"CQHDBL":3,"YDWUMC":7,"KZUWRB":10}'}
 components:
 - name: spacer_3
   properties: {height: 16}
@@ -45,7 +45,7 @@ components:
   layout_properties: {grid_position: 'LYTDQS,EMRTBP'}
   event_bindings: {click: view_user_click}
 - name: button_1
-  properties: {text: Delete, background: '#1d6eae', foreground: white, spacing_above: medium}
+  properties: {text: '', background: '#1d6eae', foreground: white, spacing_above: medium, icon: 'fa:trash'}
   type: Button
   layout_properties: {grid_position: 'LYTDQS,KZUWRB'}
   event_bindings: {click: button_1_click}

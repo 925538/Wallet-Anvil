@@ -9,7 +9,7 @@ import anvil.js.window
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-
+# from anvil.Clock import Clock
 class Home(HomeTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
@@ -66,5 +66,6 @@ class Home(HomeTemplate):
     twitter_link = "https://www.x.com"
     anvil.js.window.open(twitter_link)
 
-
   
+
+

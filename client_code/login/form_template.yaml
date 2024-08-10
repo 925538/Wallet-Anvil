@@ -43,15 +43,15 @@ components:
           properties: {background: '', foreground: '#990000', text: 'There were problems with input:', bold: true, font_size: 18}
           type: Label
           layout_properties: {x: 1.799969483166933, y: 3.500004578381777, width: 285.39531298828126}
-        - name: label_4_copy
+        - name: label_4
           properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: The password field is incorrect.}
           type: Label
           layout_properties: {x: 0.48750000074505806, y: 33.700009156018496, width: 281.38751220703125}
-        - name: label_5_copy
+        - name: label_5
           properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: The email field is invalid.}
           type: Label
           layout_properties: {x: 0.9374969489872456, y: 52.47499542310834, width: 276.3000183105469}
-        - name: label_6_copy
+        - name: label_6
           properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: The otp must be at least 6 characters.}
           type: Label
           layout_properties: {x: 0.13747863844037056, y: 72.4000015258789, width: 266.7250061035156}

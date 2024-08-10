@@ -5,7 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from datetime import datetime, timezone
+from datetime import datetime, timezone,timedelta
 import anvil.server
 from anvil import tables, app
 import random
@@ -14,7 +14,56 @@ import base64
 from PIL import Image,ImageDraw
 from io import BytesIO
 import requests
+# import anvil.tables as tables
+# from datetime import datetime,
 #import datetime
+
+
+
+@anvil.server.callable
+def check_and_topup_users(phone):
+
+    
+  today = datetime.now().date()
+  user = app_tables.wallet_users.get(users_phone=phone)
+  
+
+  
+  users_topup_duration = int(user['users_timely_topup_duration'])
+  # last_topup_date is not None and
+  balance = app_tables.wallet_users_balance.get(users_balance_phone = phone)
+  if  users_topup_duration is not None and user['users_timely_topup'] is not False and today <= user['users_timely_topup_expiry_date'] :
+      next_topup_date = today+timedelta(days = users_topup_duration)
+      
+      if today >= next_topup_date:
+          # Perform the top-up
+          balance['users_balance'] += user['users_timely_topup_amount']  # Add the top-up amount (change this value as needed)
+          user['users_next_autotopup_time'] = next_topup_date  # Update the last top-up date
+          user.update()
+          users_text = f" {user['users_timely_topup_amount']} Added Through AutoTopUp"
+          time = datetime.now().date()
+          anvil.server.call('notify', users_text, time, phone, phone)
+      else:
+        user['users_next_autotopup_time'] = next_topup_date
+        user.update()
+
+
+    # today = datetime.now().date()
+    # user = app_tables.wallet_users.get(users_phone=phone)
+    
+
+    # last_topup_date = user['last_topup_date']
+    # users_topup_duration = user['users_timely_topup_duration']
+    
+    # if last_topup_date is not None and users_topup_duration is not None:
+    #     next_topup_date = last_topup_date + timedelta(days=users_topup_duration)
+    #     if today >= next_topup_date:
+    #         # Perform the top-up
+    #         user['balance'] += 100  # Add the top-up amount (change this value as needed)
+    #         user['last_topup_date'] = today  # Update the last top-up date
+
+
+
 
 @anvil.server.callable
 def check_email_exists(email):
@@ -110,6 +159,37 @@ def get_all_banks_name():
     banks = app_tables.wallet_admins_add_bank.search()
     return [f"{bank['admins_add_bank_names']}" for bank in banks]
 
+
+
+
+# @anvil.server.callable
+# def perform_top_up(phone, amount):
+#     # Logic to perform top-up
+#     # For example, update the user's balance in the database
+#     # user = app_tables.wallet_users.get(user_phone=phone)
+#     balance=app_tables.wallet_users_balance.get(users_balance_phone=phone)
+#     if balance:
+#         balance['users_balance'] += amount
+#         return "Top-up successful"
+#     else:
+#         return "User not found"
+# # In a background task (e.g., scheduled_top_up)
+
+
+# @anvil.server.background_task
+# def scheduled_top_up():
+#     # Define the interval for the top-up (e.g., daily)
+#     interval = timedelta(seconds=30)
+#     next_run = datetime.now() + interval
+
+#     while True:
+#         # Perform top-up for all users (example logic)
+#         for user in tables.app_tables.wallet_users.search():
+#             anvil.server.call('perform_top_up', user['users_phone'], 100)  # Example: top-up with 100 units
+
+#         # Sleep until the next run
+#         anvil.server.wait_until(next_run)
+#         next_run += interval
 
 @anvil.server.callable
 def total_users(customer):

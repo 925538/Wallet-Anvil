@@ -128,6 +128,9 @@ db_schema:
     - name: admins_actions_name
       admin_ui: {width: 200}
       type: string
+    - name: admins_actions_phone
+      admin_ui: {order: 4, width: 200}
+      type: number
   wallet_users_balance:
     client: full
     server: full
@@ -299,6 +302,27 @@ db_schema:
     - name: users_minimum_topup_amount_below
       admin_ui: {order: 5.5, width: 300}
       type: number
+    - name: users_auto_topup_expiry_date
+      admin_ui: {width: 200, order: 26}
+      type: date
+    - name: users_minimum_topup_amount
+      admin_ui: {width: 200, order: 27}
+      type: number
+    - name: users_timely_topup_duration
+      admin_ui: {width: 200, order: 28}
+      type: string
+    - name: users_timely_topup_amount
+      admin_ui: {width: 200, order: 29}
+      type: number
+    - name: users_timely_topup_expiry_date
+      admin_ui: {width: 200, order: 30}
+      type: date
+    - name: users_timely_autotopup
+      admin_ui: {width: 200, order: 31}
+      type: bool
+    - name: users_next_autotopup_time
+      admin_ui: {width: 200, order: 32}
+      type: date
     title: wallet_users
   wallet_admins_add_currency:
     title: wallet_admins_add_currency

@@ -46,7 +46,7 @@ class login(loginTemplate):
 
       user_type = user['users_usertype']
 
-      if user_type in ['admin', 'super admin']:
+      if user_type in ['admin', 'super_admin']:
         open_form('admin', user=user)
       elif user_type == 'customer':
         open_form('customer', user=user)

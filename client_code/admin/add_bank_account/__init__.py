@@ -44,36 +44,36 @@ class add_bank_account(add_bank_accountTemplate):
     
     
     if bank_name:
-            bank_name = bank_name.capitalize()
-            print(bank_name)
-            existing_bank = app_tables.wallet_admins_add_bank.search(admins_add_bank_names=bank_name) 
+        bank_name = bank_name.capitalize()
+        print(bank_name)
+        existing_bank = app_tables.wallet_admins_add_bank.search(admins_add_bank_names=bank_name) 
         
-        # if len(currency_code) == 3 and currency_code.isalpha():
-        #     existing_country = app_tables.wallet_admins_add_currency.search(admins_add_currency_country=country_name) 
-            
-            if len(existing_bank) == 0:
-                # Check if an image has been uploaded
-                if self.file_loader_1.file:
-                    # Save the uploaded image to the bank_icon column
-                    new_currency = app_tables.wallet_admins_add_bank.add_row(
-                        admins_add_bank_names=bank_name,
-                        admins_add_bank_icons=self.file_loader_1.file
-                    )
-                else:
-                    # If no image is uploaded, set bank_icon to None
-                    new_currency = app_tables.wallet_admins_add_bank.add_row(
-                        admins_add_bank_names=bank_name,
-                        admins_add_bank_icons=None
-                    )
-                
-                self.refresh_users()
-                self.text_box_1.text = ''
-                self.flow_panel_1.visible = False
-                alert('Bank name added successfully')
+        if len(existing_bank) == 0:
+            # Check if an image has been uploaded
+            if self.file_loader_1.file:
+                # Save the uploaded image to the bank_icon column
+                new_currency = app_tables.wallet_admins_add_bank.add_row(
+                    admins_add_bank_names=bank_name,
+                    admins_add_bank_icons=self.file_loader_1.file
+                )
             else:
-                alert('Bank already exists')
+                # If no image is uploaded, set bank_icon to None
+                new_currency = app_tables.wallet_admins_add_bank.add_row(
+                    admins_add_bank_names=bank_name,
+                    admins_add_bank_icons=None
+                )
+            
+            self.refresh_users()
+            self.text_box_1.text = ''
+            self.file_loader_1.clear()
+            self.flow_panel_1.visible = False
+                
+            alert('Bank name added successfully')
+        else:
+            alert('Bank already exists')
     else:
         alert('Incorrect bank name')
+
   def link_8_copy_click(self, **event_args):
     open_form('admin', user=self.user)
 
@@ -118,7 +118,4 @@ class add_bank_account(add_bank_accountTemplate):
   def link_6_copy_4_click(self, **event_args):
     open_form("admin.add_bank_account",user = self.user)
 
-  def text_box_1_pressed_enter(self, **event_args):
-    """This method is called when the user presses Enter in this text box"""
-    pass
-    
+  

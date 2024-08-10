@@ -329,7 +329,7 @@ components:
         type: Spacer
         layout_properties: {grid_position: 'FRVCAC,CSXXAZ FQZEEB,HGMCIN'}
       - name: card_2
-        properties: {role: null, col_widths: '{"HONYFV":25,"OSGMXY":35,"XSMVAK":25,"VCYUTB":35}'}
+        properties: {role: null, col_widths: '{"HONYFV":25,"OSGMXY":35,"XSMVAK":25,"VCYUTB":35,"VUVVZZ":25,"KIJCYS":35,"NSZRUW":65,"GXKBGE":15}'}
         type: ColumnPanel
         layout_properties: {grid_position: 'FRVCAC,CSXXAZ QYMHRD,GHLBNI'}
         components:
@@ -337,6 +337,30 @@ components:
           properties: {align: center, text: Minimum Balance Topup, bold: true, font_size: 16, underline: true}
           type: Label
           layout_properties: {grid_position: 'UUUFKL,NSZRUW'}
+        - name: column_panel_1_copy
+          properties: {}
+          type: ColumnPanel
+          layout_properties:
+            col_widths: {}
+            grid_position: UUUFKL,GXKBGE
+          components:
+          - name: button_off_copy
+            properties: {text: 'on', icon: 'fa:toggle-on', foreground: '#000000', bold: true, align: center, background: '#d9e6f2'}
+            type: Button
+            layout_properties: {grid_position: 'NZLMNV,URGDEC'}
+            event_bindings: {click: button_off_copy_click}
+          - name: button_on_copy
+            properties:
+              text: |
+                off
+              icon: fa:toggle-off
+              foreground: '#000000'
+              bold: true
+              background: '#d9e6f2'
+              font_size: 13
+            type: Button
+            layout_properties: {grid_position: 'KFNJLN,LFHTVV'}
+            event_bindings: {click: button_on_copy_click}
         - name: label_2
           properties: {text: When wallet balance goes below, bold: true, font_size: 16}
           type: Label
@@ -356,6 +380,14 @@ components:
           type: TextBox
           layout_properties: {grid_position: 'UHRIUB,VCYUTB'}
           event_bindings: {change: text_box_1_change}
+        - type: Label
+          properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '16', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Expiry Date, margin: null}
+          name: label_9
+          layout_properties: {grid_position: 'AUVWIT,VUVVZZ', full_width_row: false}
+        - type: DatePicker
+          properties: {role: null, bold: false, format: '', align: right, date: '', placeholder: '', pick_time: false, spacing_above: small, background: '', underline: true, font: '', max_date: '', foreground: '', spacing_below: small, visible: true, border: 1px solid, italic: false, enabled: true, font_size: null, tooltip: '', min_date: '', margin: null}
+          name: date_picker_1
+          layout_properties: {grid_position: 'AUVWIT,KIJCYS', full_width_row: false}
         - name: spacer_5
           properties: {height: 10.88885498046875}
           type: Spacer
@@ -387,80 +419,116 @@ components:
         - name: label_4
           properties: {align: center}
           type: Label
-          layout_properties: {grid_position: ''}
+          layout_properties: {grid_position: ',undefined'}
         - name: button_5
           properties: {text: Proceed to add, background: '#2586d0', foreground: 'theme:White', bold: true, font_size: 18}
           type: Button
-          layout_properties: {grid_position: 'TWCHCN,AZSWAX FAEEAP,CCTRHJ'}
+          layout_properties: {grid_position: 'FAEEAP,CCTRHJ'}
           event_bindings: {click: button_5_click}
-        - name: card_3
-          properties: {role: null, col_widths: '{"HONYFV":25,"OSGMXY":35,"XSMVAK":25,"VCYUTB":35}'}
-          type: ColumnPanel
-          layout_properties: {grid_position: 'TWCHCN,AZSWAX CXKRJI,GATUYD'}
-          components:
-          - name: label_7
-            properties: {align: center, text: Timely Topup, bold: true, font_size: 16, underline: true}
-            type: Label
-            layout_properties: {grid_position: 'UUUFKL,NSZRUW'}
-          - name: label_2_copy_2
-            properties: {text: When wallet balance should be automatically added, bold: true, font_size: 16}
-            type: Label
-            layout_properties: {grid_position: 'XVAEOK,HONYFV'}
-          - name: drop_down_3
-            properties:
-              items: [Every Week, Every Month, Every 3 Months, Every 6 Months, '']
-            type: DropDown
-            layout_properties: {grid_position: 'XVAEOK,OSGMXY'}
-            event_bindings: {change: drop_down_1_change}
-          - name: label_3_copy_2
-            properties: {text: Automatically add, font_size: 16, bold: true}
-            type: Label
-            layout_properties: {grid_position: 'UHRIUB,XSMVAK'}
-          - name: text_box_2
-            properties: {}
-            type: TextBox
-            layout_properties: {grid_position: 'UHRIUB,VCYUTB'}
-          - name: spacer_5_copy_3
-            properties: {height: 10.88885498046875}
-            type: Spacer
-            layout_properties: {grid_position: 'VPWUOE,LHZGHS'}
-          - name: button_13
-            properties: {text: '+100', background: '#2586d0', foreground: 'theme:White', bold: true, align: full}
-            type: Button
-            layout_properties: {grid_position: 'BYMPOP,QXWPYL'}
-            event_bindings: {click: button_13_click}
-          - name: button_14
-            properties: {text: '+200', align: full, background: '#2586d0', foreground: 'theme:White', bold: true}
-            type: Button
-            layout_properties: {grid_position: 'BYMPOP,RWQZIH'}
-            event_bindings: {click: button_14_click}
-          - name: button_15
-            properties: {text: '+500', background: '#2586d0', foreground: 'theme:White', bold: true, align: full}
-            type: Button
-            layout_properties: {grid_position: 'BYMPOP,WAIOUB'}
-            event_bindings: {click: button_15_click}
-          - name: button_16
-            properties: {text: '+1000', align: full, background: '#2586d0', foreground: 'theme:White', bold: true}
-            type: Button
-            layout_properties: {grid_position: 'BYMPOP,ZTLZZD'}
-            event_bindings: {click: button_16_click}
-          - name: spacer_5_copy_4
-            properties: {height: 10.88885498046875}
-            type: Spacer
-            layout_properties: {grid_position: 'TWCHCN,AZSWAX'}
-          - name: label_5
-            properties: {align: center}
-            type: Label
-            layout_properties: {grid_position: 'UGIOAU,XYWRUC'}
-        - name: button_6
-          properties: {text: Proceed to add, background: '#2586d0', foreground: 'theme:White', bold: true, font_size: 18}
-          type: Button
-          layout_properties: {grid_position: 'TWCHCN,AZSWAX RJOVDL,TDKAVW'}
-          event_bindings: {click: button_6_click}
       - name: spacer_3
         properties: {height: 14.7777099609375}
         type: Spacer
         layout_properties: {grid_position: 'FRVCAC,CSXXAZ HDJETS,JZCVMZ'}
+      - name: card_3
+        properties: {role: null, col_widths: '{"HONYFV":25,"OSGMXY":35,"XSMVAK":25,"VCYUTB":35,"MPTFGG":25,"DHJDBZ":35,"ZDGPOT":65,"WSFSYD":15}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: '', spacing: null}
+        type: ColumnPanel
+        layout_properties: {grid_position: 'FRVCAC,CSXXAZ HDJETS,JZCVMZ FYXMJF,EURNHJ'}
+        components:
+        - name: label_7
+          properties: {align: center, text: Timely Topup, bold: true, font_size: 16, underline: true}
+          type: Label
+          layout_properties: {grid_position: 'UTUSZY,ZDGPOT'}
+        - name: column_panel_1_copy_2
+          properties: {}
+          type: ColumnPanel
+          layout_properties:
+            col_widths: {}
+            grid_position: UTUSZY,WSFSYD
+          components:
+          - name: button_off_copy_2
+            properties: {text: 'on', icon: 'fa:toggle-on', foreground: '#000000', bold: true, align: center, background: '#d9e6f2'}
+            type: Button
+            layout_properties: {grid_position: 'NZLMNV,URGDEC'}
+            event_bindings: {click: switch_on_timely_topup}
+          - name: button_on_copy_2
+            properties:
+              text: |
+                off
+              icon: fa:toggle-off
+              foreground: '#000000'
+              bold: true
+              background: '#d9e6f2'
+              font_size: 13
+            type: Button
+            layout_properties: {grid_position: 'KFNJLN,LFHTVV'}
+            event_bindings: {click: switch_off_timely_topup}
+        - type: Spacer
+          properties: {height: 13}
+          name: spacer_6
+          layout_properties: {grid_position: 'GYNGDS,YYPCEW'}
+        - name: label_2_copy_2
+          properties: {text: When wallet balance should be automatically added, bold: true, font_size: 16}
+          type: Label
+          layout_properties: {grid_position: 'XVAEOK,HONYFV'}
+        - name: drop_down_3
+          properties:
+            items: [Every Week, Every Month, Every 3 Months, Every 6 Months, '']
+          type: DropDown
+          layout_properties: {grid_position: 'XVAEOK,OSGMXY'}
+          event_bindings: {change: drop_down_1_change}
+        - name: label_3_copy_2
+          properties: {text: Automatically add, font_size: 16, bold: true}
+          type: Label
+          layout_properties: {grid_position: 'UHRIUB,XSMVAK'}
+        - name: text_box_2
+          properties: {}
+          type: TextBox
+          layout_properties: {grid_position: 'UHRIUB,VCYUTB'}
+        - name: label_10
+          properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '16', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Expiry Date, margin: null}
+          type: Label
+          layout_properties: {grid_position: 'QXMLIL,MPTFGG'}
+        - name: date_picker_2
+          properties: {role: null, bold: false, format: '', align: left, date: '', placeholder: '', pick_time: false, spacing_above: small, background: '', underline: false, font: '', max_date: '', foreground: '', spacing_below: small, visible: true, border: 1px solid, italic: false, enabled: true, font_size: null, tooltip: '', min_date: '', margin: null}
+          type: DatePicker
+          layout_properties: {grid_position: 'QXMLIL,DHJDBZ'}
+        - name: spacer_5_copy_3
+          properties: {height: 10.88885498046875}
+          type: Spacer
+          layout_properties: {grid_position: 'VPWUOE,LHZGHS'}
+        - name: button_13
+          properties: {text: '+100', background: '#2586d0', foreground: 'theme:White', bold: true, align: full}
+          type: Button
+          layout_properties: {grid_position: 'BYMPOP,QXWPYL'}
+          event_bindings: {click: button_13_click}
+        - name: button_14
+          properties: {text: '+200', align: full, background: '#2586d0', foreground: 'theme:White', bold: true}
+          type: Button
+          layout_properties: {grid_position: 'BYMPOP,RWQZIH'}
+          event_bindings: {click: button_14_click}
+        - name: button_15
+          properties: {text: '+500', background: '#2586d0', foreground: 'theme:White', bold: true, align: full}
+          type: Button
+          layout_properties: {grid_position: 'BYMPOP,WAIOUB'}
+          event_bindings: {click: button_15_click}
+        - name: button_16
+          properties: {text: '+1000', align: full, background: '#2586d0', foreground: 'theme:White', bold: true}
+          type: Button
+          layout_properties: {grid_position: 'BYMPOP,ZTLZZD'}
+          event_bindings: {click: button_16_click}
+        - name: spacer_5_copy_4
+          properties: {height: 10.88885498046875}
+          type: Spacer
+          layout_properties: {grid_position: 'TWCHCN,AZSWAX'}
+        - name: label_5
+          properties: {align: center}
+          type: Label
+          layout_properties: {grid_position: 'TIJZHX,CNXDPF'}
+        - name: button_6
+          properties: {text: Proceed to add, background: '#2586d0', foreground: 'theme:White', bold: true, font_size: 18}
+          type: Button
+          layout_properties: {grid_position: 'JDTLYH,FWANFV'}
+          event_bindings: {click: button_6_click}
   - name: xy_panel_2_copy_2
     properties: {role: null, align: center, spacing_above: small, width: null, background: 'theme:Gray 200', foreground: '', spacing_below: small, visible: true, border: '', tooltip: '', height: 288.5999755859375}
     type: XYPanel

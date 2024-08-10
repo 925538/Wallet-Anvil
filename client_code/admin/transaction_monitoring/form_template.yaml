@@ -5,7 +5,7 @@ components:
 - name: navbar_links_copy
   properties: {}
   type: FlowPanel
-  layout_properties: {grid_position: 'CQNFOS,KVIXRN', full_width_row: true}
+  layout_properties: {grid_position: 'XGLKDN,RJOOKU', full_width_row: true}
   components:
   - name: column_panel_1
     properties: {}
@@ -234,12 +234,12 @@ components:
     layout_properties: {width: 578}
     components:
     - name: column_panel_3
-      properties: {col_widths: '{}'}
+      properties: {col_widths: '{"YGLOTG":5,"UTTKBN":55}'}
       type: ColumnPanel
       layout_properties: {width: 1153.69, expand: false, x: 0, y: 0}
       components:
       - name: card_2
-        properties: {role: card, background: 'theme:Primary 500', col_widths: '{"BCTJCN":70,"HDPZPQ":23}'}
+        properties: {role: card, background: 'theme:Primary 500', col_widths: '{"BCTJCN":62,"KYQUSR":20,"MFCRNC":12,"SXMEMH":12}'}
         type: ColumnPanel
         layout_properties: {grid_position: 'DXIICR,VLEYAR', full_width_row: true}
         components:
@@ -260,25 +260,15 @@ components:
             properties: {height: -6.359771728515625}
             type: Spacer
             layout_properties: {grid_position: 'LFQUJB,KXUJWZ OJHHYH,MCKKDD'}
-          - name: xy_panel_9
-            properties: {height: 27.32244873046875}
-            type: XYPanel
-            layout_properties: {grid_position: 'LFQUJB,KXUJWZ ZEGZOQ,CJHURJ'}
-            components: []
-        - type: XYPanel
-          properties: {height: 48, width: 300.498}
-          name: xy_panel_2
-          layout_properties: {grid_position: 'USQCPA,HDPZPQ'}
-          components:
-          - name: link_16
-            properties: {align: center, icon: 'fa:bell-o', font_size: 25, foreground: white}
-            type: Link
-            layout_properties: {x: 58.576290624999956, y: 15.983797073364258, width: 30.3241}
-            event_bindings: {click: link_16_click}
-          - name: label_1
-            properties: {role: text, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: ''}
-            type: Label
-            layout_properties: {grid_position: 'USQCPA,NFWDHE', x: 88.888916015625, y: 23.18289999999999, width: 191.586}
+        - name: link_16
+          properties: {align: center, icon: 'fa:bell-o', font_size: 25, foreground: white}
+          type: Link
+          layout_properties: {grid_position: 'USQCPA,MFCRNC'}
+          event_bindings: {click: link_16_click}
+        - name: label_1
+          properties: {role: text, bold: true, align: left, spacing_above: large, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 20, tooltip: '', text: ''}
+          type: Label
+          layout_properties: {grid_position: 'USQCPA,SXMEMH'}
       - name: spacer_4
         properties: {height: 29.359832763671875}
         type: Spacer
@@ -412,4 +402,20 @@ components:
         properties: {item_template: admin.transaction_monitoring.ItemTemplate13}
         type: RepeatingPanel
         layout_properties: {grid_position: 'CARCEW,XCURHK'}
+      - name: label_3
+        properties: {text: Page No, align: right}
+        type: Label
+        layout_properties: {grid_position: 'UKELKV,YGLOTG'}
+      - name: text_box_1
+        properties: {}
+        type: TextBox
+        layout_properties: {grid_position: 'UKELKV,UTTKBN JKXRRA,DZJXYP'}
+      - name: button_5
+        properties: {text: '', icon: 'fa:angle-double-left', font_size: 20, align: left}
+        type: Button
+        layout_properties: {grid_position: 'UKELKV,UTTKBN JKXRRA,AYCMAC'}
+      - name: button_4
+        properties: {text: '', icon: 'fa:angle-double-left', align: left, font_size: 20}
+        type: Button
+        layout_properties: {grid_position: 'UKELKV,UTTKBN JKXRRA,USBVCH'}
 is_package: true

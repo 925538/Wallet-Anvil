@@ -46,3 +46,5 @@ class ItemTemplate8(ItemTemplate8Template):
     
     # Call the refresh method in the parent form
     get_open_form().refresh_currency_data()
+
+ 

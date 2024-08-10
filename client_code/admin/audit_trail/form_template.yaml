@@ -234,17 +234,13 @@ components:
     - name: label_7_copy
       properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: '    Audit Logs'}
       type: Label
-      layout_properties: {grid_position: 'GIKMFA,PXYANH'}
+      layout_properties: {grid_position: 'GIKMFA,PXYANH', full_width_row: true}
       data_bindings: []
   - name: column_panel_2
     properties: {}
     type: ColumnPanel
     layout_properties: {grid_position: 'YIFDUG,ZXTFJH NVQIPK,SWFJIY'}
     components:
-    - name: spacer_1_copy_2_copy
-      properties: {height: 39.901885986328125}
-      type: Spacer
-      layout_properties: {grid_position: 'PTXPQI,OTLHQF'}
     - name: column_panel_3
       properties: {col_widths: '{"TCNUSU":13,"PSPRHY":2,"RSWSOS":11,"SNSOMV":12,"ZVYBNA":20,"CIQBSJ":8,"QXRWIK":2}'}
       type: ColumnPanel
@@ -294,10 +290,12 @@ components:
           - {id: VJQQOR, title: Status, data_key: column_2, width: 242.766357421875, expand: false}
           - {id: OJLQEN, title: Time, data_key: column_3}
           - {id: DNEHDW, data_key: column_4, title: Column 4}
+          - {id: RFEVFT, data_key: column_1, title: Column 1}
           wrap_on: mobile
           auto_header: false
           rows_per_page: null
           background: ''
+          show_page_controls: false
         type: DataGrid
         layout_properties: {grid_position: 'BGMWAP,JNFAWE', full_width_row: true, row_background: ''}
         data_bindings: []
@@ -335,22 +333,32 @@ components:
           type: Spacer
           layout_properties: {}
         - name: column_panel_4
-          properties: {col_widths: '{"ICQCHL":10,"GFPTUS":3,"IFTRBI":57}'}
+          properties: {col_widths: '{"GFPTUS":13,"IFTRBI":47,"SABZPI":15,"POAWMA":15}', col_spacing: tiny}
           type: ColumnPanel
           layout_properties: {slot: footer}
           components:
           - name: label_1
-            properties: {align: center, bold: true, text: Page size}
+            properties: {align: right, spacing_above: medium, text: 'Page no:', bold: true}
             type: Label
-            layout_properties: {grid_position: 'JPARRC,ICQCHL'}
+            layout_properties: {grid_position: 'JPARRC,POAWMA'}
           - name: text_box_2
-            properties: {align: left, bold: true, text: '10'}
+            properties: {align: left, bold: true, text: '10', border: 1px}
             type: TextBox
             layout_properties: {grid_position: 'JPARRC,GFPTUS'}
           - name: spacer_3
             properties: {height: 32}
             type: Spacer
             layout_properties: {grid_position: 'JPARRC,IFTRBI'}
+          - name: button_3
+            properties: {text: '', icon: 'fa:angle-double-left', font_size: 20, bold: true}
+            type: Button
+            layout_properties: {grid_position: 'JPARRC,SABZPI QUAHCH,BHXUMA'}
+            event_bindings: {click: button_3_click}
+          - name: button_2
+            properties: {text: '', icon: 'fa:angle-double-right', font_size: 20, bold: true}
+            type: Button
+            layout_properties: {grid_position: 'JPARRC,SABZPI QUAHCH,PFBHPN'}
+            event_bindings: {click: button_2_click}
   - name: outlined_card_1
     properties: {role: null, col_widths: '{"VMILPR":8,"FDANOO":15,"HAKDVS":15}', spacing_above: none, background: '#2270ad', wrap_on: mobile, col_spacing: none, foreground: '', spacing_below: none, visible: true, border: '', tooltip: ''}
     type: ColumnPanel
