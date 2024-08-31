@@ -1,180 +1,180 @@
-container: {type: ColumnPanel}
 components:
-- name: card_1
-  properties: {role: card}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'LFGULU,SENDMV', full_width_row: true}
-  components:
-  - name: flow_panel_1
-    properties: {visible: true, spacing: large}
-    type: FlowPanel
-    layout_properties: {grid_position: 'BZJFRB,ICXFEC', full_width_row: true}
-    components:
-    - name: image_1_copy
-      properties: {role: null, vertical_align: center, spacing_above: small, background: white, horizontal_align: right, source: _/theme/letter-g.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 44.80000305175781}
+- components:
+  - components:
+    - layout_properties: {width: 89.19999694824219}
+      name: image_1_copy
+      properties: {background: white, border: '', display_mode: shrink_to_fit, foreground: '', height: 44.80000305175781, horizontal_align: right, role: null, source: _/theme/letter-g.png, spacing_above: small, spacing_below: small, tooltip: '', vertical_align: center, visible: true}
       type: Image
-      layout_properties: {width: 89.19999694824219}
-    - name: label_7_copy_2
-      properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true, font: a, italic: false, underline: false, foreground: black}
+    - layout_properties: {}
+      name: label_7_copy_2
+      properties: {align: left, bold: true, font: a, font_size: 25, foreground: black, italic: false, text: 'G-Wallet         ', underline: false}
       type: Label
-      layout_properties: {}
-    - name: spacer_4
+    - layout_properties: {width: 519.9499755859375}
+      name: spacer_4
       properties: {height: 32}
       type: Spacer
-      layout_properties: {width: 519.9499755859375}
-    - name: link_2
-      properties: {text: Deposit, align: left, bold: true, foreground: '', font_size: 15, icon: ''}
-      type: Link
-      event_bindings: {click: link_2_click}
+    - event_bindings: {click: link_2_click}
       layout_properties: {}
-    - name: link_3
-      properties: {text: Money Transfer, bold: true, align: center, foreground: '', font_size: 15, icon: ''}
+      name: link_2
+      properties: {align: left, bold: true, font_size: 15, foreground: '', icon: '', text: Deposit}
       type: Link
-      event_bindings: {click: link_3_click}
+    - event_bindings: {click: link_3_click}
       layout_properties: {}
-    - name: link_4
-      properties: {text: Withdraw, bold: true, align: center, foreground: '', font_size: null, icon: ''}
+      name: link_3
+      properties: {align: center, bold: true, font_size: 15, foreground: '', icon: '', text: Money Transfer}
       type: Link
-      event_bindings: {click: link_4_click}
+    - event_bindings: {click: link_4_click}
       layout_properties: {}
-    - name: link_7
-      properties: {text: Help, align: center, bold: true, foreground: '', icon: ''}
+      name: link_4
+      properties: {align: center, bold: true, font_size: null, foreground: '', icon: '', text: Withdraw}
       type: Link
-      event_bindings: {click: link_7_click}
+    - event_bindings: {click: link_7_click}
       layout_properties: {}
-    - name: link_1
-      properties: {text: Home, bold: true, icon: ''}
+      name: link_7
+      properties: {align: center, bold: true, foreground: '', icon: '', text: Help}
       type: Link
-      layout_properties: {}
-    - name: link_13
-      properties: {align: center, bold: true, text: Logout, foreground: '', icon: 'fa:sign-out'}
+    - layout_properties: {}
+      name: link_1
+      properties: {bold: true, icon: '', text: Home}
       type: Link
-      event_bindings: {click: link_13_click}
+    - event_bindings: {click: link_13_click}
       layout_properties: {}
-    - name: spacer_3_copy
+      name: link_13
+      properties: {align: center, bold: true, foreground: '', icon: 'fa:sign-out', text: Logout}
+      type: Link
+    - layout_properties: {width: 787.297}
+      name: spacer_3_copy
       properties: {height: -1.800018310546875}
       type: Spacer
-      layout_properties: {width: 787.297}
-- name: card_2
-  properties: {role: card, col_widths: '{"NFRIAH":30,"LKOSJA":30}'}
+    layout_properties: {full_width_row: true, grid_position: 'BZJFRB,ICXFEC'}
+    name: flow_panel_1
+    properties: {spacing: large, visible: true}
+    type: FlowPanel
+  layout_properties: {full_width_row: true, grid_position: 'LFGULU,SENDMV'}
+  name: card_1
+  properties: {role: card}
   type: ColumnPanel
-  layout_properties: {grid_position: 'VLLOYA,WAFKST', full_width_row: true}
-  components:
-  - name: repeating_panel_1
+- components:
+  - layout_properties: {grid_position: 'CHIRLN,NFRIAH EHHIVK,OJPDNO'}
+    name: repeating_panel_1
     properties: {item_template: customer.interaction.ItemTemplate10}
     type: RepeatingPanel
-    layout_properties: {grid_position: 'CHIRLN,NFRIAH EHHIVK,OJPDNO'}
-  - name: repeating_panel_2
+  - layout_properties: {grid_position: 'CHIRLN,LKOSJA UQBXQP,YHEKYM'}
+    name: repeating_panel_2
     properties: {item_template: customer.interaction.ItemTemplate11}
     type: RepeatingPanel
-    layout_properties: {grid_position: 'CHIRLN,LKOSJA UQBXQP,YHEKYM'}
-- name: card_2_copy
-  properties: {role: card, col_widths: '{"XBEPUH":10,"UFIAVI":10,"JVWWOF":40}'}
+  layout_properties: {full_width_row: true, grid_position: 'VLLOYA,WAFKST'}
+  name: card_2
+  properties: {col_widths: '{"NFRIAH":30,"LKOSJA":30}', role: card}
   type: ColumnPanel
-  layout_properties: {grid_position: 'BFEISU,NJMHSZ', full_width_row: true}
-  components:
-  - name: button_1
-    properties: {text: Pay, foreground: white, background: '#1d6eae', align: full, bold: true, font_size: 15}
+- components:
+  - layout_properties: {grid_position: 'HCDSWQ,XBEPUH'}
+    name: button_1
+    properties: {align: full, background: '#1d6eae', bold: true, font_size: 15, foreground: white, text: Pay}
     type: Button
-    layout_properties: {grid_position: 'HCDSWQ,XBEPUH'}
-  - name: button_2
-    properties: {text: Request, align: full, bold: true, font_size: 15, foreground: white, background: '#1d6eae'}
+  - layout_properties: {grid_position: 'HCDSWQ,UFIAVI'}
+    name: button_2
+    properties: {align: full, background: '#1d6eae', bold: true, font_size: 15, foreground: white, text: Request}
     type: Button
-    layout_properties: {grid_position: 'HCDSWQ,UFIAVI'}
-  - name: text_box_1
-    properties: {text: '', placeholder: send_money/message}
-    type: TextBox
+  - event_bindings: {pressed_enter: text_box_1_pressed_enter}
     layout_properties: {grid_position: 'HCDSWQ,JVWWOF'}
-    event_bindings: {pressed_enter: text_box_1_pressed_enter}
-  - name: xy_panel_2_copy_2
-    properties: {role: null, align: center, spacing_above: small, width: null, background: 'theme:Gray 200', foreground: '', spacing_below: small, visible: true, border: '', tooltip: '', height: 288.5999755859375}
-    type: XYPanel
-    layout_properties: {grid_position: 'ZAPQEO,MNTUFW', full_width_row: true}
-    components:
-    - name: label_21_copy
-      properties: {text: 'G-Wallet is your trusted companion for effortless financial transactions, providing a secure and intuitive platform to manage your money with ease.', align: center, font_size: 17, font: ''}
+    name: text_box_1
+    properties: {placeholder: send_money/message, text: ''}
+    type: TextBox
+  - components:
+    - layout_properties: {width: 387.98798168945314, x: 22, y: 102.7626953125}
+      name: label_21_copy
+      properties: {align: center, font: '', font_size: 17, text: 'G-Wallet is your trusted companion for effortless financial transactions, providing a secure and intuitive platform to manage your money with ease.'}
       type: Label
-      layout_properties: {x: 22, y: 102.7626953125, width: 387.98798168945314}
-    - name: label_22_copy
-      properties: {text: '   Quick Links', align: left, bold: true, font: '', font_size: 17}
+    - layout_properties: {width: 200, x: 637.7125244140625, y: 53.91269531250009}
+      name: label_22_copy
+      properties: {align: left, bold: true, font: '', font_size: 17, text: '   Quick Links'}
       type: Label
-      layout_properties: {x: 637.7125244140625, y: 53.91269531250009, width: 200}
-    - name: label_23_copy
-      properties: {text: '    Mail to us', align: left, bold: true, font: '', font_size: 16}
+    - layout_properties: {width: 112, x: 1108.84997558594, y: 56.7626953125}
+      name: label_23_copy
+      properties: {align: left, bold: true, font: '', font_size: 16, text: '    Mail to us'}
       type: Label
-      layout_properties: {x: 1108.84997558594, y: 56.7626953125, width: 112}
-    - name: column_panel_9_copy
+    - components:
+      - layout_properties: {grid_position: 'JBVNGZ,CSMVUD'}
+        name: primary_color_2
+        properties: {icon: 'fa:facebook-f', role: primary-color, text: ''}
+        type: Button
+      - layout_properties: {grid_position: 'JBVNGZ,RVPCNA'}
+        name: primary_color_3
+        properties: {icon: 'fa:linkedin', role: primary-color, text: ''}
+        type: Button
+      - layout_properties: {grid_position: 'JBVNGZ,BSEUCM'}
+        name: primary_color_4
+        properties: {icon: 'fa:instagram', role: primary-color, text: ''}
+        type: Button
+      - layout_properties: {grid_position: 'JBVNGZ,MNOFRN'}
+        name: primary_color_5
+        properties: {icon: 'fa:twitter', role: primary-color, text: ''}
+        type: Button
+      layout_properties: {width: 252.1499023437499, x: 1032.7000732421875, y: 184.212646484375}
+      name: column_panel_9_copy
       properties: {col_widths: '{"CSMVUD":15,"RVPCNA":15,"BSEUCM":15,"MNOFRN":15}'}
       type: ColumnPanel
-      layout_properties: {x: 1032.7000732421875, y: 184.212646484375, width: 252.1499023437499}
-      components:
-      - name: primary_color_2
-        properties: {text: '', role: primary-color, icon: 'fa:facebook-f'}
-        type: Button
-        layout_properties: {grid_position: 'JBVNGZ,CSMVUD'}
-      - name: primary_color_3
-        properties: {text: '', role: primary-color, icon: 'fa:linkedin'}
-        type: Button
-        layout_properties: {grid_position: 'JBVNGZ,RVPCNA'}
-      - name: primary_color_4
-        properties: {text: '', role: primary-color, icon: 'fa:instagram'}
-        type: Button
-        layout_properties: {grid_position: 'JBVNGZ,BSEUCM'}
-      - name: primary_color_5
-        properties: {text: '', role: primary-color, icon: 'fa:twitter'}
-        type: Button
-        layout_properties: {grid_position: 'JBVNGZ,MNOFRN'}
-    - name: label_24_copy
-      properties: {text: '            Find us', align: left, bold: true, font: '', font_size: 16}
+    - layout_properties: {width: 123.199951171875, x: 1075.38757324219, y: 138.212646484375}
+      name: label_24_copy
+      properties: {align: left, bold: true, font: '', font_size: 16, text: '            Find us'}
       type: Label
-      layout_properties: {x: 1075.38757324219, y: 138.212646484375, width: 123.199951171875}
-    - name: link_24
-      properties: {text: 'What is G-Wallet?', font_size: 20, font: '', foreground: '', underline: false, role: selected, visible: true}
-      type: Link
-      layout_properties: {x: 646.6000488288701, y: 89.19999694824219, width: 200}
+    - data_bindings: []
       event_bindings: {click: link_24_click}
-      data_bindings: []
-    - name: link_25
-      properties: {text: Products, font_size: 20, font: '', foreground: '', role: hover-link}
+      layout_properties: {width: 200, x: 646.6000488288701, y: 89.19999694824219}
+      name: link_24
+      properties: {font: '', font_size: 20, foreground: '', role: selected, text: 'What is G-Wallet?', underline: false, visible: true}
       type: Link
-      layout_properties: {x: 648.0000122077763, y: 120, width: 200}
-      event_bindings: {click: link_25_click}
-    - name: link_26
-      properties: {text: FAQs, font_size: 20, font: '', foreground: '', role: hover-link}
+    - event_bindings: {click: link_25_click}
+      layout_properties: {width: 200, x: 648.0000122077763, y: 120}
+      name: link_25
+      properties: {font: '', font_size: 20, foreground: '', role: hover-link, text: Products}
       type: Link
-      layout_properties: {x: 649.5000122077763, y: 147.787506103516, width: 198.5}
-      event_bindings: {click: link_26_click}
-    - name: link_27
-      properties: {text: Contact Us, font_size: 20, font: '', foreground: '', role: hover-link}
+    - event_bindings: {click: link_26_click}
+      layout_properties: {width: 198.5, x: 649.5000122077763, y: 147.787506103516}
+      name: link_26
+      properties: {font: '', font_size: 20, foreground: '', role: hover-link, text: FAQs}
       type: Link
-      layout_properties: {x: 648.499981690198, y: 178, width: 200}
-      event_bindings: {click: link_27_click}
-    - name: label_3_copy_copy
-      properties: {text: G-Wallet, bold: true, font: '', font_size: 28}
-      type: Label
-      layout_properties: {x: 112.987500000745, y: 51.51249694824219, width: 200}
-    - name: link_8_copy
-      properties: {text: '         MAIL@GTPL.IN', align: left}
+    - event_bindings: {click: link_27_click}
+      layout_properties: {width: 200, x: 648.499981690198, y: 178}
+      name: link_27
+      properties: {font: '', font_size: 20, foreground: '', role: hover-link, text: Contact Us}
       type: Link
-      layout_properties: {x: 1070.4000244140625, y: 89.20000457763672, width: 200}
-    - name: label_25
-      properties: {font_size: 20, text: Code Of Commitment, bold: true, align: right}
+    - layout_properties: {width: 200, x: 112.987500000745, y: 51.51249694824219}
+      name: label_3_copy_copy
+      properties: {bold: true, font: '', font_size: 28, text: G-Wallet}
       type: Label
-      layout_properties: {x: 1112.7625427246094, y: 235.63751220703125, width: 246.3999267578125}
-    - name: label_19_copy
-      properties: {text: CopyRight2024@G-wallet, bold: true, font_size: 20}
+    - layout_properties: {width: 200, x: 1070.4000244140625, y: 89.20000457763672}
+      name: link_8_copy
+      properties: {align: left, text: '         MAIL@GTPL.IN'}
+      type: Link
+    - layout_properties: {width: 246.3999267578125, x: 1112.7625427246094, y: 235.63751220703125}
+      name: label_25
+      properties: {align: right, bold: true, font_size: 20, text: Code Of Commitment}
       type: Label
-      layout_properties: {x: 34.587494660168886, y: 235.63751220703125, width: 281.9875183105469}
-    - name: label_20_copy
-      properties: {text: Disclaimer, bold: true, font_size: 20}
+    - layout_properties: {width: 281.9875183105469, x: 34.587494660168886, y: 235.63751220703125}
+      name: label_19_copy
+      properties: {bold: true, font_size: 20, text: CopyRight2024@G-wallet}
       type: Label
-      layout_properties: {x: 446.73750000074506, y: 235.63751220703125, width: 200}
-    - name: label_24
-      properties: {text: Privacy Policy, bold: true, font_size: 20}
+    - layout_properties: {width: 200, x: 446.73750000074506, y: 235.63751220703125}
+      name: label_20_copy
+      properties: {bold: true, font_size: 20, text: Disclaimer}
       type: Label
-      layout_properties: {x: 807.6624877937138, y: 235.63751220703125, width: 200}
-    - name: image_3_copy
+    - layout_properties: {width: 200, x: 807.6624877937138, y: 235.63751220703125}
+      name: label_24
+      properties: {bold: true, font_size: 20, text: Privacy Policy}
+      type: Label
+    - layout_properties: {width: 83.5875015258789, x: 43.624996948987246, y: 54.000003814697266}
+      name: image_3_copy
       properties: {height: 46.39996337890625, source: _/theme/letter-g.png}
       type: Image
-      layout_properties: {x: 43.624996948987246, y: 54.000003814697266, width: 83.5875015258789}
+    layout_properties: {full_width_row: true, grid_position: 'ZAPQEO,MNTUFW'}
+    name: xy_panel_2_copy_2
+    properties: {align: center, background: 'theme:Gray 200', border: '', foreground: '', height: 288.5999755859375, role: null, spacing_above: small, spacing_below: small, tooltip: '', visible: true, width: null}
+    type: XYPanel
+  layout_properties: {full_width_row: true, grid_position: 'BFEISU,NJMHSZ'}
+  name: card_2_copy
+  properties: {col_widths: '{"XBEPUH":10,"UFIAVI":10,"JVWWOF":40}', role: card}
+  type: ColumnPanel
+container: {type: ColumnPanel}
 is_package: true

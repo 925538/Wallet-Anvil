@@ -1,63 +1,63 @@
-container:
-  type: ColumnPanel
-  properties: {spacing_above: none, spacing_below: none, col_spacing: none, background: 'theme:White'}
 components:
-- name: column_panel_1
-  properties: {background: '#efeff0', col_widths: '{"YEOKCE":5,"CRWMXX":17,"ZPEYIL":11,"JASXHO":9,"OYLMZC":9,"UBVISH":9}', border: '0.1px solid #f5f5f5', spacing_above: none, spacing_below: none, col_spacing: small}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'BIZBTG,WFWFTW', full_width_row: true}
-  components:
-  - name: image_1
+- components:
+  - layout_properties: {full_width_row: true, grid_position: 'TUMKWT,YEOKCE'}
+    name: image_1
     properties: {height: 45.77777099609375, source: _/theme/account.png, spacing_above: large}
     type: Image
-    layout_properties: {grid_position: 'TUMKWT,YEOKCE', full_width_row: true}
-  - name: label_1
-    properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: none, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: ''}
+  - data_bindings:
+    - {code: 'self.item[''user_fullname'']', property: text, writeback: false}
+    layout_properties: {full_width_row: true, grid_position: 'TUMKWT,CRWMXX ISSRUK,GOXGVU'}
+    name: label_1
+    properties: {align: left, background: '', bold: true, border: '', font: '', font_size: 15, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: none, text: '', tooltip: '', underline: false, visible: true}
     type: Label
-    layout_properties: {grid_position: 'TUMKWT,CRWMXX ISSRUK,GOXGVU', full_width_row: true}
-    data_bindings:
-    - {property: text, code: 'self.item[''users_username'']', writeback: false}
-  - name: label_4
-    properties: {role: null, bold: false, align: left, spacing_above: none, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: ''}
+  - data_bindings:
+    - {code: 'self.item[''user_email'']', property: text, writeback: false}
+    layout_properties: {full_width_row: true, grid_position: 'TUMKWT,CRWMXX FYEGGD,TCNERU'}
+    name: label_4
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: 15, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: none, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
     type: Label
-    layout_properties: {grid_position: 'TUMKWT,CRWMXX FYEGGD,TCNERU', full_width_row: true}
-    data_bindings:
-    - {property: text, code: 'self.item[''users_email'']', writeback: false}
-  - name: label_5
-    properties: {spacing_above: large, font_size: 15, bold: true}
+  - data_bindings:
+    - {code: 'self.item[''user_type'']', property: text, writeback: false}
+    layout_properties: {full_width_row: true, grid_position: 'TUMKWT,OYLMZC'}
+    name: label_5
+    properties: {bold: true, font_size: 15, spacing_above: large}
     type: Label
-    layout_properties: {grid_position: 'TUMKWT,OYLMZC', full_width_row: true}
-    data_bindings:
-    - {property: text, code: 'self.item[''users_usertype'']', writeback: false}
-  - name: label_2
-    properties: {bold: true, spacing_above: large, font_size: 15}
+  - data_bindings:
+    - {code: 'self.item[''user_phone_number'']', property: text, writeback: false}
+    layout_properties: {full_width_row: true, grid_position: 'TUMKWT,ZPEYIL'}
+    name: label_2
+    properties: {bold: true, font_size: 15, spacing_above: large}
     type: Label
-    layout_properties: {grid_position: 'TUMKWT,ZPEYIL', full_width_row: true}
-    data_bindings:
-    - {property: text, code: 'self.item[''users_phone'']', writeback: false}
-  - name: label_3
-    properties: {role: null, bold: true, align: left, spacing_above: large, background: '', icon: 'fa:dot-circle-o', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: ''}
+  - data_bindings:
+    - {code: 'self.item[''users_inactive'']', property: tag, writeback: false}
+    layout_properties: {full_width_row: true, grid_position: 'TUMKWT,UBVISH'}
+    name: label_3
+    properties: {align: left, background: '', bold: true, border: '', font: '', font_size: 15, foreground: '', icon: 'fa:dot-circle-o', icon_align: left, italic: false, role: null, spacing_above: large, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
     type: Label
-    layout_properties: {grid_position: 'TUMKWT,UBVISH', full_width_row: true}
-    data_bindings:
-    - {property: tag, code: 'self.item[''users_inactive'']', writeback: false}
-  - name: xy_panel_1
+  - components:
+    - event_bindings: {click: button_1_click}
+      layout_properties: {full_width_row: true, grid_position: 'TUMKWT,JASXHO JRBPGZ,ANNQEQ', width: 242.025, x: 9.9884033203125, y: 40.84489999999994}
+      name: button_1
+      properties: {align: left, background: 'theme:Primary 500', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: 'theme:White', icon: '', icon_align: left, italic: false, role: null, spacing_above: large, spacing_below: small, text: view details, tooltip: '', underline: false, visible: false}
+      type: Button
+    - event_bindings: {click: link_1_click}
+      layout_properties: {width: 31.0417, x: 64.942138671875, y: 15.983795166015625}
+      name: link_1
+      properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: '', font_size: null, foreground: '', icon: 'fa:ellipsis-v', icon_align: right, italic: false, role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+      type: Link
+    layout_properties: {grid_position: 'TUMKWT,JASXHO'}
+    name: xy_panel_1
     properties: {height: 71.6666259765625}
     type: XYPanel
-    layout_properties: {grid_position: 'TUMKWT,JASXHO'}
-    components:
-    - name: button_1
-      properties: {role: null, bold: false, align: left, spacing_above: large, background: 'theme:Primary 500', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: false, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: view details}
-      type: Button
-      layout_properties: {grid_position: 'TUMKWT,JASXHO JRBPGZ,ANNQEQ', full_width_row: true, x: 9.9884033203125, y: 40.84489999999994, width: 242.025}
-      event_bindings: {click: button_1_click}
-    - name: link_1
-      properties: {role: null, bold: false, align: left, col_widths: '', spacing_above: small, background: '', icon: 'fa:ellipsis-v', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: right, foreground: '', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: ''}
-      type: Link
-      layout_properties: {x: 64.942138671875, y: 15.983795166015625, width: 31.0417}
-      event_bindings: {click: link_1_click}
-- name: spacer_1
+  layout_properties: {full_width_row: true, grid_position: 'BIZBTG,WFWFTW'}
+  name: column_panel_1
+  properties: {background: '#efeff0', border: '0.1px solid #f5f5f5', col_spacing: small, col_widths: '{"YEOKCE":5,"CRWMXX":17,"ZPEYIL":11,"JASXHO":9,"OYLMZC":9,"UBVISH":9}', spacing_above: none, spacing_below: none}
+  type: ColumnPanel
+- layout_properties: {grid_position: 'FCYAGM,SEQAZJ'}
+  name: spacer_1
   properties: {height: 4}
   type: Spacer
-  layout_properties: {grid_position: 'FCYAGM,SEQAZJ'}
+container:
+  properties: {background: 'theme:White', col_spacing: none, spacing_above: none, spacing_below: none}
+  type: ColumnPanel
 is_package: true

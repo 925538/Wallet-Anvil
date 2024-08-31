@@ -14,14 +14,20 @@ class user_support(user_supportTemplate):
         # Set Form properties and Data Bindings.
         self.user = user
         self.init_components(**properties)
-        if user is not None:
-            self.repeating_panel_1.items = app_tables.wallet_users_service.search()
+        self.load_all_service_queries()
 
+    def load_all_service_queries(self):
+        """Load all service queries into the repeating panel."""
+        # Call the server to get all queries
+        queries = anvil.server.call('search_user_service_query', "")
+        self.repeating_panel_1.items = queries
+      
     def link_111_click(self, **event_args):
         """This method is called when the link is clicked"""
         # Filter to show only solved queries
-        self.repeating_panel_1.items = app_tables.wallet_users_service.search(users_update=True)
-       
+        queries = anvil.server.call('search_user_service_query', "")
+        solved_queries = [q for q in queries if q['users_update']]
+        self.repeating_panel_1.items = solved_queries
 
     def link_2_click(self, **event_args):
         """This method is called when the link is clicked"""
@@ -56,7 +62,17 @@ class user_support(user_supportTemplate):
 
     def button_1_click(self, **event_args):
         """This method is called when the button is clicked"""
-        pass
+        username = self.text_box_1.text.strip()
+        if username:
+            # Call the server to search for the query by username
+            results = anvil.server.call('search_user_service_query', username)
+            if results:
+                self.repeating_panel_2.items = results
+            else:
+                alert('User not found.')
+                self.load_all_service_queries()
+        else:
+            alert('Please enter a username.')
 
     def link6_copy_click(self, **event_args):
         open_form("admin.transaction_monitoring", user=self.user)
@@ -78,9 +94,11 @@ class user_support(user_supportTemplate):
     def link_12_click(self, **event_args):
         """This method is called when the link is clicked"""
         # Filter to show all queries
-        self.repeating_panel_1.items = app_tables.wallet_users_service.search()
-        
+        self.load_all_service_queries()       
+      
     def link_22_click(self, **event_args):
         """This method is called when the link is clicked"""
         # Filter to show only unsolved queries
-        self.repeating_panel_1.items = app_tables.wallet_users_service.search(users_update=False)
+        queries = anvil.server.call('search_user_service_query', "")
+        unsolved_queries = [q for q in queries if not q['users_update']]
+        self.repeating_panel_1.items = unsolved_queries

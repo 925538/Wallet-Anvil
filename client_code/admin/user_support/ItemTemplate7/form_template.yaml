@@ -1,43 +1,43 @@
-is_package: true
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{"YCUHVG":13,"JHNFSK":10,"BWGYCQ":13,"PILRML":13,"NGIBNI":7,"VQLEDG":4}', visible: true, background: '#efeff0', col_spacing: medium}
 components:
-- name: image_1
-  properties: {horizontal_align: right, height: 42.33331298828125, source: _/theme/account.png}
+- data_bindings: []
+  layout_properties: {full_width_row: true, grid_position: 'VJYUMV,VQLEDG'}
+  name: image_1
+  properties: {height: 42.33331298828125, horizontal_align: right, source: _/theme/account.png}
   type: Image
-  layout_properties: {grid_position: 'VJYUMV,VQLEDG', full_width_row: true}
-  data_bindings: []
-- name: label_1
-  properties: {text: '', align: left, bold: true, font_size: 15, spacing_above: none, spacing_below: none}
+- data_bindings:
+  - {code: 'self.item[''users_service_username'']', property: text, writeback: false}
+  layout_properties: {full_width_row: true, grid_position: 'VJYUMV,YCUHVG YNZPNH,JUORBJ'}
+  name: label_1
+  properties: {align: left, bold: true, font_size: 15, spacing_above: none, spacing_below: none, text: ''}
   type: Label
-  layout_properties: {grid_position: 'VJYUMV,YCUHVG YNZPNH,JUORBJ', full_width_row: true}
-  data_bindings:
-  - {property: text, code: 'self.item[''users_service_username'']', writeback: false}
-- name: label_3
+- data_bindings:
+  - {code: 'self.item[''users_service_email'']', property: text, writeback: false}
+  layout_properties: {grid_position: 'VJYUMV,YCUHVG LVQVHE,EIOXOS'}
+  name: label_3
   properties: {align: left, font_size: 12, spacing_above: none, spacing_below: none}
   type: Label
-  layout_properties: {grid_position: 'VJYUMV,YCUHVG LVQVHE,EIOXOS'}
-  data_bindings:
-  - {property: text, code: 'self.item[''users_service_email'']', writeback: false}
-- name: label_2
+- data_bindings:
+  - {code: 'self.item[''users_service_phone'']', property: text, writeback: false}
+  layout_properties: {full_width_row: true, grid_position: 'VJYUMV,JHNFSK'}
+  name: label_2
   properties: {align: left, spacing_above: large}
   type: Label
-  layout_properties: {grid_position: 'VJYUMV,JHNFSK', full_width_row: true}
-  data_bindings:
-  - {property: text, code: 'self.item[''users_service_phone'']', writeback: false}
-- name: text_area_1
-  properties: {height: 49.88885498046875, text: '', enabled: false, align: left, spacing_above: medium, border: 1px solid black}
+- data_bindings:
+  - {code: 'self.item[''users_service_query'']', property: text, writeback: false}
+  layout_properties: {full_width_row: true, grid_position: 'VJYUMV,BWGYCQ'}
+  name: text_area_1
+  properties: {align: left, border: 1px solid black, enabled: false, height: 49.88885498046875, spacing_above: medium, text: ''}
   type: TextArea
-  layout_properties: {grid_position: 'VJYUMV,BWGYCQ', full_width_row: true}
-  data_bindings:
-  - {property: text, code: 'self.item[''users_service_query'']', writeback: false}
-- name: text_area_2
-  properties: {height: 48.88885498046875, align: left, spacing_above: medium, border: 1px solid black}
+- layout_properties: {full_width_row: true, grid_position: 'VJYUMV,PILRML'}
+  name: text_area_2
+  properties: {align: left, border: 1px solid black, height: 48.88885498046875, spacing_above: medium}
   type: TextArea
-  layout_properties: {grid_position: 'VJYUMV,PILRML', full_width_row: true}
-- name: button_1
-  properties: {text: unsolved, align: left, spacing_above: large, role: raised, bold: true}
+- event_bindings: {click: button_1_click}
+  layout_properties: {full_width_row: true, grid_position: 'VJYUMV,NGIBNI'}
+  name: button_1
+  properties: {align: left, bold: true, role: raised, spacing_above: large, text: unsolved}
   type: Button
-  layout_properties: {grid_position: 'VJYUMV,NGIBNI', full_width_row: true}
-  event_bindings: {click: button_1_click}
+container:
+  properties: {background: '#efeff0', col_spacing: medium, col_widths: '{"YCUHVG":13,"JHNFSK":10,"BWGYCQ":13,"PILRML":13,"NGIBNI":7,"VQLEDG":4}', visible: true}
+  type: ColumnPanel
+is_package: true

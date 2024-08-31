@@ -1,655 +1,655 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
 components:
-- name: card_17
-  properties: {role: card, col_widths: '{"LDAJHF":55,"EZGHUY":5}', background: 'theme:Primary 500'}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'FTBIHX,SGPDXY', full_width_row: true}
-  components:
-  - name: label_1000000
-    properties: {role: null, bold: true, align: center, spacing_above: small, background: 'theme:Primary 500', icon: '', underline: true, font: a, icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: Withdraw}
+- components:
+  - layout_properties: {full_width_row: true, grid_position: 'CPKFEO,LDAJHF'}
+    name: label_1000000
+    properties: {align: center, background: 'theme:Primary 500', bold: true, border: '', font: a, font_size: 25, foreground: white, icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Withdraw, tooltip: '', underline: true, visible: true}
     type: Label
-    layout_properties: {grid_position: 'CPKFEO,LDAJHF', full_width_row: true}
-  - name: button_2
-    properties: {text: '', icon: 'fa:home', role: null, foreground: 'theme:White', font_size: 25, border: 2px solid white, align: left}
+  - event_bindings: {click: button_2_click}
+    layout_properties: {full_width_row: false, grid_position: 'CPKFEO,EZGHUY'}
+    name: button_2
+    properties: {align: left, border: 2px solid white, font_size: 25, foreground: 'theme:White', icon: 'fa:home', role: null, text: ''}
     type: Button
-    layout_properties: {grid_position: 'CPKFEO,EZGHUY', full_width_row: false}
-    event_bindings: {click: button_2_click}
-- name: card_51
-  properties: {role: card, col_widths: '{"DBJTPO":15,"MMSYAM":15,"PYMPDI":15,"RQOUFI":15}', col_spacing: small}
+  layout_properties: {full_width_row: true, grid_position: 'FTBIHX,SGPDXY'}
+  name: card_17
+  properties: {background: 'theme:Primary 500', col_widths: '{"LDAJHF":55,"EZGHUY":5}', role: card}
   type: ColumnPanel
-  layout_properties: {grid_position: 'MIFDUT,CITAZF'}
-  components:
-  - name: label_7
-    properties: {text: Balance, align: center, bold: true, font_size: 20}
+- components:
+  - layout_properties: {grid_position: 'MAPOUG,EPKGFA'}
+    name: label_7
+    properties: {align: center, bold: true, font_size: 20, text: Balance}
     type: Label
-    layout_properties: {grid_position: 'MAPOUG,EPKGFA'}
-  - name: card_1
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":25,"VZEOPY":35}', background: '', visible: false, col_spacing: tiny, spacing_above: small}
-    type: ColumnPanel
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_1
+      properties: {height: 32}
+      type: Image
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
+      name: label_1
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_50
+      properties: {align: left, spacing_above: medium, spacing_below: none}
+      type: Label
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+      name: spacer_2
+      properties: {height: 1}
+      type: Spacer
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      name: label_1111
+      properties: {align: left, foreground: 'theme:Gray 600', text: 'Balance:'}
+      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      name: label_2
+      properties: {align: left, bold: true, font_size: 25, foreground: Black, italic: false}
+      type: Label
     layout_properties: {grid_position: 'ZSXBIV,DBJTPO'}
-    components:
-    - name: image_icon_1
+    name: card_1
+    properties: {background: '', col_spacing: tiny, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":25,"VZEOPY":35}', role: card, spacing_above: small, visible: false}
+    type: ColumnPanel
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_2
       properties: {height: 32}
       type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_1
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
       layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_50
-      properties: {align: left, spacing_below: none, spacing_above: medium}
+      name: label_3
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
       type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_51
+      properties: {align: left, spacing_above: medium}
+      type: Label
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+      name: spacer_2_copy
       properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-    - name: label_1111
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      name: label_1111_copy
+      properties: {align: left, foreground: 'theme:Gray 600', text: 'Balance:'}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-    - name: label_2
-      properties: {font_size: 25, bold: true, align: left, foreground: Black, italic: false}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-  - name: card_2
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":20,"VZEOPY":36}', background: '', visible: false, col_spacing: small, spacing_above: small}
-    type: ColumnPanel
+      name: label_4
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
     layout_properties: {grid_position: 'ZSXBIV,MMSYAM'}
-    components:
-    - name: image_icon_2
-      properties: {height: 32}
-      type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_3
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
-      layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_51
-      properties: {align: left, spacing_above: medium}
-      type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2_copy
-      properties: {height: 1}
-      type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-    - name: label_1111_copy
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
-      type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-    - name: label_4
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-  - name: card_3
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":20,"VZEOPY":40,"RJJVDV":46,"PLKRAE":14}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    name: card_2
+    properties: {background: '', col_spacing: small, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":20,"VZEOPY":36}', role: card, spacing_above: small, visible: false}
     type: ColumnPanel
-    layout_properties: {grid_position: 'ZSXBIV,PYMPDI'}
-    components:
-    - name: image_icon_3
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_3
       properties: {height: 32}
       type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_5
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
       layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_52
+      name: label_5
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_52
       properties: {align: left, spacing_above: medium}
       type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2_copy_2
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+      name: spacer_2_copy_2
       properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-    - name: label_1111_copy_2
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      name: label_1111_copy_2
+      properties: {align: left, foreground: 'theme:Gray 600', text: 'Balance:'}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-    - name: label_6
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
       layout_properties: {grid_position: 'MXJVRD,VZEOPY PQPAEC,RJJVDV'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-    - name: spacer_3_copy_4
+      name: label_6
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
+    - layout_properties: {grid_position: 'MXJVRD,VZEOPY PQPAEC,PLKRAE'}
+      name: spacer_3_copy_4
       properties: {height: 32}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY PQPAEC,PLKRAE'}
-  - name: card_4
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":15,"VZEOPY":29,"QVTRHS":14}', background: '', visible: false, col_spacing: small, spacing_above: small}
+    layout_properties: {grid_position: 'ZSXBIV,PYMPDI'}
+    name: card_3
+    properties: {background: '', col_spacing: medium, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":20,"VZEOPY":40,"RJJVDV":46,"PLKRAE":14}', role: card, spacing_above: small, visible: false}
     type: ColumnPanel
-    layout_properties: {grid_position: 'ZSXBIV,RQOUFI'}
-    components:
-    - name: image_icon_4
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_4
       properties: {height: 32}
       type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_7_copy
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
       layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_53
+      name: label_7_copy
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_53
       properties: {align: left, spacing_above: medium}
       type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_3_copy_4_copy
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD FAXUFM,WOSZUH'}
+      name: spacer_3_copy_4_copy
       properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD FAXUFM,WOSZUH'}
-    - name: label_1111_copy_3
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD LDBLMU,RDJXNN'}
+      name: label_1111_copy_3
+      properties: {align: left, foreground: 'theme:Gray 600', text: 'Balance:'}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD LDBLMU,RDJXNN'}
-    - name: label_8
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-    - name: spacer_2_copy_2_copy
+      name: label_8
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
+    - layout_properties: {grid_position: 'MXJVRD,QVTRHS'}
+      name: spacer_2_copy_2_copy
       properties: {height: -1}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,QVTRHS'}
-  - name: card_5
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    layout_properties: {grid_position: 'ZSXBIV,RQOUFI'}
+    name: card_4
+    properties: {background: '', col_spacing: small, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":15,"VZEOPY":29,"QVTRHS":14}', role: card, spacing_above: small, visible: false}
     type: ColumnPanel
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_5
+      properties: {height: 32}
+      type: Image
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
+      name: label_9
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_54
+      properties: {align: left}
+      type: Label
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+      name: spacer_2_copy_4
+      properties: {height: 1}
+      type: Spacer
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      name: label_1111_copy_4
+      properties: {align: right, foreground: 'theme:Gray 600', text: 'Balance:'}
+      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      name: label_10
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
+    - layout_properties: {grid_position: 'MXJVRD,HWKYZL'}
+      name: spacer_3_copy_4_copy_2
+      properties: {height: 32}
+      type: Spacer
     layout_properties: {grid_position: 'XKQBLK,EENMQE'}
-    components:
-    - name: image_icon_5
+    name: card_5
+    properties: {background: '', col_spacing: medium, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', role: card, spacing_above: small, visible: false}
+    type: ColumnPanel
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_6
       properties: {height: 32}
       type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_9
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
       layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_54
+      name: label_11
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_55
       properties: {align: left}
       type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2_copy_4
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+      name: spacer_2_copy_5
       properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-    - name: label_1111_copy_4
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: right}
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      name: label_1111_copy_5
+      properties: {align: right, foreground: 'theme:Gray 600', text: 'Balance:'}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-    - name: label_10
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-    - name: spacer_3_copy_4_copy_2
+      name: label_12
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
+    - layout_properties: {grid_position: 'MXJVRD,IRXFLI'}
+      name: spacer_3_copy_4_copy_3
       properties: {height: 32}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,HWKYZL'}
-  - name: card_6
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
-    type: ColumnPanel
     layout_properties: {grid_position: 'XKQBLK,AGJJRN'}
-    components:
-    - name: image_icon_6
+    name: card_6
+    properties: {background: '', col_spacing: medium, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', role: card, spacing_above: small, visible: false}
+    type: ColumnPanel
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_7
       properties: {height: 32}
       type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_11
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
       layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_55
+      name: label_13
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_56
       properties: {align: left}
       type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2_copy_5
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+      name: spacer_2_copy_6
       properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-    - name: label_1111_copy_5
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: right}
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      name: label_1111_copy_6
+      properties: {align: right, foreground: 'theme:Gray 600', text: 'Balance:'}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-    - name: label_12
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-    - name: spacer_3_copy_4_copy_3
+      name: label_14
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
+    - layout_properties: {grid_position: 'MXJVRD,PEHECI'}
+      name: spacer_3_copy_4_copy_4
       properties: {height: 32}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,IRXFLI'}
-  - name: card_7
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
-    type: ColumnPanel
     layout_properties: {grid_position: 'XKQBLK,ECQXZM'}
-    components:
-    - name: image_icon_7
-      properties: {height: 32}
-      type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_13
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
-      layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_56
-      properties: {align: left}
-      type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2_copy_6
-      properties: {height: 1}
-      type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-    - name: label_1111_copy_6
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: right}
-      type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-    - name: label_14
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-    - name: spacer_3_copy_4_copy_4
-      properties: {height: 32}
-      type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,PEHECI'}
-  - name: card_8
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    name: card_7
+    properties: {background: '', col_spacing: medium, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', role: card, spacing_above: small, visible: false}
     type: ColumnPanel
-    layout_properties: {grid_position: 'XKQBLK,JYPFHO'}
-    components:
-    - name: image_icon_8
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_8
       properties: {height: 32}
       type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_15
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
       layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_57
+      name: label_15
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_57
       properties: {align: left}
       type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2_copy_7
+    - layout_properties: {grid_position: 'ZHWXHA,WPOEQT'}
+      name: spacer_2_copy_7
       properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'ZHWXHA,WPOEQT'}
-    - name: label_1111_copy_7
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: right}
+    - layout_properties: {grid_position: 'GIQXVY,GXWTEF'}
+      name: label_1111_copy_7
+      properties: {align: right, foreground: 'theme:Gray 600', text: 'Balance:'}
       type: Label
-      layout_properties: {grid_position: 'GIQXVY,GXWTEF'}
-    - name: label_16
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
       layout_properties: {grid_position: 'GIQXVY,ECBIWK'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-    - name: spacer_3_copy_4_copy_5
+      name: label_16
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
+    - layout_properties: {grid_position: 'GIQXVY,LSEZEO'}
+      name: spacer_3_copy_4_copy_5
       properties: {height: 32}
       type: Spacer
-      layout_properties: {grid_position: 'GIQXVY,LSEZEO'}
-  - name: card_9
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    layout_properties: {grid_position: 'XKQBLK,JYPFHO'}
+    name: card_8
+    properties: {background: '', col_spacing: medium, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', role: card, spacing_above: small, visible: false}
     type: ColumnPanel
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_9
+      properties: {height: 32}
+      type: Image
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
+      name: label_17
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_58
+      properties: {align: left}
+      type: Label
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+      name: spacer_2_copy_8
+      properties: {height: 1}
+      type: Spacer
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      name: label_1111_copy_8
+      properties: {align: right, foreground: 'theme:Gray 600', text: 'Balance:'}
+      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      name: label_18
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
     layout_properties: {grid_position: 'GDCJKQ,GONLHW'}
-    components:
-    - name: image_icon_9
+    name: card_9
+    properties: {background: '', col_spacing: medium, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', role: card, spacing_above: small, visible: false}
+    type: ColumnPanel
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_10
       properties: {height: 32}
       type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_17
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
       layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_58
+      name: label_19
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_59
       properties: {align: left}
       type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2_copy_8
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+      name: spacer_2_copy_9
       properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-    - name: label_1111_copy_8
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: right}
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      name: label_1111_copy_9
+      properties: {align: right, foreground: 'theme:Gray 600', text: 'Balance:'}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-    - name: label_18
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-  - name: card_10
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
-    type: ColumnPanel
+      name: label_20
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
     layout_properties: {grid_position: 'GDCJKQ,CDRZZU'}
-    components:
-    - name: image_icon_10
+    name: card_10
+    properties: {background: '', col_spacing: medium, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', role: card, spacing_above: small, visible: false}
+    type: ColumnPanel
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_11
       properties: {height: 32}
       type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_19
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
       layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_59
+      name: label_21
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_60
       properties: {align: left}
       type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2_copy_9
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+      name: spacer_2_copy_10
       properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-    - name: label_1111_copy_9
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: right}
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      name: label_1111_copy_10
+      properties: {align: right, foreground: 'theme:Gray 600', text: 'Balance:'}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-    - name: label_20
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-  - name: card_11
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
-    type: ColumnPanel
+      name: label_22
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
     layout_properties: {grid_position: 'GDCJKQ,MABJEQ'}
-    components:
-    - name: image_icon_11
+    name: card_11
+    properties: {background: '', col_spacing: medium, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', role: card, spacing_above: small, visible: false}
+    type: ColumnPanel
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_12
       properties: {height: 32}
       type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_21
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
       layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_60
+      name: label_23
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_61
       properties: {align: left}
       type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2_copy_10
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+      name: spacer_2_copy_11
       properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-    - name: label_1111_copy_10
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: right}
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      name: label_1111_copy_11
+      properties: {align: right, foreground: 'theme:Gray 600', text: 'Balance:'}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-    - name: label_22
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-  - name: card_12
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
-    type: ColumnPanel
+      name: label_24
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
     layout_properties: {grid_position: 'GDCJKQ,MQSCVP'}
-    components:
-    - name: image_icon_12
+    name: card_12
+    properties: {background: '', col_spacing: medium, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', role: card, spacing_above: small, visible: false}
+    type: ColumnPanel
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_13
       properties: {height: 32}
       type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_23
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
       layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_61
+      name: label_25
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_62
       properties: {align: left}
       type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2_copy_11
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+      name: spacer_2_copy_12
       properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-    - name: label_1111_copy_11
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: right}
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      name: label_1111_copy_12
+      properties: {align: right, foreground: 'theme:Gray 600', text: 'Balance:'}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-    - name: label_24
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-  - name: card_13
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
-    type: ColumnPanel
+      name: label_26
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
     layout_properties: {grid_position: 'OFOQVN,WFGCZB'}
-    components:
-    - name: image_icon_13
+    name: card_13
+    properties: {background: '', col_spacing: medium, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', role: card, spacing_above: small, visible: false}
+    type: ColumnPanel
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_14
       properties: {height: 32}
       type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_25
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
       layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_62
+      name: label_27
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_63
       properties: {align: left}
       type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2_copy_12
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+      name: spacer_2_copy_13
       properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-    - name: label_1111_copy_12
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: right}
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      name: label_1111_copy_13
+      properties: {align: right, foreground: 'theme:Gray 600', text: 'Balance:'}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-    - name: label_26
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-  - name: card_14
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
-    type: ColumnPanel
+      name: label_28
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
     layout_properties: {grid_position: 'OFOQVN,REWYCQ'}
-    components:
-    - name: image_icon_14
+    name: card_14
+    properties: {background: '', col_spacing: medium, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', role: card, spacing_above: small, visible: false}
+    type: ColumnPanel
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_15
       properties: {height: 32}
       type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_27
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
       layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_63
+      name: label_29
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_64
       properties: {align: left}
       type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2_copy_13
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+      name: spacer_2_copy_14
       properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-    - name: label_1111_copy_13
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: right}
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      name: label_1111_copy_14
+      properties: {align: right, foreground: 'theme:Gray 600', text: 'Balance:'}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-    - name: label_28
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-  - name: card_15
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
-    type: ColumnPanel
+      name: label_30
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
     layout_properties: {grid_position: 'OFOQVN,PHKIQS'}
-    components:
-    - name: image_icon_15
-      properties: {height: 32}
-      type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_29
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
-      layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_64
-      properties: {align: left}
-      type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2_copy_14
-      properties: {height: 1}
-      type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-    - name: label_1111_copy_14
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: right}
-      type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-    - name: label_30
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-  - name: card_16
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    name: card_15
+    properties: {background: '', col_spacing: medium, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', role: card, spacing_above: small, visible: false}
     type: ColumnPanel
-    layout_properties: {grid_position: 'OFOQVN,ONPXZT'}
-    components:
-    - name: image_icon_16
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      name: image_icon_16
       properties: {height: 32}
       type: Image
-      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-      data_bindings:
-      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-    - name: label_31
-      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''currency_type'']', property: text, writeback: false}
       layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-      data_bindings:
-      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-    - name: label_65
+      name: label_31
+      properties: {align: center, bold: true, font_size: 21, foreground: Black, spacing_above: none}
+      type: Label
+    - layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+      name: label_65
       properties: {align: left}
       type: Label
-      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-    - name: spacer_2_copy_15
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+      name: spacer_2_copy_15
       properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-    - name: label_1111_copy_15
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: right}
+    - layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      name: label_1111_copy_15
+      properties: {align: right, foreground: 'theme:Gray 600', text: 'Balance:'}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-    - name: label_32
-      properties: {font_size: 25, bold: true, align: left, foreground: Black}
-      type: Label
+    - data_bindings:
+      - {code: 'self.item[''balance'']', property: text, writeback: false}
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-      data_bindings:
-      - {property: text, code: 'self.item[''balance'']', writeback: false}
-- name: card_1000000
-  properties: {role: card, col_widths: '{"ANBAWP":30,"KVLCDS":30}'}
+      name: label_32
+      properties: {align: left, bold: true, font_size: 25, foreground: Black}
+      type: Label
+    layout_properties: {grid_position: 'OFOQVN,ONPXZT'}
+    name: card_16
+    properties: {background: '', col_spacing: medium, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40}', role: card, spacing_above: small, visible: false}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'MIFDUT,CITAZF'}
+  name: card_51
+  properties: {col_spacing: small, col_widths: '{"DBJTPO":15,"MMSYAM":15,"PYMPDI":15,"RQOUFI":15}', role: card}
   type: ColumnPanel
-  layout_properties: {grid_position: 'NCOQBU,HBWRGE'}
-  components:
-  - name: label_77777
-    properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Enter Amount:'}
+- components:
+  - layout_properties: {grid_position: 'YGRKRW,ANBAWP'}
+    name: label_77777
+    properties: {align: left, background: '', bold: true, border: '', font: '', font_size: 16, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'Enter Amount:', tooltip: '', underline: false, visible: true}
     type: Label
-    layout_properties: {grid_position: 'YGRKRW,ANBAWP'}
-  - name: text_box_2
-    properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: ''}
-    type: TextBox
+  - event_bindings: {}
     layout_properties: {grid_position: 'YGRKRW,KVLCDS'}
-    event_bindings: {}
-  - name: label_88888
-    properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Choose Bank Account:'}
+    name: text_box_2
+    properties: {align: left, background: white, bold: false, border: '', enabled: true, font: '', font_size: 18, foreground: '', hide_text: false, italic: false, placeholder: '', role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', type: number, underline: false, visible: true}
+    type: TextBox
+  - layout_properties: {grid_position: 'TOQYZL,CRVHNU'}
+    name: label_88888
+    properties: {align: left, background: '', bold: true, border: '', font: '', font_size: 16, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'Choose Bank Account:', tooltip: '', underline: false, visible: true}
     type: Label
-    layout_properties: {grid_position: 'TOQYZL,CRVHNU'}
-  - name: drop_down_1
+  - layout_properties: {grid_position: 'TOQYZL,HTZFWX'}
+    name: drop_down_1
     properties: {}
     type: DropDown
-    layout_properties: {grid_position: 'TOQYZL,HTZFWX'}
-  - name: label_8_copy
-    properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Choose Currency:'}
+  - layout_properties: {grid_position: 'ODQQUF,REKKFQ'}
+    name: label_8_copy
+    properties: {align: left, background: '', bold: true, border: '', font: '', font_size: 16, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'Choose Currency:', tooltip: '', underline: false, visible: true}
     type: Label
-    layout_properties: {grid_position: 'ODQQUF,REKKFQ'}
-  - name: drop_down_2
+  - layout_properties: {grid_position: 'ODQQUF,EDQKEX EWZXSC,WIUVYK'}
+    name: drop_down_2
     properties: {}
     type: DropDown
-    layout_properties: {grid_position: 'ODQQUF,EDQKEX EWZXSC,WIUVYK'}
-  - name: label_22222
+  - layout_properties: {grid_position: 'ODQQUF,EDQKEX BHSVHQ,GZZBOL'}
+    name: label_22222
     properties: {align: center}
     type: Label
-    layout_properties: {grid_position: 'ODQQUF,EDQKEX BHSVHQ,GZZBOL'}
-  - name: spacer_7
+  - layout_properties: {grid_position: 'WYJMRI,PLAGLW'}
+    name: spacer_7
     properties: {height: 40}
     type: Spacer
-    layout_properties: {grid_position: 'WYJMRI,PLAGLW'}
-  - name: button_1
-    properties: {role: filled-button, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Gray 50', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: Withdraw}
-    type: Button
+  - event_bindings: {click: button_1_click}
     layout_properties: {grid_position: 'ZQBEEF,BIUCSP'}
-    event_bindings: {click: button_1_click}
+    name: button_1
+    properties: {align: center, background: '#258ee1', bold: true, border: '', enabled: true, font: '', font_size: 18, foreground: 'theme:Gray 50', icon: '', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: Withdraw, tooltip: '', underline: false, visible: true}
+    type: Button
+  layout_properties: {grid_position: 'NCOQBU,HBWRGE'}
+  name: card_1000000
+  properties: {col_widths: '{"ANBAWP":30,"KVLCDS":30}', role: card}
+  type: ColumnPanel
+container:
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
 is_package: true

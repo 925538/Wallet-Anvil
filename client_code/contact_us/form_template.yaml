@@ -1,163 +1,163 @@
-is_package: true
-container:
-  type: HtmlTemplate
-  properties: {html: ''}
 components:
-- type: ColumnPanel
-  properties: {col_widths: '{}'}
-  name: content_panel
-  layout_properties: {slot: default}
-  components:
-  - name: navbar_link
-    properties: {background: 'theme:White'}
-    type: FlowPanel
-    layout_properties: {grid_position: 'SJGGKM,AKGFRX', full_width_row: true}
-    event_bindings: {}
-    components:
-    - name: xy_panel_6_copy
+- components:
+  - components:
+    - components:
+      - layout_properties: {width: 131.9500045776367, x: 76.45000152662396, y: 3.8374977111816406}
+        name: label_7_copy_2_copy_copy_copy
+        properties: {align: left, bold: true, font: '', font_size: 25, foreground: black, italic: false, text: 'G-Wallet         ', underline: false}
+        type: Label
+      - layout_properties: {width: 60.39999694824219, x: 0, y: 1.199993897229433}
+        name: image_1_copy_copy_copy_copy
+        properties: {background: white, border: '', display_mode: shrink_to_fit, foreground: '', height: 51.80000305175781, horizontal_align: right, role: null, source: _/theme/letter-g.png, spacing_above: small, spacing_below: small, tooltip: '', vertical_align: center, visible: true}
+        type: Image
+      - event_bindings: {click: about_us_click}
+        layout_properties: {width: 155.675048828125, x: 472.87499694898725, y: 10.237498093396425}
+        name: about_us
+        properties: {align: center, bold: true, font: '', font_size: 18, foreground: '', icon: 'fa:adn', text: About us}
+        type: Link
+      - event_bindings: {click: products_click}
+        layout_properties: {width: 133.13801220703124, x: 638.5500457771122, y: 10.549999237060547}
+        name: products
+        properties: {align: center, bold: true, font: '', font_size: 18, foreground: '', icon: 'fa:shopping-cart', text: Products}
+        type: Link
+      - event_bindings: {click: contact_click}
+        layout_properties: {width: 108.5880244140625, x: 789.7375457771122, y: 10.549999237060547}
+        name: contact_us
+        properties: {align: center, bold: true, font: '', font_size: 18, foreground: '', icon: 'fa:phone', text: Contact}
+        type: Link
+      - event_bindings: {click: help_click}
+        layout_properties: {width: 89.6500244140625, x: 921.0875213630497, y: 10.549999237060547}
+        name: help
+        properties: {align: center, bold: true, font: '', font_size: 18, foreground: '', icon: 'fa:question-circle', text: Help}
+        type: Link
+      - event_bindings: {click: home_click}
+        layout_properties: {width: 119.9000015258789, x: 344.1499908454716, y: 10.549999237060547}
+        name: home
+        properties: {align: center, bold: true, font: '', font_size: 18, foreground: '', icon: 'fa:home', text: Home}
+        type: Link
+      - event_bindings: {click: button_4_click}
+        layout_properties: {width: 101, x: 1245.2874725349247, y: 5.412506867200136}
+        name: button_4
+        properties: {background: 'theme:Primary 500', bold: true, font_size: 16, foreground: 'theme:White', text: 'Login '}
+        type: Button
+      layout_properties: {width: 1356.599951171875}
+      name: xy_panel_6_copy
       properties: {height: 55.55555725097656}
       type: XYPanel
-      layout_properties: {width: 1356.599951171875}
-      components:
-      - name: label_7_copy_2_copy_copy_copy
-        properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true, font: '', italic: false, underline: false, foreground: black}
-        type: Label
-        layout_properties: {x: 76.45000152662396, y: 3.8374977111816406, width: 131.9500045776367}
-      - name: image_1_copy_copy_copy_copy
-        properties: {role: null, vertical_align: center, spacing_above: small, background: white, horizontal_align: right, source: _/theme/letter-g.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 51.80000305175781}
-        type: Image
-        layout_properties: {x: 0, y: 1.199993897229433, width: 60.39999694824219}
-      - name: about_us
-        properties: {text: About us, foreground: '', bold: true, icon: 'fa:adn', font_size: 18, font: '', align: center}
-        type: Link
-        layout_properties: {x: 472.87499694898725, y: 10.237498093396425, width: 155.675048828125}
-        event_bindings: {click: about_us_click}
-      - name: products
-        properties: {text: Products, icon: 'fa:shopping-cart', foreground: '', bold: true, font_size: 18, font: '', align: center}
-        type: Link
-        layout_properties: {x: 638.5500457771122, y: 10.549999237060547, width: 133.13801220703124}
-        event_bindings: {click: products_click}
-      - name: contact_us
-        properties: {text: Contact, bold: true, foreground: '', icon: 'fa:phone', font_size: 18, font: '', align: center}
-        type: Link
-        layout_properties: {x: 789.7375457771122, y: 10.549999237060547, width: 108.5880244140625}
-        event_bindings: {click: contact_click}
-      - name: help
-        properties: {text: Help, bold: true, foreground: '', icon: 'fa:question-circle', font_size: 18, font: '', align: center}
-        type: Link
-        layout_properties: {x: 921.0875213630497, y: 10.549999237060547, width: 89.6500244140625}
-        event_bindings: {click: help_click}
-      - name: home
-        properties: {text: Home, icon: 'fa:home', foreground: '', bold: true, font: '', font_size: 18, align: center}
-        type: Link
-        layout_properties: {x: 344.1499908454716, y: 10.549999237060547, width: 119.9000015258789}
-        event_bindings: {click: home_click}
-      - name: button_4
-        properties: {text: 'Login ', background: 'theme:Primary 500', foreground: 'theme:White', bold: true, font_size: 16}
-        type: Button
-        layout_properties: {x: 1245.2874725349247, y: 5.412506867200136, width: 101}
-        event_bindings: {click: button_4_click}
-- type: ColumnPanel
-  properties: {col_widths: '{}'}
-  name: column_panel_1
+    event_bindings: {}
+    layout_properties: {full_width_row: true, grid_position: 'SJGGKM,AKGFRX'}
+    name: navbar_link
+    properties: {background: 'theme:White'}
+    type: FlowPanel
   layout_properties: {slot: default}
-  components:
-  - type: ColumnPanel
-    properties: {role: null, col_widths: '{}', spacing_above: none, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
-    name: column_panel_2_copy
-    layout_properties: {grid_position: 'WIIKUA,PLWBIY', full_width_row: true, row_background: 'theme:Primary 500'}
-    components:
-    - name: label_1_copy
-      properties: {role: display-4, bold: true, align: center, spacing_above: none, background: 'theme:Primary 500', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: none, visible: true, border: '', italic: false, font_size: 42, tooltip: '', text: '    Contact Customer Support'}
+  name: content_panel
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
+- components:
+  - components:
+    - layout_properties: {grid_position: 'IJYRED,FUQZVZ'}
+      name: label_1_copy
+      properties: {align: center, background: 'theme:Primary 500', bold: true, border: '', font: '', font_size: 42, foreground: 'theme:White', icon: '', icon_align: left, italic: false, role: display-4, spacing_above: none, spacing_below: none, text: '    Contact Customer Support', tooltip: '', underline: false, visible: true}
       type: Label
-      layout_properties: {grid_position: 'IJYRED,FUQZVZ'}
-  - type: Label
-    properties: {role: null, bold: false, align: left, spacing_above: large, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Primary 500', spacing_below: large, visible: true, border: '', italic: false, font_size: 30, tooltip: '', text: 'What can we help you with?'}
+    layout_properties: {full_width_row: true, grid_position: 'WIIKUA,PLWBIY', row_background: 'theme:Primary 500'}
+    name: column_panel_2_copy
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: null, spacing_above: none, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'NHVAKV,AKRUNX', slot: default}
     name: label_2
-    layout_properties: {slot: default, grid_position: 'NHVAKV,AKRUNX'}
-  - type: ColumnPanel
-    properties: {role: null, col_widths: '{"MUVERZ":16,"NYZHZG":13,"AJGGQA":17}', spacing_above: small, background: 'theme:White', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
-    name: button_card
-    layout_properties: {grid_position: 'GVRXVV,FLCFZL'}
-    components:
-    - type: Button
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: 30, foreground: 'theme:Primary 500', icon: '', icon_align: left, italic: false, role: null, spacing_above: large, spacing_below: large, text: 'What can we help you with?', tooltip: '', underline: false, visible: true}
+    type: Label
+  - components:
+    - event_bindings: {click: button_1_click}
+      layout_properties: {grid_position: 'CWVVFE,MUVERZ', slot: default}
+      name: button_1
       properties:
-        role: raised
-        bold: true
         align: center
-        spacing_above: small
         background: '#efeff0'
-        icon: ''
-        underline: false
-        font: ''
-        icon_align: left
-        foreground: theme:Primary 700
-        spacing_below: small
-        visible: true
+        bold: true
         border: ''
-        italic: false
         enabled: true
+        font: ''
         font_size: 16
-        tooltip: ''
+        foreground: theme:Primary 700
+        icon: ''
+        icon_align: left
+        italic: false
+        role: raised
+        spacing_above: small
+        spacing_below: small
         text: |
           Password And Account Access
-      name: button_1
-      layout_properties: {grid_position: 'CWVVFE,MUVERZ', slot: default}
-      event_bindings: {click: button_1_click}
-    - type: Button
-      properties:
-        role: raised
-        bold: true
-        align: center
-        spacing_above: small
-        background: '#efeff0'
-        icon: ''
-        underline: false
-        font: ''
-        icon_align: left
-        foreground: theme:Primary 700
-        spacing_below: small
-        visible: true
-        border: ''
-        italic: false
-        enabled: true
-        font_size: 16
         tooltip: ''
-        text: "      Account profile and setup     \n"
-      name: button_3
+        underline: false
+        visible: true
+      type: Button
+    - event_bindings: {show: button_3_show}
       layout_properties: {grid_position: 'CWVVFE,AJGGQA', slot: default}
-      event_bindings: {show: button_3_show}
-    - type: Button
-      properties: {role: raised, bold: true, align: center, spacing_above: small, background: '#efeff0', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Primary 700', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 16, tooltip: '', text: '    Transaction Issue  '}
-      name: button_6
-      layout_properties: {grid_position: 'CWVVFE,NYZHZG'}
-      event_bindings: {click: button_6_click}
-    - type: Button
+      name: button_3
       properties:
-        role: raised
-        bold: true
         align: center
-        spacing_above: small
         background: '#efeff0'
-        icon: ''
-        underline: false
-        font: ''
-        icon_align: left
-        foreground: theme:Primary 700
-        spacing_below: small
-        visible: true
+        bold: true
         border: ''
-        italic: false
         enabled: true
+        font: ''
         font_size: 16
+        foreground: theme:Primary 700
+        icon: ''
+        icon_align: left
+        italic: false
+        role: raised
+        spacing_above: small
+        spacing_below: small
+        text: "      Account profile and setup     \n"
         tooltip: ''
-        text: "            App Issue               \n        "
-      name: button_5
+        underline: false
+        visible: true
+      type: Button
+    - event_bindings: {click: button_6_click}
+      layout_properties: {grid_position: 'CWVVFE,NYZHZG'}
+      name: button_6
+      properties: {align: center, background: '#efeff0', bold: true, border: '', enabled: true, font: '', font_size: 16, foreground: 'theme:Primary 700', icon: '', icon_align: left, italic: false, role: raised, spacing_above: small, spacing_below: small, text: '    Transaction Issue  ', tooltip: '', underline: false, visible: true}
+      type: Button
+    - event_bindings: {click: button_5_click}
       layout_properties: {grid_position: 'CWVVFE,YJCTKE'}
-      event_bindings: {click: button_5_click}
+      name: button_5
+      properties:
+        align: center
+        background: '#efeff0'
+        bold: true
+        border: ''
+        enabled: true
+        font: ''
+        font_size: 16
+        foreground: theme:Primary 700
+        icon: ''
+        icon_align: left
+        italic: false
+        role: raised
+        spacing_above: small
+        spacing_below: small
+        text: "            App Issue               \n        "
+        tooltip: ''
+        underline: false
+        visible: true
+      type: Button
     data_bindings: []
-- type: ColumnPanel
-  properties: {role: card, col_widths: '{}'}
+    layout_properties: {grid_position: 'GVRXVV,FLCFZL'}
+    name: button_card
+    properties: {background: 'theme:White', border: '', col_spacing: medium, col_widths: '{"MUVERZ":16,"NYZHZG":13,"AJGGQA":17}', foreground: '', role: null, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
+  layout_properties: {slot: default}
+  name: column_panel_1
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
+- components: []
+  layout_properties: {grid_position: 'TRWXZR,HKXJAI', slot: default}
   name: card
-  layout_properties: {slot: default, grid_position: 'TRWXZR,HKXJAI'}
-  components: []
+  properties: {col_widths: '{}', role: card}
+  type: ColumnPanel
+container:
+  properties: {html: ''}
+  type: HtmlTemplate
+is_package: true

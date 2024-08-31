@@ -1,57 +1,57 @@
-container:
-  type: ColumnPanel
-  properties: {background: ''}
 components:
-- name: card_1
-  properties: {role: null, col_widths: '{"AZRTEL":38,"CXGDGX":20,"MRRLHD":40}'}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'ZZBMDI,IEVVAD', full_width_row: true}
-  components:
-  - name: label_1_copy_2
+- components:
+  - layout_properties: {full_width_row: true, grid_position: 'QEBZVE,MSOYSW'}
+    name: label_1_copy_2
     type: Label
-    layout_properties: {grid_position: 'QEBZVE,MSOYSW', full_width_row: true}
-  - name: spacer_4
+  - layout_properties: {grid_position: 'FAENOV,UCXCTF'}
+    name: spacer_4
     properties: {height: 39}
     type: Spacer
-    layout_properties: {grid_position: 'FAENOV,UCXCTF'}
-  - name: label_3
-    properties: {text: 'Set Transaction Limit:', align: right, bold: true, font_size: 15, spacing_below: medium, spacing_above: medium}
+  - layout_properties: {grid_position: 'WJMMJE,CXGDGX JFMAHG,SZMMQW'}
+    name: label_3
+    properties: {align: right, bold: true, font_size: 15, spacing_above: medium, spacing_below: medium, text: 'Set Transaction Limit:'}
     type: Label
-    layout_properties: {grid_position: 'WJMMJE,CXGDGX JFMAHG,SZMMQW'}
-  - name: label_4_copy
-    properties: {text: '                                     Limit Type:', align: right, bold: true, font_size: 15}
+  - layout_properties: {grid_position: 'WJMMJE,CXGDGX SQUZDY,ORLUPI'}
+    name: label_4_copy
+    properties: {align: right, bold: true, font_size: 15, text: '                                     Limit Type:'}
     type: Label
-    layout_properties: {grid_position: 'WJMMJE,CXGDGX SQUZDY,ORLUPI'}
-  - name: text_box_1
-    properties: {placeholder: Enter the amount, bold: false, align: center}
+  - event_bindings: {change: text_box_1_change, pressed_enter: text_box_1_pressed_enter}
+    layout_properties: {full_width_row: true, grid_position: 'WJMMJE,MRRLHD OSIYOX,TKTVKR'}
+    name: text_box_1
+    properties: {align: center, bold: false, placeholder: Enter the amount}
     type: TextBox
-    layout_properties: {grid_position: 'WJMMJE,MRRLHD OSIYOX,TKTVKR', full_width_row: true}
-    event_bindings: {pressed_enter: text_box_1_pressed_enter, change: text_box_1_change}
-  - name: drop_down_2
+  - event_bindings: {change: drop_down_2_change, show: drop_down_2_show}
+    layout_properties: {grid_position: 'WJMMJE,MRRLHD YXIHXF,EWLESH'}
+    name: drop_down_2
     properties: {align: full}
     type: DropDown
-    layout_properties: {grid_position: 'WJMMJE,MRRLHD YXIHXF,EWLESH'}
-    event_bindings: {change: drop_down_2_change, show: drop_down_2_show}
-  - name: spacer_2
+  - layout_properties: {grid_position: ''}
+    name: spacer_2
     properties: {height: 34.444427490234375}
     type: Spacer
-    layout_properties: {grid_position: ''}
-  - name: primary_color_1
-    properties: {text: Proceed, role: primary-color, align: center, font_size: 14}
-    type: Button
+  - event_bindings: {click: primary_color_1_click}
     layout_properties: {grid_position: 'HNRVIR,AZRTEL'}
-    event_bindings: {click: primary_color_1_click}
-  - name: spacer_3
+    name: primary_color_1
+    properties: {align: center, font_size: 14, role: primary-color, text: Proceed}
+    type: Button
+  - layout_properties: {grid_position: 'HFXHKQ,MIDLMR'}
+    name: spacer_3
     properties: {height: 30.79998779296875}
     type: Spacer
-    layout_properties: {grid_position: 'HFXHKQ,MIDLMR'}
-  - name: primary_color_2
-    properties: {text: BACK, role: primary-color, icon: 'fa:angle-double-left', align: center}
-    type: Button
+  - event_bindings: {click: primary_color_2_click}
     layout_properties: {grid_position: 'JTZRUX,BYDLCQ'}
-    event_bindings: {click: primary_color_2_click}
-  - name: spacer_1
+    name: primary_color_2
+    properties: {align: center, icon: 'fa:angle-double-left', role: primary-color, text: BACK}
+    type: Button
+  - layout_properties: {grid_position: 'CKWJKG,FEJTRM'}
+    name: spacer_1
     properties: {height: 73.5999755859375}
     type: Spacer
-    layout_properties: {grid_position: 'CKWJKG,FEJTRM'}
+  layout_properties: {full_width_row: true, grid_position: 'ZZBMDI,IEVVAD'}
+  name: card_1
+  properties: {col_widths: '{"AZRTEL":38,"CXGDGX":20,"MRRLHD":40}', role: null}
+  type: ColumnPanel
+container:
+  properties: {background: ''}
+  type: ColumnPanel
 is_package: true

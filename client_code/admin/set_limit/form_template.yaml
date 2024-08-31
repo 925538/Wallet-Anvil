@@ -1,91 +1,91 @@
-is_package: true
-container:
-  type: HtmlTemplate
-  properties: {html: ''}
 components:
-- type: ColumnPanel
-  properties: {col_widths: '{"DSNYMP":9,"DSAIPM":51,"YVDCNC":25,"ZREPJQ":35,"YTNBFI":25,"CCXPXO":35,"FPHDYK":20,"RNZDBW":20,"VYEZSZ":5,"ZVKGMG":55,"ZUFYPY":5,"JAWOZZ":55}'}
-  name: content_panel
-  layout_properties: {slot: default}
-  components:
-  - name: label_1_copy_2
-    properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: Set Users Limit}
+- components:
+  - layout_properties: {full_width_row: true, grid_position: 'FNZDUH,YSLZLT'}
+    name: label_1_copy_2
+    properties: {align: center, background: '#258ee1', bold: true, border: '', font: '', font_size: 25, foreground: white, icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Set Users Limit, tooltip: '', underline: false, visible: true}
     type: Label
-    layout_properties: {grid_position: 'FNZDUH,YSLZLT', full_width_row: true}
-  - name: link_5_copy
-    properties: {text: '', align: center, bold: true}
-    type: Link
-    layout_properties: {grid_position: 'OFFDQF,DSNYMP', full_width_row: true}
-    event_bindings: {click: link_5_click}
-    components:
-    - name: xy_panel_7_copy
+  - components:
+    - components:
+      - layout_properties: {width: 60.212917822265624, x: 77.75000254437327, y: 0}
+        name: label_3_copy_4_copy
+        properties: {font_size: 18, text: Back}
+        type: Label
+      - layout_properties: {width: 39.8727, x: 27.87035725097656, y: 2.372700000000009}
+        name: image_4_copy_5_copy
+        properties: {alt_text: '', background: '', border: '', display_mode: shrink_to_fit, foreground: '', height: 39.33332824707031, horizontal_align: center, role: null, source: _/theme/th (3).jfif, spacing_above: small, spacing_below: small, tooltip: '', vertical_align: center, visible: true}
+        type: Image
+      layout_properties: {full_width_row: false, grid_position: 'QIZNTB,ORSKYD'}
+      name: xy_panel_7_copy
       properties: {height: 49.33331298828125}
       type: XYPanel
-      layout_properties: {grid_position: 'QIZNTB,ORSKYD', full_width_row: false}
-      components:
-      - name: label_3_copy_4_copy
-        properties: {text: Back, font_size: 18}
-        type: Label
-        layout_properties: {x: 77.75000254437327, y: 0, width: 60.212917822265624}
-      - name: image_4_copy_5_copy
-        properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/th (3).jfif, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 39.33332824707031}
-        type: Image
-        layout_properties: {x: 27.87035725097656, y: 2.372700000000009, width: 39.8727}
-  - name: spacer_3
+    event_bindings: {click: link_5_click}
+    layout_properties: {full_width_row: true, grid_position: 'OFFDQF,DSNYMP'}
+    name: link_5_copy
+    properties: {align: center, bold: true, text: ''}
+    type: Link
+  - layout_properties: {grid_position: 'OFFDQF,DSAIPM NQBFWT,BPZTOL'}
+    name: spacer_3
     properties: {height: 102.66665649414062}
     type: Spacer
-    layout_properties: {grid_position: 'OFFDQF,DSAIPM NQBFWT,BPZTOL'}
-  - name: label_4_copy
-    properties: {text: '                                     Limit Type:', align: right, bold: true, font_size: 15}
+  - layout_properties: {grid_position: 'OFFDQF,DSAIPM BEYNVL,YVDCNC'}
+    name: label_4_copy
+    properties: {align: right, bold: true, font_size: 15, text: '                                     Limit Type:'}
     type: Label
-    layout_properties: {grid_position: 'OFFDQF,DSAIPM BEYNVL,YVDCNC'}
-  - name: spacer_8
+  - layout_properties: {grid_position: 'OFFDQF,DSAIPM BEYNVL,ZREPJQ SHTUSA,ZUFYPY'}
+    name: spacer_8
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'OFFDQF,DSAIPM BEYNVL,ZREPJQ SHTUSA,ZUFYPY'}
-  - name: text_box_1
-    properties: {placeholder: Enter the amount, bold: false, align: center}
+  - layout_properties: {grid_position: 'OFFDQF,DSAIPM BEYNVL,ZREPJQ SHTUSA,JAWOZZ'}
+    name: text_box_1
+    properties: {align: center, bold: false, placeholder: Enter the amount}
     type: TextBox
-    layout_properties: {grid_position: 'OFFDQF,DSAIPM BEYNVL,ZREPJQ SHTUSA,JAWOZZ'}
-  - name: spacer_5
+  - layout_properties: {grid_position: 'OFFDQF,DSAIPM BEYNVL,FPHDYK'}
+    name: spacer_5
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'OFFDQF,DSAIPM BEYNVL,FPHDYK'}
-  - name: label_3
-    properties: {text: 'Set Transaction Limit:', align: right, bold: true, font_size: 15}
+  - layout_properties: {grid_position: 'OFFDQF,DSAIPM WLIOHO,YTNBFI'}
+    name: label_3
+    properties: {align: right, bold: true, font_size: 15, text: 'Set Transaction Limit:'}
     type: Label
-    layout_properties: {grid_position: 'OFFDQF,DSAIPM WLIOHO,YTNBFI'}
-  - name: spacer_7
+  - layout_properties: {grid_position: 'OFFDQF,DSAIPM WLIOHO,CCXPXO MXVZMP,VYEZSZ'}
+    name: spacer_7
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'OFFDQF,DSAIPM WLIOHO,CCXPXO MXVZMP,VYEZSZ'}
-  - name: drop_down_2
+  - event_bindings: {change: drop_down_2_change, show: drop_down_2_show}
+    layout_properties: {full_width_row: true, grid_position: 'OFFDQF,DSAIPM WLIOHO,CCXPXO MXVZMP,ZVKGMG'}
+    name: drop_down_2
     properties:
       align: full
+      border: ''
       items: [Daily, Monthly]
       placeholder: Select lLmit Type
-      border: ''
     type: DropDown
-    layout_properties: {grid_position: 'OFFDQF,DSAIPM WLIOHO,CCXPXO MXVZMP,ZVKGMG', full_width_row: true}
-    event_bindings: {change: drop_down_2_change, show: drop_down_2_show}
-  - name: spacer_6
+  - layout_properties: {grid_position: 'OFFDQF,DSAIPM WLIOHO,RNZDBW'}
+    name: spacer_6
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'OFFDQF,DSAIPM WLIOHO,RNZDBW'}
-  - name: spacer_1
+  - layout_properties: {grid_position: 'OFFDQF,DSAIPM'}
+    name: spacer_1
     properties: {height: 32}
     type: Spacer
+  - event_bindings: {click: primary_color_1_click}
     layout_properties: {grid_position: 'OFFDQF,DSAIPM'}
-  - name: primary_color_1
-    properties: {text: Proceed, role: primary-color, align: center, font_size: 14}
+    name: primary_color_1
+    properties: {align: center, font_size: 14, role: primary-color, text: Proceed}
     type: Button
-    layout_properties: {grid_position: 'OFFDQF,DSAIPM'}
-    event_bindings: {click: primary_color_1_click}
-  - name: spacer_2
+  - layout_properties: {grid_position: 'OFFDQF,DSAIPM'}
+    name: spacer_2
     properties: {height: 51.5}
     type: Spacer
-    layout_properties: {grid_position: 'OFFDQF,DSAIPM'}
-  - name: spacer_4
+  - layout_properties: {grid_position: 'OFFDQF,DSAIPM'}
+    name: spacer_4
     properties: {height: 49.25}
     type: Spacer
-    layout_properties: {grid_position: 'OFFDQF,DSAIPM'}
+  layout_properties: {slot: default}
+  name: content_panel
+  properties: {col_widths: '{"DSNYMP":9,"DSAIPM":51,"YVDCNC":25,"ZREPJQ":35,"YTNBFI":25,"CCXPXO":35,"FPHDYK":20,"RNZDBW":20,"VYEZSZ":5,"ZVKGMG":55,"ZUFYPY":5,"JAWOZZ":55}'}
+  type: ColumnPanel
+container:
+  properties: {html: ''}
+  type: HtmlTemplate
+is_package: true

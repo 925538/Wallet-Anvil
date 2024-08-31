@@ -1,68 +1,68 @@
-is_package: true
-container: {type: ColumnPanel}
 components:
-- name: column_panel_1
-  properties: {col_widths: '{"VWSERB":35,"FAMXTL":2,"LMTOHZ":16,"KFIDNM":2,"GSPQQF":13,"VBJHAI":10,"CDXITN":20,"WOPLRS":5,"NDLVAH":25,"WPFTRH":50,"AAMMLL":10}', background: '#efeff0'}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'AWMMYK,AJBDIX'}
-  components:
-  - name: spacer_5_copy
+- components:
+  - layout_properties: {grid_position: 'BFVCON,VWSERB RGKZUB,VBJHAI HKCOTJ,GEUFWN'}
+    name: spacer_5_copy
     properties: {height: 3.75238037109375}
     type: Spacer
-    layout_properties: {grid_position: 'BFVCON,VWSERB RGKZUB,VBJHAI HKCOTJ,GEUFWN'}
-  - name: image_1
+  - layout_properties: {grid_position: 'BFVCON,VWSERB RGKZUB,VBJHAI BNFDWE,YCAGHT'}
+    name: image_1
     properties: {height: 50.630889892578125, source: _/theme/account.png}
     type: Image
-    layout_properties: {grid_position: 'BFVCON,VWSERB RGKZUB,VBJHAI BNFDWE,YCAGHT'}
-  - name: spacer_5
+  - layout_properties: {grid_position: 'BFVCON,VWSERB RGKZUB,CDXITN NBCJWB,DHRPDV'}
+    name: spacer_5
     properties: {height: 7.58416748046875}
     type: Spacer
-    layout_properties: {grid_position: 'BFVCON,VWSERB RGKZUB,CDXITN NBCJWB,DHRPDV'}
-  - name: label_1
+  - layout_properties: {grid_position: 'BFVCON,VWSERB RGKZUB,CDXITN VPIBQI,VVSHWN'}
+    name: label_1
     properties: {bold: true, font_size: 15, foreground: bl}
     type: Label
-    layout_properties: {grid_position: 'BFVCON,VWSERB RGKZUB,CDXITN VPIBQI,VVSHWN'}
-  - name: spacer_1
+  - layout_properties: {grid_position: 'BFVCON,VWSERB RGKZUB,WOPLRS'}
+    name: spacer_1
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'BFVCON,VWSERB RGKZUB,WOPLRS'}
-  - name: label_2
+  - layout_properties: {grid_position: 'BFVCON,VWSERB RGKZUB,NDLVAH CFXCUP,VROCJU'}
+    name: label_2
     properties: {align: left, bold: true, font_size: 15, spacing_below: none}
     type: Label
-    layout_properties: {grid_position: 'BFVCON,VWSERB RGKZUB,NDLVAH CFXCUP,VROCJU'}
-  - name: spacer_2
+  - layout_properties: {grid_position: 'BFVCON,FAMXTL'}
+    name: spacer_2
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'BFVCON,FAMXTL'}
-  - name: label_5
+  - layout_properties: {grid_position: 'BFVCON,VWSERB RGKZUB,NDLVAH QNNGUP,WYBSUC'}
+    name: label_5
     properties: {align: left, bold: true, font_size: 12, spacing_above: none}
     type: Label
-    layout_properties: {grid_position: 'BFVCON,VWSERB RGKZUB,NDLVAH QNNGUP,WYBSUC'}
-  - name: spacer_5_copy_2
+  - layout_properties: {grid_position: 'BFVCON,LMTOHZ JDQWFZ,PZHFYB'}
+    name: spacer_5_copy_2
     properties: {height: 7.58416748046875}
     type: Spacer
-    layout_properties: {grid_position: 'BFVCON,LMTOHZ JDQWFZ,PZHFYB'}
-  - name: label_3
+  - layout_properties: {grid_position: 'BFVCON,LMTOHZ SUBFHF,MCUWND'}
+    name: label_3
     properties: {align: center, bold: true, font_size: 15}
     type: Label
-    layout_properties: {grid_position: 'BFVCON,LMTOHZ SUBFHF,MCUWND'}
-  - name: spacer_3
+  - layout_properties: {grid_position: 'BFVCON,KFIDNM'}
+    name: spacer_3
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'BFVCON,KFIDNM'}
-  - name: spacer_5_copy_3
+  - layout_properties: {grid_position: 'BFVCON,GSPQQF GCHBHN,ADDDTG'}
+    name: spacer_5_copy_3
     properties: {height: 7.58416748046875}
     type: Spacer
-    layout_properties: {grid_position: 'BFVCON,GSPQQF GCHBHN,ADDDTG'}
-  - name: label_4
+  - layout_properties: {grid_position: 'BFVCON,GSPQQF GPBIQI,WPFTRH'}
+    name: label_4
     properties: {align: center, bold: true, font_size: 15}
     type: Label
-    layout_properties: {grid_position: 'BFVCON,GSPQQF GPBIQI,WPFTRH'}
-  - name: spacer_6
+  - layout_properties: {grid_position: 'BFVCON,GSPQQF GPBIQI,AAMMLL'}
+    name: spacer_6
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'BFVCON,GSPQQF GPBIQI,AAMMLL'}
-- name: spacer_4
+  layout_properties: {grid_position: 'AWMMYK,AJBDIX'}
+  name: column_panel_1
+  properties: {background: '#efeff0', col_widths: '{"VWSERB":35,"FAMXTL":2,"LMTOHZ":16,"KFIDNM":2,"GSPQQF":13,"VBJHAI":10,"CDXITN":20,"WOPLRS":5,"NDLVAH":25,"WPFTRH":50,"AAMMLL":10}'}
+  type: ColumnPanel
+- layout_properties: {grid_position: 'EOQHQJ,CZGSAI'}
+  name: spacer_4
   properties: {height: 7.81781005859375}
   type: Spacer
-  layout_properties: {grid_position: 'EOQHQJ,CZGSAI'}
+container: {type: ColumnPanel}
+is_package: true

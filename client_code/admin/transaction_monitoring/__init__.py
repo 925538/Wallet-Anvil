@@ -15,7 +15,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
         # Set Form properties and Data Bindings.
       self.init_components(**properties)
       self.user = user
-      self.label_1.text=self.user['users_username']
+      self.label_1.text=self.user['user_fullname']
       
       self.link11_clicked = True
       self.link12_clicked = False
@@ -38,186 +38,112 @@ class transaction_monitoring(transaction_monitoringTemplate):
       """This method is called when the selected date changes"""
       print(self.date_picker_2.date)
       self.date_filter()
-  
-      
     def all_transactions(self):
-      items = anvil.server.call('get_wallet_transactions')
-      self.grouped_transactions = {}
-      print('yes')
-      if items:
-        for item in items:
-            print('yes1')
-            # Extract date in YYYY-MM-DD format without time
-            date_str = item['users_transaction_date'].strftime("%Y-%m-%d")
-            if date_str not in self.grouped_transactions:
-                self.grouped_transactions[date_str] = {'date': item['users_transaction_date'], 'transactions': []}
-            self.grouped_transactions[date_str]['transactions'].append(item)
-      else:
-        return
-  
-      # Sort dates in descending order
-      sorted_dates = sorted(self.grouped_transactions.keys(), reverse=True)
-  
-      # Create a list of dictionaries for repeating_panel_1
-      # repeating_panel_items = []
-      for date_str in sorted_dates:
-          date_info = self.grouped_transactions[date_str]
-          for transaction in reversed(date_info['transactions']):
-              sender_phone=transaction['users_transaction_phone']
-              sender_type=transaction['users_transaction_type']
-              fund = transaction['users_transaction_fund']
-              # transaction_type = transaction['users_transaction_type']
-              # transaction_type=''
-              # if sender_type=='Debit':
-              #   transaction_type='Debit'
-              # elif transaction['users_transaction_receiver_phone'] == current_user and transaction['users_transaction_receiver_type']=='Credit':
-              #   transaction_type='Credit' 
-              # elif transaction['users_transaction_phone'] == current_user and transaction['users_transaction_type']=='Withdrawn':
-              #   transaction_type='Withdrawn'
-              # elif transaction['users_transaction_phone'] == current_user and transaction['users_transaction_type']=='Deposited':
-              #   transaction_type='Deposited'
-              # elif transaction['users_transaction_phone'] == current_user and transaction['users_transaction_type']=='Auto Topup':
-              #   transaction_type='Auto Topup'
-                
-              transaction_time = transaction['users_transaction_date'].strftime("%I:%M %p")
-              profile_pic = '_/theme/account.png'
+        try:
+            # Fetch transactions from the server
+            items = anvil.server.call('get_wallet_transactions')
+            self.grouped_transactions = {}
             
-              if sender_type == 'Withdrawn' or sender_type == 'Deposited' or sender_type == 'Auto Topup':
-                sent_userr = app_tables.wallet_users.get(users_phone=sender_phone)
-                if sent_userr:
-                  if sent_userr['users_profile_pic'] is not None:
-                    profile_pic = sent_userr['users_profile_pic'] 
-                  else:
-                    profile_pic = '_/theme/account.png'
-                    
-              # if  transaction_type == 'Credit' : 
-              #   trans_user = app_tables.wallet_users.get(users_phone = current_user)
-              #   if trans_user :
-              #     if trans_user['users_profile_pic'] is not None:
-              #       profile_pic = trans_user['users_profile_pic'] 
-              #     else:
-              #       profile_pic = '_/theme/account.png'
-
-              if sender_type == 'Debit':
-                trans_user = app_tables.wallet_users.get(users_phone = sender_phone)
-                if trans_user :
-                  if trans_user['users_profile_pic'] is not None:
-                    profile_pic = trans_user['users_profile_pic'] 
-                  else:
-                    profile_pic = '_/theme/account.png'
-              # Fetch username from wallet_user table using receiver_phone
-              sent_username=''
-              if  sender_type == 'Debit' : 
-                  _user = app_tables.wallet_users.get(users_phone=sender_phone)
-                  sent_username = _user['users_username']
-              # elif (transaction['users_transaction_receiver_phone']==current_user and transaction['users_transaction_receiver_type'] == 'Credit') :
-              #     receiver_user = app_tables.wallet_users.get(users_phone=transaction['users_transaction_phone'])
-              #     receiver_username = receiver_user['users_username']
-              else:
-                  _user = app_tables.wallet_users.get(users_phone=sender_phone)
-                  sent_username = _user['users_username']
-              
-              if sender_type == 'Deposited' or sender_type == 'Auto Topup': # transaction_type == 'Credit' or transaction_type
-                  fund_display = "+" + str(fund)
-                  fund_color = "green"
-              elif sender_type == 'Debit' or sender_type == 'Withdrawn':
-                  fund_display = "-" + str(fund)
-                  fund_color = "red"
-              else:
-                  fund_display = str(fund)
-                  fund_color = "black"
-              
-              # Append transaction details with username instead of receiver_phone
-              self.repeating_panel_items.append({'date': date_info['date'].strftime("%Y-%m-%d"),
-                                              'fund': fund_display,
-                                              'transaction_status': transaction['users_transaction_status'],
-                                              'transaction_type':transaction['users_transaction_type'],
-                                              'receiver_username': sent_username,
-                                              'currency_type':transaction['users_transaction_currency'],
-                                              'transaction_time':transaction_time,
-                                              'profile_pic':profile_pic,
-                                              'fund_color': fund_color})
-
-
-      #for credits
-              
-              receiver=transaction['users_transaction_receiver_phone']
-              receiver_type=transaction['users_transaction_receiver_type']
-              # sender_phone=transaction['users_transaction_phone']
-              # sender_type=transaction['users_transaction_type']
-              # fund = transaction['users_transaction_fund']
-              # transaction_type = transaction['users_transaction_type']
-              # transaction_type=''
-              # if sender_type=='Debit':
-              #   transaction_type='Debit'
-              # elif transaction['users_transaction_receiver_phone'] == current_user and transaction['users_transaction_receiver_type']=='Credit':
-              #   transaction_type='Credit' 
-              # elif transaction['users_transaction_phone'] == current_user and transaction['users_transaction_type']=='Withdrawn':
-              #   transaction_type='Withdrawn'
-              # elif transaction['users_transaction_phone'] == current_user and transaction['users_transaction_type']=='Deposited':
-              #   transaction_type='Deposited'
-              # elif transaction['users_transaction_phone'] == current_user and transaction['users_transaction_type']=='Auto Topup':
-              #   transaction_type='Auto Topup'
-                
-              # receiver_phone = transaction['users_transaction_receiver_phone']
-              # transaction_time = transaction['users_transaction_date'].strftime("%I:%M %p")
-              # profile_pic = '_/theme/account.png'
+            if items:
+                for item in items:
+                    # Extract date in YYYY-MM-DD format without time
+                    date_str = item['transaction_timestamp'].strftime("%Y-%m-%d")
+                    if date_str not in self.grouped_transactions:
+                        self.grouped_transactions[date_str] = {'date': item['transaction_timestamp'], 'transactions': []}
+                    self.grouped_transactions[date_str]['transactions'].append(item)
+            else:
+                return
             
-              # if sender_type == 'Withdrawn' or sender_type == 'Deposited' or sender_type == 'Auto Topup':
-              #   userr = app_tables.wallet_users.get(users_phone=sender_phone)
-              #   if userr:
-              #     if userr['users_profile_pic'] is not None:
-              #       profile_pic = userr['users_profile_pic'] 
-              #     else:
-              #       profile_pic = '_/theme/account.png'
+            # Sort dates in descending order
+            sorted_dates = sorted(self.grouped_transactions.keys(), reverse=True)
+            
+            # Create a list of dictionaries for repeating_panel_1
+            self.repeating_panel_items = []
+            for date_str in sorted_dates:
+                date_info = self.grouped_transactions[date_str]
+                for transaction in reversed(date_info['transactions']):
+                    sender_phone = transaction['sender_mobile_number']
+                    transaction_type = transaction['transaction_type']
+                    fund = transaction['transaction_amount']
+                    transaction_time = transaction['transaction_timestamp'].strftime("%I:%M %p")
+                    profile_photo = '_/theme/account.png'  # Default profile photo
                     
-              # if receiver_type == 'Credit' :
-              print('coming inside')
-              if receiver_type == 'Credit':
-                received_user = app_tables.wallet_users.get(users_phone = receiver)
-                if received_user :
-                  if received_user['users_profile_pic'] is not None:
-                    profile_pi = received_user['users_profile_pic'] 
-                  else:
-                    profile_pi = '_/theme/account.png'
-  
-                # if sender_type == 'Debit':
-                #   trans_user = app_tables.wallet_users.get(users_phone = transaction['users_transaction_receiver_phone'])
-                #   if trans_user :
-                #     if trans_user['users_profile_pic'] is not None:
-                #       profile_pic = trans_user['users_profile_pic'] 
-                #     else:
-                #       profile_pic = '_/theme/account.png'
-                # Fetch username from wallet_user table using receiver_phone
-                # received_username=''
-                # if  sender_type == 'Debit' : 
-                money_sent_user = app_tables.wallet_users.get(users_phone=receiver)
-                received_username = money_sent_user['users_username']
-                # elif (transaction['users_transaction_receiver_phone']==current_user and transaction['users_transaction_receiver_type'] == 'Credit') :
-                #     receiver_user = app_tables.wallet_users.get(users_phone=transaction['users_transaction_phone'])
-                #     receiver_username = receiver_user['users_username']
-                
-                
-                if receiver_type == 'Credit' :
-                    fund_display = "+" + str(fund)
-                    fund_color = "green"
-                else:
-                    fund_display = str(fund)
-                    fund_color = "black"
-                
-                # Append transaction details with username instead of receiver_phone
-                self.repeating_panel_items.append({'date': date_info['date'].strftime("%Y-%m-%d"),
-                                                'fund': fund_display,
-                                                'transaction_status': transaction['users_transaction_status'],
-                                                'transaction_type':receiver_type,
-                                                'receiver_username': received_username,
-                                                'currency_type':transaction['users_transaction_currency'],
-                                                'transaction_time':transaction_time,
-                                                'profile_pic':profile_pi,
-                                                'fund_color': fund_color})
-                print('appended')
-  
-      self.repeating_panel_1.items = self.repeating_panel_items
+                    # Fetch sender user data
+                    sender_user = anvil.server.call('get_user_data', sender_phone)
+                    # print(f"Fetched sender data: {sender_user}")  # Log sender data to the console
+                    
+                    if sender_user:
+                        profile_photo = sender_user.get('user_profile_photo', '_/theme/account.png')
+                        sender_username = sender_user.get('user_fullname', 'Unknown')
+                    else:
+                        sender_username = 'Unknown'
+                    
+                    # Determine fund display and color based on transaction type
+                    fund_display, fund_color = self.get_fund_display_and_color(transaction_type, fund)
+                    if transaction_type == 'withdrawn':
+                      print(f"Transaction Status for Withdrawn: {transaction['transaction_status']}")
+                    # Append transaction details for the sender
+                    transaction_details = {
+                        'date': date_info['date'].strftime("%Y-%m-%d"),
+                        'fund': fund_display,
+                        'transaction_status': transaction['transaction_status'],
+                        'transaction_type': transaction_type,
+                        'receiver_username': sender_username,
+                        'currency_type': transaction['transaction_currency'],
+                        'transaction_time': transaction_time,
+                        'profile_photo': profile_photo,
+                        'fund_color': fund_color
+                    }
+                    self.repeating_panel_items.append(transaction_details)
+                    # print(f"Appended transaction for sender: {transaction_details}")  # Log the transaction details
+                    
+                    # Fetch receiver user data if applicable
+                    receiver_phone = transaction.get('receiver_mobile_number')
+                    if receiver_phone:
+                        receiver_user = anvil.server.call('get_user_data', receiver_phone)
+                        print(f"Fetched receiver data: {receiver_user}")  # Log receiver data to the console
+                        
+                        if receiver_user:
+                            profile_photo = receiver_user.get('user_profile_photo', '_/theme/account.png')
+                            receiver_username = receiver_user.get('user_fullname', 'Unknown')
+                        else:
+                            receiver_username = 'Unknown'
+                        
+                        # Update fund display and color if transaction is a credit
+                        if transaction_type == 'Credit':
+                            fund_display = "+" + str(fund)
+                            fund_color = "green"
+                        
+                        # Append transaction details for the receiver
+                        receiver_transaction_details = {
+                            'date': date_info['date'].strftime("%Y-%m-%d"),
+                            'fund': fund_display,
+                            'transaction_status': transaction['transaction_status'],
+                            'transaction_type': transaction_type,
+                            'receiver_username': receiver_username,
+                            'currency_type': transaction['transaction_currency'],
+                            'transaction_time': transaction_time,
+                            'profile_photo': profile_photo,
+                            'fund_color': fund_color
+                        }
+                        self.repeating_panel_items.append(receiver_transaction_details)
+                        # print(f"Appended transaction for receiver: {receiver_transaction_details}")  # Log the receiver transaction details
+            
+            # Bind the items to the repeating panel
+            self.repeating_panel_1.items = self.repeating_panel_items
+            # print("Repeating panel items set successfully.")  # Log when items are set
+            
+        except Exception as e:
+            print(f"Error loading transactions: {e}")
+    
+    def get_fund_display_and_color(self, transaction_type, fund):
+        """Helper function to determine the fund display and color."""
+        if transaction_type in ['deposited', 'Auto Topup']:
+            return "+" + str(fund), "green"
+        elif transaction_type in ['Debit', 'withdrawn']:
+            return "-" + str(fund), "red"
+        else:
+            return str(fund), "black"
       
     def link_11_click(self, **event_args):
       """This method is called when the link is clicked"""
@@ -241,7 +167,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                             'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                             'currency_type':self.repeating_panel_items[i]['currency_type'],
                                             'transaction_time':self.repeating_panel_items[i]['transaction_time'],
-                                            'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                            'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                             'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                             'fund_color': self.repeating_panel_items[i]['fund_color']})
       self.repeating_panel_1.items = all
@@ -269,7 +195,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                   'transaction_type':self.repeating_panel_items[i]['transaction_type'],
-                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                  'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
       self.repeating_panel_1.items = received
   
@@ -298,7 +224,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                   'transaction_type':self.repeating_panel_items[i]['transaction_type'],
-                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                  'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
       self.repeating_panel_1.items = transfer
   
@@ -317,14 +243,14 @@ class transaction_monitoring(transaction_monitoringTemplate):
       self.link15_clicked = False
       withdraw=[]
       for i in range(len(self.repeating_panel_items)):
-            if  self.repeating_panel_items[i]['transaction_type'] == 'Withdrawn' :
+            if  self.repeating_panel_items[i]['transaction_type'] == 'withdrawn' :
               withdraw.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
                                                   'transaction_status': self.repeating_panel_items[i]['transaction_status'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
-                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                  'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                   'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
       self.repeating_panel_1.items = withdraw
@@ -343,7 +269,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
       self.link15_clicked = True
       deposit=[]
       for i in range(len(self.repeating_panel_items)):
-            if  self.repeating_panel_items[i]['transaction_type'] == 'Deposited' :
+            if  self.repeating_panel_items[i]['transaction_type'] == 'deposited' :
               deposit.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund':f"{self.repeating_panel_items[i]['fund']}",
                                                   'transaction_status': self.repeating_panel_items[i]['transaction_status'],
@@ -351,7 +277,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                   'transaction_type':self.repeating_panel_items[i]['transaction_type'],
-                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                  'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
       self.repeating_panel_1.items = deposit
     
@@ -389,7 +315,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
-                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                    'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
             self.repeating_panel_1.items = datee
             
@@ -403,7 +329,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
-                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                    'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
             self.repeating_panel_1.items = datee
           
@@ -418,7 +344,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
-                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                    'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
             self.repeating_panel_1.items = only_date
   
@@ -431,7 +357,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
-                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                    'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
             self.repeating_panel_1.items = only_date
         else:
@@ -450,7 +376,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
-                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                    'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
             self.repeating_panel_1.items = datee
           if  currency != '':
@@ -463,7 +389,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
-                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                    'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
             self.repeating_panel_1.items = datee
           
@@ -478,7 +404,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
-                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                    'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
             self.repeating_panel_1.items = only_date
           
@@ -492,7 +418,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
-                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                    'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
             self.repeating_panel_1.items = only_date
         else:
@@ -543,7 +469,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
-                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                    'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_1.items = days
           
@@ -559,7 +485,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
-                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                    'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_1.items = days_currency
         else:
@@ -577,7 +503,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
-                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                    'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_1.items = days
           
@@ -593,7 +519,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
-                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                    'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_1.items = days_currency
         else:
@@ -631,7 +557,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
-                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                  'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']}),
                                               
           self.repeating_panel_1.items = all
@@ -644,7 +570,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
-                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                  'profile_photo':self.repeating_panel_items[i]['profile_photo'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']}),
                                               
           self.repeating_panel_1.items = all
@@ -735,7 +661,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
       pass
 
     def link6_copy_2_click(self, **event_args):
-      if self.user['users_usertype'] == 'super_admin':
+      if self.user['user_type'] == 'super_admin':
           # Open the admin creation form
           open_form("admin.create_admin", user=self.user)
       else:
@@ -747,19 +673,3 @@ class transaction_monitoring(transaction_monitoringTemplate):
 
     def link6_copy_4_click(self, **event_args):
      open_form("admin.add_bank_account",user = self.user)
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-  

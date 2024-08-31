@@ -65,47 +65,47 @@ def check_and_topup_users(phone):
 
 
 
-@anvil.server.callable
-def check_email_exists(email):
-    user = app_tables.wallet_users.get(users_email=email)
-    return user is not None
+# @anvil.server.callable
+# def check_email_exists(email):
+#     user = app_tables.wallet_users.get(users_email=email)
+#     return user is not None
 
-@anvil.server.callable
-def get_user_for_login(login_input):
-  user_by_username = app_tables.wallet_users.get(users_username=login_input)
-  if login_input.isdigit():
-    phone_number = int(login_input)
-    user_by_phone = app_tables.wallet_users.get(users_phone=phone_number)
-    return user_by_phone
-    # Continue with the rest of your code
-  else:
-    print("Invalid phone number. Please enter a numeric value.")
-  user_by_email = app_tables.wallet_users.get(users_email=login_input)
-  if user_by_username:
-            return user_by_username
-  if user_by_email:
-            return user_by_email 
-  else:
-            return None
+# @anvil.server.callable
+# def get_user_for_login(login_input):
+#   user_by_username = app_tables.wallet_users.get(users_username=login_input)
+#   if login_input.isdigit():
+#     phone_number = int(login_input)
+#     user_by_phone = app_tables.wallet_users.get(users_phone=phone_number)
+#     return user_by_phone
+#     # Continue with the rest of your code
+#   else:
+#     print("Invalid phone number. Please enter a numeric value.")
+#   user_by_email = app_tables.wallet_users.get(users_email=login_input)
+#   if user_by_username:
+#             return user_by_username
+#   if user_by_email:
+#             return user_by_email 
+#   else:
+#             return None
 
-@anvil.server.callable
-def add_info(username, email, address, phone, aadhar, pan, password, currency):
-    user_row = app_tables.wallet_users.add_row(
-        users_username=username,
-        users_email=email,
-        users_address=address,
-        users_phone=int(phone),
-        users_aadhar=int(aadhar),
-        users_pan=pan,
-        users_password=password,
-        users_usertype='customer',
-        users_confirm_email=True,
-        users_user_limit=100000,
-        users_daily_limit=40000,
-        users_last_login=datetime.now(),
-        users_defaultcurrency=currency  # Store the currency
-    )
-    return user_row
+# @anvil.server.callable
+# def add_info(username, email, address, phone, aadhar, pan, password, currency):
+#     user_row = app_tables.wallet_users.add_row(
+#         users_username=username,
+#         users_email=email,
+#         users_address=address,
+#         users_phone=int(phone),
+#         users_aadhar=int(aadhar),
+#         users_pan=pan,
+#         users_password=password,
+#         users_usertype='customer',
+#         users_confirm_email=True,
+#         users_user_limit=100000,
+#         users_daily_limit=40000,
+#         users_last_login=datetime.now(),
+#         users_defaultcurrency=currency  # Store the currency
+#     )
+#     return user_row
 @anvil.server.callable
 def send_email_otp(email):
     otp = random.randint(100000, 999999)
@@ -136,10 +136,10 @@ def get_acc_data(phone):
     user_accounts = app_tables.wallet_users_account.search(users_account_phone=phone)
     return [acc['users_account_account_number'] for acc in user_accounts]
 
-@anvil.server.callable
-def get_user_account_numbers(phone):
-    user_accounts = app_tables.wallet_users_account.search(users_account_phone=phone)
-    return [acc['users_account_account_number'] for acc in user_accounts]
+# @anvil.server.callable
+# def get_user_account_numbers(phone):
+#     user_accounts = app_tables.wallet_users_account.search(users_account_phone=phone)
+#     return [acc['users_account_account_number'] for acc in user_accounts]
 
 @anvil.server.callable
 def get_username(phone):
@@ -149,15 +149,15 @@ def get_username(phone):
     else:
         return "Username Not Found"      
       
-@anvil.server.callable
-def get_currency_code():
-    currencies = app_tables.wallet_admins_add_currency.search()
-    return [f"{currency['admins_add_currency_code']}" for currency in currencies]
+# @anvil.server.callable
+# def get_currency_code():
+#     currencies = app_tables.wallet_admins_add_currency.search()
+#     return [f"{currency['admins_add_currency_code']}" for currency in currencies]
 
-@anvil.server.callable
-def get_all_banks_name():
-    banks = app_tables.wallet_admins_add_bank.search()
-    return [f"{bank['admins_add_bank_names']}" for bank in banks]
+# @anvil.server.callable
+# def get_all_banks_name():
+#     banks = app_tables.wallet_admins_add_bank.search()
+#     return [f"{bank['admins_add_bank_names']}" for bank in banks]
 
 
 
@@ -197,16 +197,16 @@ def total_users(customer):
     print(users)
     return len(users)
 
-@anvil.server.callable
-def add_admins_info(username, email, phone_number, password):
-    admin_row = app_tables.wallet_users.add_row(
-        users_username=username,
-        users_email=email, 
-        users_phone=phone_number,
-        users_password=password,
-        users_usertype='admin',
-    )
-    return admin_row
+# @anvil.server.callable
+# def add_admins_info(username, email, phone_number, password):
+#     admin_row = app_tables.wallet_users.add_row(
+#         users_username=username,
+#         users_email=email, 
+#         users_phone=phone_number,
+#         users_password=password,
+#         users_usertype='admin',
+#     )
+#     return admin_row
 
 
 ###
@@ -226,9 +226,9 @@ def get_user_by_phone(phone_number):
         return None
  
 
-@anvil.server.callable
-def get_wallet_transactions():
-    return app_tables.wallet_users_transaction.search()
+# @anvil.server.callable
+# def get_wallet_transactions():
+#     return app_tables.wallet_users_transaction.search()
 
 @anvil.server.callable
 def get_user_bank_name(phone):
@@ -257,53 +257,53 @@ def get_admin_by_phone(phone_number):
         # Handle the case where the input cannot be converted to an integer
         return None
 
-@anvil.server.callable
-def get_wallet_transactions():
-    return app_tables.wallet_users_transaction.search()
+# @anvil.server.callable
+# def get_wallet_transactions():
+#     return app_tables.wallet_users_transaction.search()
 
-@anvil.server.callable
-def get_transaction_proofs():
-    # Fetch proof data from the 'transactions' table
-    transaction_proofs = app_tables.wallet_users_transaction.search()
-    return transaction_proofs
+# @anvil.server.callable
+# def get_transaction_proofs():
+#     # Fetch proof data from the 'transactions' table
+#     transaction_proofs = app_tables.wallet_users_transaction.search()
+#     return transaction_proofs
 
 @anvil.server.callable
 def get_transactions():
     return app_tables.wallet_users_transaction.search()
 
-@anvil.server.callable
-def get_user_data():
-    # Fetch user data from the 'users' table
-    users_data = app_tables.wallet_users.search()
+# @anvil.server.callable
+# def get_user_data():
+#     # Fetch user data from the 'users' table
+#     users_data = app_tables.wallet_users.search()
 
-    # Create a list to store user information
-    user_list = []
+#     # Create a list to store user information
+#     user_list = []
 
-    # Iterate through each user's data
-    for user_row in users_data:
-        # Check the 'banned' column to determine if the user is active or non-active
-        if user_row['users_banned'] is None:
-            status = 'Active'
-        else:
-            status = 'Non-Active'
+#     # Iterate through each user's data
+#     for user_row in users_data:
+#         # Check the 'banned' column to determine if the user is active or non-active
+#         if user_row['users_banned'] is None:
+#             status = 'Active'
+#         else:
+#             status = 'Non-Active'
 
-        # Check the 'inactive' column to determine if the user is inactive
-        if user_row['users_inactive'] is None:
-            activity_status = 'Active'
-        else:
-            activity_status = 'Inactive'
+#         # Check the 'inactive' column to determine if the user is inactive
+#         if user_row['users_inactive'] is None:
+#             activity_status = 'Active'
+#         else:
+#             activity_status = 'Inactive'
 
-        # Append user information to the list
-        user_info = {
-            'username': user_row['users_username'],
-            'banned': user_row['users_banned'],
-            'inactive': user_row['users_inactive'],
-            'status': status,  # Include the 'status' information based on the 'banned' column
-            'activity_status': activity_status  # Include the 'activity_status' information based on the 'inactive' column
-        }
-        user_list.append(user_info)
+#         # Append user information to the list
+#         user_info = {
+#             'username': user_row['users_username'],
+#             'banned': user_row['users_banned'],
+#             'inactive': user_row['users_inactive'],
+#             'status': status,  # Include the 'status' information based on the 'banned' column
+#             'activity_status': activity_status  # Include the 'activity_status' information based on the 'inactive' column
+#         }
+#         user_list.append(user_info)
 
-    return user_list
+#     return user_list
 
 @anvil.server.callable
 def update_daily_limit(name, emoney_value):

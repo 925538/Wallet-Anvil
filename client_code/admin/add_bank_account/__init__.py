@@ -20,60 +20,56 @@ class add_bank_account(add_bank_accountTemplate):
 
     # Any code you write here will run before the form opens.
 
+  
+    
   def refresh_users(self, bank_filter=None):
+    # Call the server function to get the list of bank names and icons
+    bank_data = anvil.server.call('get_bank_names')
+
+    # If a filter is provided, filter the bank data
     if bank_filter:
-      self.bank_type_filter = [user for user in app_tables.wallet_admins_add_bank.search()
-                                  if user['admins_add_bank_names'].lower().startswith(bank_filter.lower())]
-    else:
-      self.bank_type_filter = [user for user in app_tables.wallet_admins_add_bank.search()]
-    self.repeating_panel_1.items = self.bank_type_filter
+        bank_data = [bank for bank in bank_data if bank_filter.lower() in bank['bank_name'].lower()]
+
+    # Set the items for the RepeatingPanel to display the bank names and icons
+    self.repeating_panel_1.items = bank_data
+
+    # Assign the bank data to the repeating panel or any other component
 
   def button_1_click(self, **event_args):
-    bank_filter = self.textbox_search.text
-    self.refresh_users(bank_filter)
+      bank_filter = self.textbox_search.text
+      self.refresh_users(bank_filter)
 
   def textbox_search_pressed_enter(self, **event_args):
-    bank_filter = self.textbox_search.text
-    self.refresh_users(bank_filter)
+      bank_filter = self.textbox_search.text
+      self.refresh_users(bank_filter)
 
-  def button_2_click(self,add_bank=None, **event_args):
-    self.flow_panel_1.visible = True
+  def button_2_click(self, **event_args):
+      self.flow_panel_1.visible = True
 
   def button_3_click(self, **event_args):
+    # Retrieve the bank name from the text box
     bank_name = self.text_box_1.text.strip()
-    
     
     if bank_name:
         bank_name = bank_name.capitalize()
-        print(bank_name)
-        existing_bank = app_tables.wallet_admins_add_bank.search(admins_add_bank_names=bank_name) 
+
+        # Get the bank icon from the file loader, if provided
+        bank_icon_media = self.file_loader_1.file if self.file_loader_1.file else None
         
-        if len(existing_bank) == 0:
-            # Check if an image has been uploaded
-            if self.file_loader_1.file:
-                # Save the uploaded image to the bank_icon column
-                new_currency = app_tables.wallet_admins_add_bank.add_row(
-                    admins_add_bank_names=bank_name,
-                    admins_add_bank_icons=self.file_loader_1.file
-                )
-            else:
-                # If no image is uploaded, set bank_icon to None
-                new_currency = app_tables.wallet_admins_add_bank.add_row(
-                    admins_add_bank_names=bank_name,
-                    admins_add_bank_icons=None
-                )
-            
-            self.refresh_users()
-            self.text_box_1.text = ''
-            self.file_loader_1.clear()
-            self.flow_panel_1.visible = False
-                
-            alert('Bank name added successfully')
-        else:
-            alert('Bank already exists')
+        # Call the server function to store the bank data
+        result = anvil.server.call('fetch_and_store_bank_data', bank_name, bank_icon_media)
+        
+        # Refresh the UI and show the message returned by the server
+        self.refresh_users()  # Assuming this function updates your UI
+        self.text_box_1.text = ''
+        self.file_loader_1.clear()
+        self.flow_panel_1.visible = False
+        alert(result)
     else:
         alert('Incorrect bank name')
 
+
+        
   def link_8_copy_click(self, **event_args):
     open_form('admin', user=self.user)
 
@@ -108,7 +104,7 @@ class add_bank_account(add_bank_accountTemplate):
     open_form("admin.admin_add_user",user = self.user)
 
   def link_6_copy_3_click(self, **event_args):
-    if self.user['users_usertype'] == 'super admin':
+    if self.user['user_type'] == 'super admin':
           # Open the admin creation form
           open_form("admin.create_admin", user=self.user)
     else:

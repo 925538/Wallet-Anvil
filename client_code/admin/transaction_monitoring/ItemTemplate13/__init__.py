@@ -68,6 +68,6 @@ class ItemTemplate13(ItemTemplate13Template):
       self.label_4.text = 'Auto Topup'
     self.label_4.foreground = self.item['fund_color']
 
-    self.image_1.source = self.item['profile_pic']
+    self.image_1.source = self.item['profile_photo']
 
     # Any code you write here will run before the form opens.

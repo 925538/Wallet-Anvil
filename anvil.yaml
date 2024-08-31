@@ -1,346 +1,346 @@
-correct_dependency_ids: {}
-dependencies: []
-services:
-- source: /runtime/services/tables.yml
-  client_config: {}
-  server_config: {}
-- source: /runtime/services/anvil/email.yml
-  client_config: {}
-  server_config: {custom_smtp: false, test_mode: false, smtp_host: smtp.gmail.com, smtp_port: 587, smtp_user: ascenddefilabs@gmail.com, smtp_password: GTkm7oNQL4cPlNlltcAWuXuazgXrH+B64e3lzwtacQ+yfoW5y4XO7Y6ZabwxacegD1Upcm4WXHQGK1xeVX+RThPQthyJsDtvESLlL6qQ1Xaq6onM2YHKMViEDe9h7K7TRQJz9dub9KSEFVY6tVAGx/W/fwjrky8Ime6A1FQbgKmAyRb2Isl76Id3HQ==, smtp_encryption: ''}
-- source: /runtime/services/anvil/secrets.yml
-  client_config: {}
-  server_config: {}
-- source: /runtime/services/anvil/users.yml
-  client_config: {remember_me_days: 30, use_email: true, use_google: true, use_facebook: true, confirm_email: true, allow_remember_me: true, enable_automatically: true, allow_signup: true, require_secure_passwords: true}
-  server_config: {user_table: users}
-- source: /runtime/services/google.yml
-  client_config: {}
-  server_config: {}
-- source: /runtime/services/facebook.yml
-  client_config: {}
-  server_config: {}
-startup: {type: form, module: Home}
-package_name: d1
 allow_embedding: false
-name: Wallet Anvil
-runtime_options:
-  version: 2
-  client_version: '3'
-  server_version: python3-sandbox
-  server_spec: {base: python310-standard}
-  server_persist: false
-  server_spec_disabled: {base: python310-standard, requirements: ''}
-metadata: {}
-startup_form: null
+correct_dependency_ids: {}
 db_schema:
+  wallet_admins_actions:
+    client: full
+    columns:
+    - admin_ui: {width: 224}
+      name: admins_actions_username
+      type: string
+    - admin_ui: {width: 200}
+      name: admins_actions
+      type: string
+    - admin_ui: {width: 200}
+      name: admins_actions_date
+      type: datetime
+    - admin_ui: {width: 200}
+      name: admins_actions_name
+      type: string
+    - admin_ui: {order: 4, width: 200}
+      name: admins_actions_phone
+      type: number
+    server: full
+    title: wallet_admins_actions
   wallet_admins_add_bank:
     client: full
-    server: full
     columns:
-    - name: admins_add_bank_names
-      admin_ui: {width: 200, order: 0}
+    - admin_ui: {order: 0, width: 200}
+      name: admins_add_bank_names
       type: string
-    - name: admins_add_bank_icons
-      admin_ui: {width: 200, order: 1}
+    - admin_ui: {order: 1, width: 200}
+      name: admins_add_bank_icons
       type: media
+    server: full
     title: wallet_admins_add_bank
-  wallet_users_transaction:
+  wallet_admins_add_currency:
     client: full
-    server: full
     columns:
-    - name: users_transaction_date
-      admin_ui: {order: -1, width: 200}
-      type: datetime
-    - name: users_transaction_fund
-      admin_ui: {order: -0.5, width: 200}
-      type: number
-    - name: users_transaction_type
-      admin_ui: {order: 8.5, width: 200}
+    - admin_ui: {width: 226}
+      name: admins_add_currency_code
       type: string
-    - name: users_transaction_status
-      admin_ui: {order: -0.125, width: 200}
+    - admin_ui: {width: 248}
+      name: admins_add_currency_country
       type: string
-    - name: users_transaction_currency
-      admin_ui: {order: -0.375, width: 247}
-      type: string
-    - name: users_transaction_receiver_phone
-      admin_ui: {order: 1.4375, width: 266}
-      type: number
-    - name: users_transaction_phone
-      admin_ui: {order: 2.21875, width: 200}
-      type: number
-    - name: users_transaction_message
-      admin_ui: {width: 200, order: 9}
-      type: string
-    - name: users_transaction_bank_name
-      admin_ui: {order: 9, width: 239}
-      type: string
-    - name: users_transaction_receiver_type
-      admin_ui: {width: 200, order: 13}
-      type: string
-    title: wallet_users_transaction
-  wallet_users_account:
-    client: full
-    server: full
-    columns:
-    - name: users_account_number
-      admin_ui: {order: 0, width: 200}
-      type: number
-    - name: users_account_holder_name
-      admin_ui: {order: 1, width: 230}
-      type: string
-    - name: users_account_bank_name
-      admin_ui: {order: 3, width: 226}
-      type: string
-    - name: users_account_branch_name
-      admin_ui: {order: 4, width: 230}
-      type: string
-    - name: users_account_ifsc_code
-      admin_ui: {order: 4, width: 200}
-      type: string
-    - name: users_account_type
-      admin_ui: {order: 5, width: 200}
-      type: string
-    - name: users_account_status_confirm
-      admin_ui: {order: 7, width: 245}
-      type: bool
-    - name: users_account_phone
-      admin_ui: {width: 200}
-      type: number
-    - name: users_account_bank_icon
-      admin_ui: {width: 200, order: 8}
+    - admin_ui: {width: 221}
+      name: admins_add_currency_icon
       type: media
-    title: wallet_users_account
-  wallet_admins_actions:
-    title: wallet_admins_actions
-    client: full
     server: full
-    columns:
-    - name: admins_actions_username
-      admin_ui: {width: 224}
-      type: string
-    - name: admins_actions
-      admin_ui: {width: 200}
-      type: string
-    - name: admins_actions_date
-      admin_ui: {width: 200}
-      type: datetime
-    - name: admins_actions_name
-      admin_ui: {width: 200}
-      type: string
-    - name: admins_actions_phone
-      admin_ui: {order: 4, width: 200}
-      type: number
-  wallet_users_balance:
-    client: full
-    server: full
-    columns:
-    - name: users_balance
-      admin_ui: {width: 200}
-      type: number
-    - name: users_balance_currency_type
-      admin_ui: {width: 253}
-      type: string
-    - name: users_balance_phone
-      admin_ui: {width: 200}
-      type: number
-    title: wallet_users_balance
-  wallet_users_service:
-    client: full
-    server: full
-    columns:
-    - name: users_service_username
-      admin_ui: {order: 0, width: 200}
-      type: string
-    - name: users_service_phone
-      admin_ui: {order: 1, width: 200}
-      type: number
-    - name: users_service_query
-      admin_ui: {order: 2, width: 200}
-      type: string
-    - name: users_service_email
-      admin_ui: {width: 200, order: 3}
-      type: string
-    - name: users_update
-      admin_ui: {width: 200, order: 4}
-      type: bool
-    - name: users_conclusion_about_query
-      admin_ui: {order: 5, width: 200}
-      type: string
-    title: wallet_users_service
+    title: wallet_admins_add_currency
   wallet_admins_create_admin_account:
     client: none
-    server: full
     columns:
-    - name: admins_email
-      admin_ui: {order: 0, width: 200}
+    - admin_ui: {order: 0, width: 200}
+      name: admins_email
       type: string
-    - name: admins_username
-      admin_ui: {order: 1, width: 200}
+    - admin_ui: {order: 1, width: 200}
+      name: admins_username
       type: string
-    - name: admins_phone
-      admin_ui: {order: 2, width: 200}
+    - admin_ui: {order: 2, width: 200}
+      name: admins_phone
       type: number
-    - name: admins_date_of_birth
-      admin_ui: {order: 3, width: 200}
+    - admin_ui: {order: 3, width: 200}
+      name: admins_date_of_birth
       type: date
-    - name: admins_gender
-      admin_ui: {order: 4, width: 200}
+    - admin_ui: {order: 4, width: 200}
+      name: admins_gender
       type: string
-    - name: admins_password
-      admin_ui: {order: 5, width: 200}
+    - admin_ui: {order: 5, width: 200}
+      name: admins_password
       type: string
-    - name: admins_last_login
-      admin_ui: {order: 6.5, width: 200}
+    - admin_ui: {order: 6.5, width: 200}
+      name: admins_last_login
       type: datetime
-    - name: which_admin_created_account
-      admin_ui: {order: 8, width: 246}
+    - admin_ui: {order: 8, width: 246}
+      name: which_admin_created_account
       type: string
-    - name: date_of_admins_account_created
-      admin_ui: {order: 9, width: 200}
+    - admin_ui: {order: 9, width: 200}
+      name: date_of_admins_account_created
       type: date
+    server: full
     title: wallet_admins_create_admin_account
-  wallet_users_notifications:
-    client: full
-    server: full
-    columns:
-    - name: users_notification_text
-      admin_ui: {width: 200, order: 0}
-      type: string
-    - name: users_notification_date_time
-      admin_ui: {order: 1, width: 236}
-      type: datetime
-    - name: users_notification_phone
-      admin_ui: {width: 200, order: 2}
-      type: number
-    - name: users_notification_read
-      admin_ui: {width: 200, order: 3}
-      type: bool
-    - name: users_notification_sender
-      admin_ui: {width: 200, order: 4}
-      type: number
-    title: wallet_users_notifications
   wallet_users:
     client: full
-    server: full
     columns:
-    - name: users_username
-      admin_ui: {order: 0, width: 200}
+    - admin_ui: {order: 0, width: 200}
+      name: users_username
       type: string
-    - name: users_phone
-      admin_ui: {order: 1, width: 200}
+    - admin_ui: {order: 1, width: 200}
+      name: users_phone
       type: number
-    - name: users_email
-      admin_ui: {order: 2, width: 200}
+    - admin_ui: {order: 2, width: 200}
+      name: users_email
       type: string
-    - name: users_password
-      admin_ui: {order: 3, width: 200}
+    - admin_ui: {order: 3, width: 200}
+      name: users_password
       type: string
-    - name: users_confirm_email
-      admin_ui: {order: 4, width: 200}
+    - admin_ui: {order: 4, width: 200}
+      name: users_confirm_email
       type: bool
-    - name: users_aadhar
-      admin_ui: {order: 5, width: 200}
+    - admin_ui: {order: 5, width: 200}
+      name: users_aadhar
       type: number
-    - name: users_pan
-      admin_ui: {order: 6, width: 200}
+    - admin_ui: {order: 6, width: 200}
+      name: users_pan
       type: string
-    - name: users_address
-      admin_ui: {order: 7, width: 200}
+    - admin_ui: {order: 7, width: 200}
+      name: users_address
       type: string
-    - name: users_banned
-      admin_ui: {order: 9, width: 125}
+    - admin_ui: {order: 9, width: 125}
+      name: users_banned
       type: bool
-    - name: users_user_limit
-      admin_ui: {order: 10, width: 180}
+    - admin_ui: {order: 10, width: 180}
+      name: users_user_limit
       type: number
-    - name: users_daily_limit
-      admin_ui: {order: 11, width: 200}
+    - admin_ui: {order: 11, width: 200}
+      name: users_daily_limit
       type: number
-    - name: users_usertype
-      admin_ui: {width: 147}
+    - admin_ui: {width: 147}
+      name: users_usertype
       type: string
-    - name: users_auto_topup
-      admin_ui: {order: 5.25, width: 200}
+    - admin_ui: {order: 5.25, width: 200}
+      name: users_auto_topup
       type: bool
-    - name: users_country
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: users_country
       type: string
-    - name: users_default_account
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: users_default_account
       type: string
-    - name: users_defaultcurrency
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: users_defaultcurrency
       type: string
-    - name: users_hold
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: users_hold
       type: bool
-    - name: users_inactive
-      admin_ui: {order: 6, width: 200}
+    - admin_ui: {order: 6, width: 200}
+      name: users_inactive
       type: bool
-    - name: users_last_auto_topup_time
-      admin_ui: {order: 8.875, width: 217}
+    - admin_ui: {order: 8.875, width: 217}
+      name: users_last_auto_topup_time
       type: datetime
-    - name: users_last_login
-      admin_ui: {order: 5.125, width: 200}
+    - admin_ui: {order: 5.125, width: 200}
+      name: users_last_login
       type: datetime
-    - name: users_minimum_topup
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: users_minimum_topup
       type: bool
-    - name: users_referral
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: users_referral
       type: string
-    - name: users_timely_topup
-      admin_ui: {order: 8.5, width: 200}
+    - admin_ui: {order: 8.5, width: 200}
+      name: users_timely_topup
       type: bool
-    - name: users_timely_topup_interval
-      admin_ui: {order: 8.75, width: 220}
+    - admin_ui: {order: 8.75, width: 220}
+      name: users_timely_topup_interval
       type: string
-    - name: users_profile_pic
-      admin_ui: {width: 200, order: 24}
+    - admin_ui: {order: 24, width: 200}
+      name: users_profile_pic
       type: media
-    - name: users_minimum_topup_amount_below
-      admin_ui: {order: 5.5, width: 300}
+    - admin_ui: {order: 5.5, width: 300}
+      name: users_minimum_topup_amount_below
       type: number
-    - name: users_auto_topup_expiry_date
-      admin_ui: {width: 200, order: 26}
+    - admin_ui: {order: 26, width: 200}
+      name: users_auto_topup_expiry_date
       type: date
-    - name: users_minimum_topup_amount
-      admin_ui: {width: 200, order: 27}
+    - admin_ui: {order: 27, width: 200}
+      name: users_minimum_topup_amount
       type: number
-    - name: users_timely_topup_duration
-      admin_ui: {width: 200, order: 28}
+    - admin_ui: {order: 28, width: 200}
+      name: users_timely_topup_duration
       type: string
-    - name: users_timely_topup_amount
-      admin_ui: {width: 200, order: 29}
+    - admin_ui: {order: 29, width: 200}
+      name: users_timely_topup_amount
       type: number
-    - name: users_timely_topup_expiry_date
-      admin_ui: {width: 200, order: 30}
+    - admin_ui: {order: 30, width: 200}
+      name: users_timely_topup_expiry_date
       type: date
-    - name: users_timely_autotopup
-      admin_ui: {width: 200, order: 31}
+    - admin_ui: {order: 31, width: 200}
+      name: users_timely_autotopup
       type: bool
-    - name: users_next_autotopup_time
-      admin_ui: {width: 200, order: 32}
+    - admin_ui: {order: 32, width: 200}
+      name: users_next_autotopup_time
       type: date
+    server: full
     title: wallet_users
-  wallet_admins_add_currency:
-    title: wallet_admins_add_currency
+  wallet_users_account:
     client: full
-    server: full
     columns:
-    - name: admins_add_currency_code
-      admin_ui: {width: 226}
+    - admin_ui: {order: 0, width: 200}
+      name: users_account_number
+      type: number
+    - admin_ui: {order: 1, width: 230}
+      name: users_account_holder_name
       type: string
-    - name: admins_add_currency_country
-      admin_ui: {width: 248}
+    - admin_ui: {order: 3, width: 226}
+      name: users_account_bank_name
       type: string
-    - name: admins_add_currency_icon
-      admin_ui: {width: 221}
+    - admin_ui: {order: 4, width: 230}
+      name: users_account_branch_name
+      type: string
+    - admin_ui: {order: 4, width: 200}
+      name: users_account_ifsc_code
+      type: string
+    - admin_ui: {order: 5, width: 200}
+      name: users_account_type
+      type: string
+    - admin_ui: {order: 7, width: 245}
+      name: users_account_status_confirm
+      type: bool
+    - admin_ui: {width: 200}
+      name: users_account_phone
+      type: number
+    - admin_ui: {order: 8, width: 200}
+      name: users_account_bank_icon
       type: media
+    server: full
+    title: wallet_users_account
+  wallet_users_balance:
+    client: full
+    columns:
+    - admin_ui: {width: 200}
+      name: users_balance
+      type: number
+    - admin_ui: {width: 253}
+      name: users_balance_currency_type
+      type: string
+    - admin_ui: {width: 200}
+      name: users_balance_phone
+      type: number
+    server: full
+    title: wallet_users_balance
+  wallet_users_notifications:
+    client: full
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: users_notification_text
+      type: string
+    - admin_ui: {order: 1, width: 236}
+      name: users_notification_date_time
+      type: datetime
+    - admin_ui: {order: 2, width: 200}
+      name: users_notification_phone
+      type: number
+    - admin_ui: {order: 3, width: 200}
+      name: users_notification_read
+      type: bool
+    - admin_ui: {order: 4, width: 200}
+      name: users_notification_sender
+      type: number
+    server: full
+    title: wallet_users_notifications
+  wallet_users_service:
+    client: full
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: users_service_username
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: users_service_phone
+      type: number
+    - admin_ui: {order: 2, width: 200}
+      name: users_service_query
+      type: string
+    - admin_ui: {order: 3, width: 200}
+      name: users_service_email
+      type: string
+    - admin_ui: {order: 4, width: 200}
+      name: users_update
+      type: bool
+    - admin_ui: {order: 5, width: 200}
+      name: users_conclusion_about_query
+      type: string
+    server: full
+    title: wallet_users_service
+  wallet_users_transaction:
+    client: full
+    columns:
+    - admin_ui: {order: -1, width: 200}
+      name: users_transaction_date
+      type: datetime
+    - admin_ui: {order: -0.5, width: 200}
+      name: users_transaction_fund
+      type: number
+    - admin_ui: {order: 8.5, width: 200}
+      name: users_transaction_type
+      type: string
+    - admin_ui: {order: -0.125, width: 200}
+      name: users_transaction_status
+      type: string
+    - admin_ui: {order: -0.375, width: 247}
+      name: users_transaction_currency
+      type: string
+    - admin_ui: {order: 1.4375, width: 266}
+      name: users_transaction_receiver_phone
+      type: number
+    - admin_ui: {order: 2.21875, width: 200}
+      name: users_transaction_phone
+      type: number
+    - admin_ui: {order: 9, width: 200}
+      name: users_transaction_message
+      type: string
+    - admin_ui: {order: 9, width: 239}
+      name: users_transaction_bank_name
+      type: string
+    - admin_ui: {order: 13, width: 200}
+      name: users_transaction_receiver_type
+      type: string
+    server: full
+    title: wallet_users_transaction
+dependencies: []
+metadata: {}
+name: Wallet Anvil
+package_name: d1
+renamed: true
+runtime_options:
+  client_version: '3'
+  server_persist: false
+  server_spec: {base: python310-standard}
+  server_spec_disabled: {base: python310-standard, requirements: ''}
+  server_version: python3-sandbox
+  version: 2
 secrets:
   ? ''
-  : value: {? '' : t60Z4iDuhInEOjWQ4bU7PdzvFnQ38Weuirbdt/MNZ1p+CqpxVOavkKZ1bDUo1ShCnx3gvrNyXfCOegbjGO03zKgd/dZ/sSrIaLqzHogAmtBqwHDHHoPTvQfjSLbWktutA6/SM5YCSoxPtfcumUJZX6zZuGH8tRQ=}
-    type: key
+  : type: key
+    value: {? '' : t60Z4iDuhInEOjWQ4bU7PdzvFnQ38Weuirbdt/MNZ1p+CqpxVOavkKZ1bDUo1ShCnx3gvrNyXfCOegbjGO03zKgd/dZ/sSrIaLqzHogAmtBqwHDHHoPTvQfjSLbWktutA6/SM5YCSoxPtfcumUJZX6zZuGH8tRQ=}
+services:
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/tables.yml
+- client_config: {}
+  server_config: {custom_smtp: false, smtp_encryption: '', smtp_host: smtp.gmail.com, smtp_password: GTkm7oNQL4cPlNlltcAWuXuazgXrH+B64e3lzwtacQ+yfoW5y4XO7Y6ZabwxacegD1Upcm4WXHQGK1xeVX+RThPQthyJsDtvESLlL6qQ1Xaq6onM2YHKMViEDe9h7K7TRQJz9dub9KSEFVY6tVAGx/W/fwjrky8Ime6A1FQbgKmAyRb2Isl76Id3HQ==, smtp_port: 587, smtp_user: ascenddefilabs@gmail.com, test_mode: false}
+  source: /runtime/services/anvil/email.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/secrets.yml
+- client_config: {allow_remember_me: true, allow_signup: true, confirm_email: true, enable_automatically: true, remember_me_days: 30, require_secure_passwords: true, use_email: true, use_facebook: true, use_google: true}
+  server_config: {user_table: users}
+  source: /runtime/services/anvil/users.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/google.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/facebook.yml
+startup: {module: Home, type: form}
+startup_form: null
 uplink_visible: true
-renamed: true

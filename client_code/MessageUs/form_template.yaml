@@ -1,70 +1,70 @@
-container: {type: ColumnPanel}
 components:
-- name: link_2
-  properties: {role: null, bold: true, align: left, col_widths: '', spacing_above: none, background: '', icon: 'fa:arrow-left', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: 'theme:Primary 700', url: '', spacing_below: large, visible: true, border: '', italic: false, font_size: 18, tooltip: '', text: Back}
+- event_bindings: {click: link_2_click}
+  layout_properties: {full_width_row: true, grid_position: 'GIZQWL,XPQUKP'}
+  name: link_2
+  properties: {align: left, background: '', bold: true, border: '', col_spacing: medium, col_widths: '', font: '', font_size: 18, foreground: 'theme:Primary 700', icon: 'fa:arrow-left', icon_align: left, italic: false, role: null, spacing_above: none, spacing_below: large, text: Back, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
   type: Link
-  layout_properties: {grid_position: 'GIZQWL,XPQUKP', full_width_row: true}
-  event_bindings: {click: link_2_click}
-- name: spacer_1
+- layout_properties: {grid_position: 'GHJRXI,XYTXXH'}
+  name: spacer_1
   properties: {height: 74.66665649414062}
   type: Spacer
-  layout_properties: {grid_position: 'GHJRXI,XYTXXH'}
-- name: card_1
-  properties: {role: card, col_widths: '{}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'HBEZVP,TLURSM'}
-  components:
-  - name: column_panel_2
-    properties: {role: null, col_widths: '{}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'SEZWMR,LCZWMF'}
-    components:
-    - name: label_1
-      properties: {role: null, bold: true, align: center, spacing_above: large, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: large, visible: true, border: '', italic: false, font_size: 30, tooltip: '', text: Message Us}
+- components:
+  - components:
+    - layout_properties: {grid_position: 'CJESQW,MCLOLO'}
+      name: label_1
+      properties: {align: center, background: '', bold: true, border: '', font: '', font_size: 30, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: large, spacing_below: large, text: Message Us, tooltip: '', underline: false, visible: true}
       type: Label
-      layout_properties: {grid_position: 'CJESQW,MCLOLO'}
-    - name: label_2
-      properties: {role: null, bold: false, align: center, spacing_above: large, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: large, visible: true, border: '', italic: false, font_size: 18, tooltip: '', text: Please log in to send us a message}
+    - layout_properties: {grid_position: 'HVLSPQ,SZQGRD'}
+      name: label_2
+      properties: {align: center, background: '', bold: false, border: '', font: '', font_size: 18, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: large, spacing_below: large, text: Please log in to send us a message, tooltip: '', underline: false, visible: true}
       type: Label
-      layout_properties: {grid_position: 'HVLSPQ,SZQGRD'}
-    - name: button_2
-      properties: {role: custom-button, bold: true, align: center, spacing_above: large, background: 'theme:Primary 500', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: large, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: '           Login           '}
-      type: Button
+    - event_bindings: {click: button_2_click}
       layout_properties: {grid_position: 'SHOSMB,LSMXHT'}
-      event_bindings: {click: button_2_click}
-    - name: link_1
-      properties: {role: null, bold: true, align: center, col_widths: '', spacing_above: small, background: '', icon: '', wrap_on: mobile, underline: true, font: '', col_spacing: medium, icon_align: left, foreground: 'theme:Primary 500', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 18, tooltip: '', text: 'Not signed up? You can still send us a message.'}
-      type: Link
-      layout_properties: {grid_position: 'TYCERA,NQDXAT'}
-      event_bindings: {click: link_1_click}
-  - name: column_panel_1
-    properties: {role: null, col_widths: '{}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: false, border: '', tooltip: ''}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'DRPGCK,YQGEGT'}
-    components:
-    - name: label_3
-      properties: {role: null, bold: true, align: center, spacing_above: medium, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Primary 700', spacing_below: large, visible: true, border: '', italic: false, font_size: 30, tooltip: '', text: Message Us}
-      type: Label
-      layout_properties: {grid_position: 'YJTQKA,FNQATV'}
-    - name: users_names
-      properties: {role: null, bold: false, align: left, placeholder: Enter your name, spacing_above: medium, background: '', underline: false, font: '', foreground: '', spacing_below: large, visible: true, border: '', italic: false, enabled: true, auto_expand: false, font_size: null, tooltip: '', height: '', text: ''}
-      type: TextArea
-      layout_properties: {grid_position: 'VERTMS,HOVVCS'}
-    - name: users_phones_number
-      properties: {role: null, bold: false, align: left, placeholder: Enter your mobile number, spacing_above: medium, background: '', underline: false, font: '', foreground: '', spacing_below: large, visible: true, border: '', italic: false, enabled: true, auto_expand: false, font_size: null, tooltip: '', height: '', text: ''}
-      type: TextArea
-      layout_properties: {grid_position: 'UMSXYW,JGIXPU'}
-    - name: users_emails
-      properties: {role: null, bold: false, align: left, placeholder: Enter your email id, spacing_above: medium, background: '', underline: false, font: '', foreground: '', spacing_below: large, visible: true, border: '', italic: false, enabled: true, auto_expand: false, font_size: null, tooltip: '', height: '', text: ''}
-      type: TextArea
-      layout_properties: {grid_position: 'KCGITO,DPQBYJ'}
-    - name: users_queries
-      properties: {role: null, bold: false, align: left, placeholder: Enter your query, spacing_above: medium, background: '', underline: false, font: '', foreground: '', spacing_below: large, visible: true, border: '', italic: false, enabled: true, auto_expand: false, font_size: null, tooltip: '', height: '', text: ''}
-      type: TextArea
-      layout_properties: {grid_position: 'NCDEBJ,KGTTVA'}
-    - name: button_1
-      properties: {role: null, bold: true, align: center, spacing_above: medium, background: 'theme:Primary 500', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: submit}
+      name: button_2
+      properties: {align: center, background: 'theme:Primary 500', bold: true, border: '', enabled: true, font: '', font_size: 18, foreground: 'theme:White', icon: '', icon_align: left, italic: false, role: custom-button, spacing_above: large, spacing_below: large, text: '           Login           ', tooltip: '', underline: false, visible: true}
       type: Button
+    - event_bindings: {click: link_1_click}
+      layout_properties: {grid_position: 'TYCERA,NQDXAT'}
+      name: link_1
+      properties: {align: center, background: '', bold: true, border: '', col_spacing: medium, col_widths: '', font: '', font_size: 18, foreground: 'theme:Primary 500', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'Not signed up? You can still send us a message.', tooltip: '', underline: true, url: '', visible: true, wrap_on: mobile}
+      type: Link
+    layout_properties: {grid_position: 'SEZWMR,LCZWMF'}
+    name: column_panel_2
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: null, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
+  - components:
+    - layout_properties: {grid_position: 'YJTQKA,FNQATV'}
+      name: label_3
+      properties: {align: center, background: '', bold: true, border: '', font: '', font_size: 30, foreground: 'theme:Primary 700', icon: '', icon_align: left, italic: false, role: null, spacing_above: medium, spacing_below: large, text: Message Us, tooltip: '', underline: false, visible: true}
+      type: Label
+    - layout_properties: {grid_position: 'VERTMS,HOVVCS'}
+      name: users_names
+      properties: {align: left, auto_expand: false, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', height: '', italic: false, placeholder: Enter your name, role: null, spacing_above: medium, spacing_below: large, text: '', tooltip: '', underline: false, visible: true}
+      type: TextArea
+    - layout_properties: {grid_position: 'UMSXYW,JGIXPU'}
+      name: users_phones_number
+      properties: {align: left, auto_expand: false, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', height: '', italic: false, placeholder: Enter your mobile number, role: null, spacing_above: medium, spacing_below: large, text: '', tooltip: '', underline: false, visible: true}
+      type: TextArea
+    - layout_properties: {grid_position: 'KCGITO,DPQBYJ'}
+      name: users_emails
+      properties: {align: left, auto_expand: false, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', height: '', italic: false, placeholder: Enter your email id, role: null, spacing_above: medium, spacing_below: large, text: '', tooltip: '', underline: false, visible: true}
+      type: TextArea
+    - layout_properties: {grid_position: 'NCDEBJ,KGTTVA'}
+      name: users_queries
+      properties: {align: left, auto_expand: false, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', height: '', italic: false, placeholder: Enter your query, role: null, spacing_above: medium, spacing_below: large, text: '', tooltip: '', underline: false, visible: true}
+      type: TextArea
+    - event_bindings: {click: button_1_click}
       layout_properties: {grid_position: 'EBEAVB,TIQYUC'}
-      event_bindings: {click: button_1_click}
+      name: button_1
+      properties: {align: center, background: 'theme:Primary 500', bold: true, border: '', enabled: true, font: '', font_size: 18, foreground: 'theme:White', icon: '', icon_align: left, italic: false, role: null, spacing_above: medium, spacing_below: small, text: submit, tooltip: '', underline: false, visible: true}
+      type: Button
+    layout_properties: {grid_position: 'DRPGCK,YQGEGT'}
+    name: column_panel_1
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: null, spacing_above: small, spacing_below: small, tooltip: '', visible: false, wrap_on: mobile}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'HBEZVP,TLURSM'}
+  name: card_1
+  properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+  type: ColumnPanel
+container: {type: ColumnPanel}
 is_package: true

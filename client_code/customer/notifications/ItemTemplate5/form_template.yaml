@@ -1,43 +1,43 @@
-is_package: true
-container: {type: ColumnPanel}
 components:
-- name: column_panel_1
-  properties: {col_widths: '{"ALHBNM":59,"GTBKJM":50,"QLNINM":10,"PMTHIW":70,"VRZSNV":12}', background: '#87cefa', border: solid white}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'PDXLWY,GXFGBD'}
-  components:
-  - name: spacer_1
+- components:
+  - layout_properties: {grid_position: 'TOOSNM,QLNINM BVBWJP,SAUEYR'}
+    name: spacer_1
     properties: {height: 6.427825927734375}
     type: Spacer
-    layout_properties: {grid_position: 'TOOSNM,QLNINM BVBWJP,SAUEYR'}
-  - name: image_1
+  - layout_properties: {grid_position: 'TOOSNM,QLNINM KJOJSY,ITQWBL'}
+    name: image_1
     properties: {height: 52.937713623046875, source: _/theme/account.png}
     type: Image
-    layout_properties: {grid_position: 'TOOSNM,QLNINM KJOJSY,ITQWBL'}
-  - name: label_1
+  - layout_properties: {grid_position: 'TOOSNM,PMTHIW BYAYKK,ALHBNM'}
+    name: label_1
     properties: {font_size: 16}
     type: Label
-    layout_properties: {grid_position: 'TOOSNM,PMTHIW BYAYKK,ALHBNM'}
-  - name: label_2
+  - layout_properties: {grid_position: 'TOOSNM,PMTHIW ACSKRW,GTBKJM'}
+    name: label_2
     properties: {font_size: 13, italic: false}
     type: Label
-    layout_properties: {grid_position: 'TOOSNM,PMTHIW ACSKRW,GTBKJM'}
-  - name: spacer_2
+  - layout_properties: {grid_position: 'TOOSNM,VRZSNV JHOSTM,ZZJGUB'}
+    name: spacer_2
     properties: {height: 15.243011474609375}
     type: Spacer
-    layout_properties: {grid_position: 'TOOSNM,VRZSNV JHOSTM,ZZJGUB'}
-  - name: button_1
-    properties: {text: '', icon: 'fa:ellipsis-v'}
-    type: Button
+  - event_bindings: {click: button_1_click}
     layout_properties: {grid_position: 'TOOSNM,VRZSNV VJKOTS,TPDDIM'}
-    event_bindings: {click: button_1_click}
-  - name: link_1
-    properties: {bold: true, align: center, spacing_above: none, background: white, col_spacing: tiny, foreground: '', spacing_below: none, visible: false, border: '', font_size: 11, text: MARK AS READ}
-    type: Link
-    layout_properties: {grid_position: 'TOOSNM,VRZSNV FKEVAB,SLREMI'}
+    name: button_1
+    properties: {icon: 'fa:ellipsis-v', text: ''}
+    type: Button
+  - data_bindings: []
     event_bindings: {click: link_1_click}
-    data_bindings: []
-  - name: spacer_3
+    layout_properties: {grid_position: 'TOOSNM,VRZSNV FKEVAB,SLREMI'}
+    name: link_1
+    properties: {align: center, background: white, bold: true, border: '', col_spacing: tiny, font_size: 11, foreground: '', spacing_above: none, spacing_below: none, text: MARK AS READ, visible: false}
+    type: Link
+  - layout_properties: {grid_position: 'TOOSNM,VRZSNV CTQQRL,TFOIXR'}
+    name: spacer_3
     properties: {height: -5.536895751953125}
     type: Spacer
-    layout_properties: {grid_position: 'TOOSNM,VRZSNV CTQQRL,TFOIXR'}
+  layout_properties: {grid_position: 'PDXLWY,GXFGBD'}
+  name: column_panel_1
+  properties: {background: '#87cefa', border: solid white, col_widths: '{"ALHBNM":59,"GTBKJM":50,"QLNINM":10,"PMTHIW":70,"VRZSNV":12}'}
+  type: ColumnPanel
+container: {type: ColumnPanel}
+is_package: true

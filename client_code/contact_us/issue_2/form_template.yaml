@@ -1,129 +1,129 @@
-is_package: true
-container:
-  type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html'}
 components:
-- type: ColumnPanel
-  properties: {}
-  name: content_panel
-  layout_properties: {slot: default}
-  components:
-  - name: spacer_1
+- components:
+  - layout_properties: {grid_position: 'VFBVFP,ZJZNOQ'}
+    name: spacer_1
     properties: {height: 23.199981689453125}
     type: Spacer
-    layout_properties: {grid_position: 'VFBVFP,ZJZNOQ'}
-  - name: xy_panel_1
-    properties: {height: 167.39993286132812, background: '#1eb0ed'}
-    type: XYPanel
-    layout_properties: {grid_position: 'YGHHOZ,XHLQIY', full_width_row: true}
-    components:
-    - name: label_1
-      properties: {text: Contact Customer Support, font: a, font_size: 45, foreground: 'theme:White', align: center}
+  - components:
+    - layout_properties: {width: 520.388916015625, x: 554.9861246757209, y: 42.31943766400218}
+      name: label_1
+      properties: {align: center, font: a, font_size: 45, foreground: 'theme:White', text: Contact Customer Support}
       type: Label
-      layout_properties: {x: 554.9861246757209, y: 42.31943766400218, width: 520.388916015625}
-  - name: xy_panel_2
-    properties: {height: 551.7999877929688}
+    layout_properties: {full_width_row: true, grid_position: 'YGHHOZ,XHLQIY'}
+    name: xy_panel_1
+    properties: {background: '#1eb0ed', height: 167.39993286132812}
     type: XYPanel
-    layout_properties: {grid_position: 'AVGTQB,NKQYCB'}
-    components:
-    - name: label_2
-      properties: {text: Tell us more about your issue with Payments., font: a, font_size: 25, align: left}
+  - components:
+    - layout_properties: {width: 970, x: 259, y: 17.63751220703125}
+      name: label_2
+      properties: {align: left, font: a, font_size: 25, text: Tell us more about your issue with Payments.}
       type: Label
-      layout_properties: {x: 259, y: 17.63751220703125, width: 970}
-    - name: link_1
-      properties: {role: null, bold: true, align: left, col_widths: '', spacing_above: small, background: '', icon: 'fa:arrow-left', wrap_on: mobile, underline: false, font: a, col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 20, tooltip: '', text: Back}
+    - event_bindings: {click: link_1_click}
+      layout_properties: {width: 106.20001220703125, x: 259, y: 72.82501220703125}
+      name: link_1
+      properties: {align: left, background: '', bold: true, border: '', col_spacing: medium, col_widths: '', font: a, font_size: 20, foreground: '', icon: 'fa:arrow-left', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Back, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
       type: Link
-      layout_properties: {x: 259, y: 72.82501220703125, width: 106.20001220703125}
-      event_bindings: {click: link_1_click}
-    - name: xy_panel_3
+    - components:
+      - event_bindings: {click: link_2_click}
+        layout_properties: {width: 534.438, x: 0, y: 10}
+        name: link_2
+        properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '{}', font: a, font_size: 20, foreground: '', icon: 'fa:angle-right', icon_align: right_edge, italic: false, role: null, spacing_above: small, spacing_below: small, text: Payment on hold or pending, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+        type: Link
+      - event_bindings: {click: link_3_click}
+        layout_properties: {width: 534.438, x: 0, y: 71.86251831054688}
+        name: link_3
+        properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: a, font_size: 20, foreground: '', icon: 'fa:angle-right', icon_align: right_edge, italic: false, role: null, spacing_above: small, spacing_below: small, text: Refunds, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+        type: Link
+      - event_bindings: {click: link_4_click}
+        layout_properties: {width: 534.438, x: 0, y: 132.42501831054688}
+        name: link_4
+        properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: a, font_size: 20, foreground: '', icon: 'fa:angle-right', icon_align: right_edge, italic: false, role: null, spacing_above: small, spacing_below: small, text: Negative Balance, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+        type: Link
+      layout_properties: {width: 669, x: 259, y: 127.82501220703125}
+      name: xy_panel_3
       properties: {height: 86.39999389648438}
       type: XYPanel
-      layout_properties: {x: 259, y: 127.82501220703125, width: 669}
-      components:
-      - name: link_2
-        properties: {role: null, bold: false, align: left, col_widths: '{}', spacing_above: small, background: '', icon: 'fa:angle-right', wrap_on: mobile, underline: false, font: a, col_spacing: medium, icon_align: right_edge, foreground: '', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 20, tooltip: '', text: Payment on hold or pending}
-        type: Link
-        layout_properties: {x: 0, y: 10, width: 534.438}
-        event_bindings: {click: link_2_click}
-      - name: link_3
-        properties: {role: null, bold: false, align: left, col_widths: '', spacing_above: small, background: '', icon: 'fa:angle-right', wrap_on: mobile, underline: false, font: a, col_spacing: medium, icon_align: right_edge, foreground: '', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 20, tooltip: '', text: Refunds}
-        type: Link
-        layout_properties: {x: 0, y: 71.86251831054688, width: 534.438}
-        event_bindings: {click: link_3_click}
-      - name: link_4
-        properties: {role: null, bold: false, align: left, col_widths: '', spacing_above: small, background: '', icon: 'fa:angle-right', wrap_on: mobile, underline: false, font: a, col_spacing: medium, icon_align: right_edge, foreground: '', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 20, tooltip: '', text: Negative Balance}
-        type: Link
-        layout_properties: {x: 0, y: 132.42501831054688, width: 534.438}
-        event_bindings: {click: link_4_click}
-    - name: link_5
-      properties: {role: null, bold: false, align: left, col_widths: '', spacing_above: small, background: '', icon: 'fa:angle-right', wrap_on: mobile, underline: false, font: a, col_spacing: medium, icon_align: right_edge, foreground: '', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 20, tooltip: '', text: Payment declined}
+    - event_bindings: {click: link_5_click}
+      layout_properties: {width: 534, x: 259, y: 319.8000183105469}
+      name: link_5
+      properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: a, font_size: 20, foreground: '', icon: 'fa:angle-right', icon_align: right_edge, italic: false, role: null, spacing_above: small, spacing_below: small, text: Payment declined, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
       type: Link
-      layout_properties: {x: 259, y: 319.8000183105469, width: 534}
-      event_bindings: {click: link_5_click}
-- type: FlowPanel
+    layout_properties: {grid_position: 'AVGTQB,NKQYCB'}
+    name: xy_panel_2
+    properties: {height: 551.7999877929688}
+    type: XYPanel
+  layout_properties: {slot: default}
+  name: content_panel
   properties: {}
-  name: navbar_links
-  layout_properties: {slot: nav-right}
-  components:
-  - name: flow_panel_1_copy
-    properties: {visible: true}
-    type: FlowPanel
-    components:
-    - name: xy_panel_4
-      properties: {height: 56.399993896484375}
-      type: XYPanel
-      layout_properties: {width: 795.430083984375}
-      components:
-      - name: link_13
-        properties: {text: Products, font: a, font_size: 20, bold: true, align: center}
+  type: ColumnPanel
+- components:
+  - components:
+    - components:
+      - event_bindings: {click: link_13_click}
+        layout_properties: {width: 154.137951171875, x: 226.23753051832318, y: 4.850000191479921}
+        name: link_13
+        properties: {align: center, bold: true, font: a, font_size: 20, text: Products}
         type: Link
-        layout_properties: {x: 226.23753051832318, y: 4.850000191479921, width: 154.137951171875}
-        event_bindings: {click: link_13_click}
-      - name: card_3
-        properties: {role: card, col_widths: '', spacing_above: small, background: 'theme:White', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
-        type: ColumnPanel
-        layout_properties: {x: 242.08750610426068, y: 35.37500076368451, width: 129.9}
-        components:
-        - name: link_11
-          properties: {text: Business, foreground: 'theme:Black', font: a, font_size: 15, bold: true, icon: 'fa:angle-right', icon_align: right_edge}
+      - components:
+        - layout_properties: {grid_position: 'XZNEKR,DZHLOM'}
+          name: link_11
+          properties: {bold: true, font: a, font_size: 15, foreground: 'theme:Black', icon: 'fa:angle-right', icon_align: right_edge, text: Business}
           type: Link
-          layout_properties: {grid_position: 'XZNEKR,DZHLOM'}
-      - name: card_5
+        layout_properties: {width: 129.9, x: 242.08750610426068, y: 35.37500076368451}
+        name: card_3
+        properties: {background: 'theme:White', border: '', col_spacing: medium, col_widths: '', foreground: '', role: card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+        type: ColumnPanel
+      - components:
+        - layout_properties: {grid_position: 'TIMVIS,OOPEOL'}
+          name: link_17
+          properties: {bold: true, font: a, font_size: 15, foreground: 'theme:Black', icon: 'fa:angle-right', icon_align: right_edge, text: About us}
+          type: Link
+        layout_properties: {width: 129.375, x: 407.0999877937138, y: 34.55000000074506}
+        name: card_5
         properties: {role: card}
         type: ColumnPanel
-        layout_properties: {x: 407.0999877937138, y: 34.55000000074506, width: 129.375}
-        components:
-        - name: link_17
-          properties: {text: About us, font: a, font_size: 15, foreground: 'theme:Black', bold: true, icon: 'fa:angle-right', icon_align: right_edge}
-          type: Link
-          layout_properties: {grid_position: 'TIMVIS,OOPEOL'}
-      - name: button_3
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: 'theme:White', icon: '', underline: false, font: a, icon_align: left, foreground: '#2196F3', spacing_below: small, border: 'theme:White', italic: false, enabled: true, font_size: 16, text: Login}
+      - event_bindings: {click: button_3_click}
+        layout_properties: {width: 85.3499984741211, x: 699.5375488288701, y: 6.774997521191835}
+        name: button_3
+        properties: {align: left, background: 'theme:White', bold: true, border: 'theme:White', enabled: true, font: a, font_size: 16, foreground: '#2196F3', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Login, underline: false}
         type: Button
-        layout_properties: {x: 699.5375488288701, y: 6.774997521191835, width: 85.3499984741211}
-        event_bindings: {click: button_3_click}
-      - name: link_15
-        properties: {text: Company, foreground: 'theme:White', font: a, font_size: 20, bold: true, align: center}
+      - event_bindings: {click: link_15_click}
+        layout_properties: {width: 139.97500610351562, x: 400.1750610359013, y: 6.900000382214785}
+        name: link_15
+        properties: {align: center, bold: true, font: a, font_size: 20, foreground: 'theme:White', text: Company}
         type: Link
-        layout_properties: {x: 400.1750610359013, y: 6.900000382214785, width: 139.97500610351562}
-        event_bindings: {click: link_15_click}
-      - name: link_16
-        properties: {text: Contact us, foreground: 'theme:White', font: a, font_size: 20, bold: true, align: center, visible: true}
+      - event_bindings: {click: link_16_click}
+        layout_properties: {width: 112.188, x: 561.3125, y: 5.6125007629394545}
+        name: link_16
+        properties: {align: center, bold: true, font: a, font_size: 20, foreground: 'theme:White', text: Contact us, visible: true}
         type: Link
-        layout_properties: {x: 561.3125, y: 5.6125007629394545, width: 112.188}
-        event_bindings: {click: link_16_click}
-      - name: link_8
-        properties: {text: Home, font: a, bold: true, align: center, underline: false, font_size: 20, icon: 'fa:home'}
+      - data_bindings:
+        - {code: 'self.item[''line'']', property: border, writeback: false}
+        event_bindings: {click: link_8_click, hide: link_8_hide, show: link_8_show}
+        layout_properties: {width: 149.81944274902344, x: 53.48612467572093, y: 3.97222201153636}
+        name: link_8
+        properties: {align: center, bold: true, font: a, font_size: 20, icon: 'fa:home', text: Home, underline: false}
         type: Link
-        layout_properties: {x: 53.48612467572093, y: 3.97222201153636, width: 149.81944274902344}
-        data_bindings:
-        - {property: border, code: 'self.item[''line'']', writeback: false}
-        event_bindings: {click: link_8_click, show: link_8_show, hide: link_8_hide}
-- name: label_7_copy_2_copy
-  properties: {text: 'G-Wallet         ', font_size: 25, align: right, bold: true, font: a, italic: false, underline: false, foreground: 'theme:White'}
+      layout_properties: {width: 795.430083984375}
+      name: xy_panel_4
+      properties: {height: 56.399993896484375}
+      type: XYPanel
+    name: flow_panel_1_copy
+    properties: {visible: true}
+    type: FlowPanel
+  layout_properties: {slot: nav-right}
+  name: navbar_links
+  properties: {}
+  type: FlowPanel
+- layout_properties: {slot: title}
+  name: label_7_copy_2_copy
+  properties: {align: right, bold: true, font: a, font_size: 25, foreground: 'theme:White', italic: false, text: 'G-Wallet         ', underline: false}
   type: Label
-  layout_properties: {slot: title}
-- name: image_1_copy
-  properties: {role: null, vertical_align: center, spacing_above: small, background: white, horizontal_align: right, source: _/theme/letter-g.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 49.59999084472656}
+- layout_properties: {slot: top-left-btn}
+  name: image_1_copy
+  properties: {background: white, border: '', display_mode: shrink_to_fit, foreground: '', height: 49.59999084472656, horizontal_align: right, role: null, source: _/theme/letter-g.png, spacing_above: small, spacing_below: small, tooltip: '', vertical_align: center, visible: true}
   type: Image
-  layout_properties: {slot: top-left-btn}
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true

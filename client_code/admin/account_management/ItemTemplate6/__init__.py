@@ -27,22 +27,22 @@ class ItemTemplate6(ItemTemplate6Template):
         # print(self.user)
         # print(self.user['users_email'],type(self.user['users_email']))
         # user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
-        if self.item['users_profile_pic'] is not None:
-            self.image_1.source =self.item['users_profile_pic']
+        if self.item['user_profile_photo'] is not None:
+            self.image_1.source =self.item['user_profile_photo']
         else:
           print('user image none')
   
   def get_status_text(self):
-        if self.item['users_hold']:
+        if self.item['user_hold']:
             return "Hold"
-        return "Inactive" if self.item['users_inactive'] else "Active"
+        return "Inactive" if self.item['user_inactive'] else "Active"
   
   def get_status_color(self):
     # Check for hold status first
-    if self.item['users_hold']:
+    if self.item['user_hold']:
         return "red"
     # Check for inactive status next
-    elif self.item['users_inactive']:
+    elif self.item['user_inactive']:
         return "red"
     # If neither hold nor inactive, return green for active
     else:
@@ -54,13 +54,13 @@ class ItemTemplate6(ItemTemplate6Template):
     selected_user = self.item  # Assuming you have set the 'item' property of the repeating panel to the user row
     
     # Extract the phone number and username
-    phone_number = selected_user['users_phone']
+    phone_number = selected_user['user_phone_number']
     print(phone_number)
-    username = selected_user['users_username']
-    print(username)
+    fullname = selected_user['user_fullname']
+    print(fullname)
     
     # Open the admin_view form and pass the phone number and admin username
-    open_form('admin.admin_view_user_details', user=self.user, phone_number=phone_number, username=username)
+    open_form('admin.admin_view_user_details', user=self.user, phone_number=phone_number, fullname=fullname)
 
   # def button_1_click(self, **event_args):
   #   # Access the data for the selected user

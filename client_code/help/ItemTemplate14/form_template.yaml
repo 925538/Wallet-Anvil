@@ -1,25 +1,25 @@
-is_package: true
-container:
-  type: ColumnPanel
-  data_bindings: []
 components:
-- name: text_area_1
+- data_bindings:
+  - {code: 'self.item[''users_service_query'']', property: text, writeback: false}
+  event_bindings: {change: text_area_1_change}
+  layout_properties: {grid_position: 'CFUVQP,HGYMIW'}
+  name: text_area_1
   properties: {height: 62.444427490234375}
   type: TextArea
-  layout_properties: {grid_position: 'CFUVQP,HGYMIW'}
-  data_bindings:
-  - {property: text, code: 'self.item[''users_service_query'']', writeback: false}
-  event_bindings: {change: text_area_1_change}
-- name: text_area_2
-  properties: {underline: false, height: 62.77777099609375}
-  type: TextArea
-  layout_properties: {grid_position: 'CFUVQP,TWSQBU'}
-  data_bindings:
-  - {property: text, code: 'self.item[''users_conclusion_about_query'']', writeback: false}
+- data_bindings:
+  - {code: 'self.item[''users_conclusion_about_query'']', property: text, writeback: false}
   event_bindings: {change: text_area_2_change}
-- name: label_1
+  layout_properties: {grid_position: 'CFUVQP,TWSQBU'}
+  name: text_area_2
+  properties: {height: 62.77777099609375, underline: false}
+  type: TextArea
+- data_bindings:
+  - {code: 'self.item[''users_update'']', property: text}
+  layout_properties: {grid_position: 'CFUVQP,WEODIL KUUPJS,JVUAVX'}
+  name: label_1
   properties: {align: center, bold: true, spacing_above: large}
   type: Label
-  layout_properties: {grid_position: 'CFUVQP,WEODIL KUUPJS,JVUAVX'}
-  data_bindings:
-  - {property: text, code: 'self.item[''users_update'']'}
+container:
+  data_bindings: []
+  type: ColumnPanel
+is_package: true

@@ -43,41 +43,47 @@ class audit_trail(audit_trailTemplate):
             print('User data is incomplete or missing')
 
     def load_all_actions(self):
-        """Load all actions into the repeating panel."""
-        self.repeating_panel_items = []
-        actions_data = app_tables.wallet_admins_actions.search()
-        self.grouped_details = {}
-        if actions_data:
-            for item in actions_data:
-                date_str = item['admins_actions_date'].strftime("%Y-%m-%d")
-                if date_str not in self.grouped_details:
-                    self.grouped_details[date_str] = {'date': item['admins_actions_date'], 'details': []}
-                self.grouped_details[date_str]['details'].append(item)
-        
-        # Sort dates in descending order
-        sorted_dates = sorted(self.grouped_details.keys(), reverse=True)
+      """Load all actions into the repeating panel."""
+      self.repeating_panel_items = []
+      
+      # Call the server function to fetch all actions
+      actions_data = anvil.server.call('fetch_all_actions')
+      
+      self.grouped_details = {}
+      if actions_data:
+          for item in actions_data:
+              date_str = item['admins_actions_date'].strftime("%Y-%m-%d")
+              if date_str not in self.grouped_details:
+                  self.grouped_details[date_str] = {'date': item['admins_actions_date'], 'details': []}
+              self.grouped_details[date_str]['details'].append(item)
+          
+          # Sort dates in descending order
+          sorted_dates = sorted(self.grouped_details.keys(), reverse=True)
+  
+          # Create a list of dictionaries for the repeating panel
+          for date_str in sorted_dates:
+              date_info = self.grouped_details[date_str]
+              for action in reversed(date_info['details']):
+                  admin_action = action['admins_actions']
+                  admin_action_username = action['admins_actions_username']
+                  profile_pic = '_/theme/account.png'
+                  
+                  # Fetch the user's profile picture
+                  userr = app_tables.wallet_users.get(users_phone=action.get('users_phone'))
+                  if userr and userr['users_profile_pic']:
+                      profile_pic = userr['users_profile_pic']
+                  
+                  # Append transaction details with username instead of receiver_phone
+                  self.repeating_panel_items.append({
+                      'date': date_info['date'].strftime("%Y-%m-%d"),
+                      'time': date_info['date'].strftime("%I:%M %p"),
+                      'admin_name': action['admins_actions_name'],
+                      'admin_action': admin_action,
+                      'admin_action_username': admin_action_username,
+                      'profile_pic': profile_pic,
+                  })
+          self.update_pagination()
 
-        # Create a list of dictionaries for repeating_panel_1
-        for date_str in sorted_dates:
-            date_info = self.grouped_details[date_str]
-            for action in reversed(date_info['details']):
-                admin_action = action['admins_actions']
-                admin_action_username = action['admins_actions_username']
-                profile_pic = '_/theme/account.png'
-                userr = app_tables.wallet_users.get(users_phone=action['admins_actions_phone'])
-                if userr and userr['users_profile_pic']:
-                    profile_pic = userr['users_profile_pic']
-                
-                # Append transaction details with username instead of receiver_phone
-                self.repeating_panel_items.append({
-                    'date': date_info['date'].strftime("%Y-%m-%d"),
-                    'time': date_info['date'].strftime("%I:%M %p"),
-                    'admin_name': action['admins_actions_name'],
-                    'admin_action': admin_action,
-                    'admin_action_username': admin_action_username,
-                    'profile_pic': profile_pic,
-                })
-        self.update_pagination()
 
     def update_pagination(self):
         """Update the pagination display and controls."""
@@ -125,18 +131,34 @@ class audit_trail(audit_trailTemplate):
             self.load_all_actions()
 
     def button_1_click(self, **event_args):
-        """This method is called when the button is clicked"""
-        username = self.text_box_1.text.strip()
-        users = []
-        search_results = app_tables.wallet_admins_actions.search(admins_actions_username=username)
-        if search_results:
-            for i in range(len(self.repeating_panel_items)):
-                if username == self.repeating_panel_items[i]['admin_action_username'].strip():
-                    users.append(self.repeating_panel_items[i])
-            self.repeating_panel_2.items = users
-        if not users:
-            anvil.alert('User not found.')
-            self.load_all_actions()
+      """This method is called when the button is clicked"""
+      username = self.text_box_1.text.strip()
+      
+      # Call the server function to search actions by username
+      search_results = anvil.server.call('search_actions_by_username', username)
+      
+      if search_results:
+          # Convert the search results into the format expected by the repeating panel
+          users = []
+          for action in search_results:
+              users.append({
+                  'date': action['admins_actions_date'].strftime("%Y-%m-%d"),
+                  'time': action['admins_actions_date'].strftime("%I:%M %p"),
+                  'admin_name': action['admins_actions_name'],
+                  'admin_action': action['admins_actions'],
+                  'admin_action_username': action['admins_actions_username'],
+                  'profile_pic': '_/theme/account.png',  # Default profile pic
+  
+                  # Optionally fetch and set the actual profile picture from wallet_users
+                  'profile_pic': app_tables.wallet_users.get(users_phone=action.get('users_phone'))['users_profile_pic'] 
+                                if app_tables.wallet_users.get(users_phone=action.get('users_phone')) 
+                                else '_/theme/account.png'
+              })
+          
+          self.repeating_panel_2.items = users
+      else:
+          anvil.alert('User not found.')
+          self.load_all_actions()
 
     def link_1_click(self, **event_args):
         """This method is called when the link is clicked"""
@@ -575,5 +597,9 @@ class audit_trail(audit_trailTemplate):
 #     def button_2_click(self, **event_args):
 #       """This method is called when the button is clicked"""
 #       pass
+
+    def text_box_1_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
     
 

@@ -1,51 +1,51 @@
-is_package: true
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{"OXHOGY":21,"OUJISL":16,"EMRTBP":13,"MAAGXS":20,"CQHDBL":3,"YDWUMC":7,"KZUWRB":10}'}
 components:
-- name: spacer_3
+- layout_properties: {grid_position: 'GGBXBF,YMRKHW'}
+  name: spacer_3
   properties: {height: 16}
   type: Spacer
-  layout_properties: {grid_position: 'GGBXBF,YMRKHW'}
-- name: text_box_1
-  properties: {role: null, bold: false, align: center, placeholder: '', spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
-  type: TextBox
-  layout_properties: {grid_position: 'LYTDQS,MAAGXS'}
+- data_bindings:
+  - {code: 'self.item[''country'']', property: text, writeback: false}
   event_bindings: {pressed_enter: text_box_1_pressed_enter}
-  data_bindings:
-  - {property: text, code: 'self.item[''admins_add_currency_country'']', writeback: false}
-- name: spacer_9_copy
-  properties: {height: 37.199981689453125}
-  type: Spacer
-  layout_properties:
+  layout_properties: {grid_position: 'LYTDQS,MAAGXS'}
+  name: text_box_1
+  properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', hide_text: false, italic: false, placeholder: '', role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', type: text, underline: false, visible: true}
+  type: TextBox
+- layout_properties:
     col_widths: {}
     grid_position: LYTDQS,YDWUMC
-- name: text_box_2
-  properties: {role: null, bold: false, align: center, placeholder: '', spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
-  type: TextBox
-  layout_properties: {grid_position: 'LYTDQS,OXHOGY'}
-  data_bindings:
-  - {property: text, code: 'self.item[''admins_add_currency_code'']', writeback: false}
-  event_bindings: {pressed_enter: text_box_2_pressed_enter}
-- name: spacer_9
+  name: spacer_9_copy
   properties: {height: 37.199981689453125}
   type: Spacer
-  layout_properties:
+- data_bindings:
+  - {code: 'self.item[''code'']', property: text, writeback: false}
+  event_bindings: {pressed_enter: text_box_2_pressed_enter}
+  layout_properties: {grid_position: 'LYTDQS,OXHOGY'}
+  name: text_box_2
+  properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', hide_text: false, italic: false, placeholder: '', role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', type: text, underline: false, visible: true}
+  type: TextBox
+- layout_properties:
     col_widths: {}
     grid_position: LYTDQS,CQHDBL
-- name: image_1
+  name: spacer_9
+  properties: {height: 37.199981689453125}
+  type: Spacer
+- data_bindings:
+  - {code: 'self.item[''icon'']', property: source, writeback: false}
+  layout_properties: {grid_position: 'LYTDQS,OUJISL'}
+  name: image_1
   properties: {height: 44.222198486328125}
   type: Image
-  layout_properties: {grid_position: 'LYTDQS,OUJISL'}
-  data_bindings:
-  - {property: source, code: 'self.item[''admins_add_currency_icon'']', writeback: false}
-- name: view_user
-  properties: {role: null, bold: true, align: center, spacing_above: small, background: '#1d6eae', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: true, enabled: true, font_size: 12, tooltip: '', text: View number of user}
-  type: Button
+- event_bindings: {click: view_user_click}
   layout_properties: {grid_position: 'LYTDQS,EMRTBP'}
-  event_bindings: {click: view_user_click}
-- name: button_1
-  properties: {text: '', background: '#1d6eae', foreground: white, spacing_above: medium, icon: 'fa:trash'}
+  name: view_user
+  properties: {align: center, background: '#1d6eae', bold: true, border: '', enabled: true, font: '', font_size: 12, foreground: 'theme:White', icon: '', icon_align: left, italic: true, role: null, spacing_above: small, spacing_below: small, text: View number of user, tooltip: '', underline: false, visible: true}
   type: Button
+- event_bindings: {click: button_1_click}
   layout_properties: {grid_position: 'LYTDQS,KZUWRB'}
-  event_bindings: {click: button_1_click}
+  name: button_1
+  properties: {background: '#1d6eae', foreground: white, icon: 'fa:trash', spacing_above: medium, text: ''}
+  type: Button
+container:
+  properties: {col_widths: '{"OXHOGY":21,"OUJISL":16,"EMRTBP":13,"MAAGXS":20,"CQHDBL":3,"YDWUMC":7,"KZUWRB":10}'}
+  type: ColumnPanel
+is_package: true

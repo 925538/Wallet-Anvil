@@ -1,76 +1,76 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{"XVJCLB":15,"OTJHEK":35,"DXAQKD":10}'}
 components:
-- name: flow_panel_1
-  properties: {visible: true, spacing: large}
-  type: FlowPanel
-  layout_properties: {grid_position: 'INIFXP,GHNYAJ', full_width_row: true}
-  components:
-  - name: image_1_copy
-    properties: {role: null, vertical_align: center, spacing_above: small, background: white, horizontal_align: right, source: _/theme/letter-g.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 44.80000305175781}
+- components:
+  - layout_properties: {width: 89.19999694824219}
+    name: image_1_copy
+    properties: {background: white, border: '', display_mode: shrink_to_fit, foreground: '', height: 44.80000305175781, horizontal_align: right, role: null, source: _/theme/letter-g.png, spacing_above: small, spacing_below: small, tooltip: '', vertical_align: center, visible: true}
     type: Image
-    layout_properties: {width: 89.19999694824219}
-  - name: label_7_copy_2
-    properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true, font: a, italic: false, underline: false, foreground: black}
+  - layout_properties: {}
+    name: label_7_copy_2
+    properties: {align: left, bold: true, font: a, font_size: 25, foreground: black, italic: false, text: 'G-Wallet         ', underline: false}
     type: Label
-    layout_properties: {}
-  - name: spacer_4
+  - layout_properties: {width: 519.9499755859375}
+    name: spacer_4
     properties: {height: 32}
     type: Spacer
-    layout_properties: {width: 519.9499755859375}
-  - name: link_2
-    properties: {text: Deposit, align: left, bold: true, foreground: '', font_size: 15, icon: ''}
-    type: Link
-    event_bindings: {click: link_2_click}
+  - event_bindings: {click: link_2_click}
     layout_properties: {}
-  - name: link_3
-    properties: {text: Money Transfer, bold: true, align: center, foreground: '', font_size: 15, icon: ''}
+    name: link_2
+    properties: {align: left, bold: true, font_size: 15, foreground: '', icon: '', text: Deposit}
     type: Link
-    event_bindings: {click: link_3_click}
+  - event_bindings: {click: link_3_click}
     layout_properties: {}
-  - name: link_4
-    properties: {text: Withdraw, bold: true, align: center, foreground: '', font_size: null, icon: ''}
+    name: link_3
+    properties: {align: center, bold: true, font_size: 15, foreground: '', icon: '', text: Money Transfer}
     type: Link
-    event_bindings: {click: link_4_click}
+  - event_bindings: {click: link_4_click}
     layout_properties: {}
-  - name: link_7
-    properties: {text: Help, align: center, bold: true, foreground: '', icon: ''}
+    name: link_4
+    properties: {align: center, bold: true, font_size: null, foreground: '', icon: '', text: Withdraw}
     type: Link
-    event_bindings: {click: link_7_click}
+  - event_bindings: {click: link_7_click}
     layout_properties: {}
-  - name: link_1
-    properties: {text: Home, bold: true, icon: ''}
+    name: link_7
+    properties: {align: center, bold: true, foreground: '', icon: '', text: Help}
     type: Link
-    layout_properties: {}
-  - name: link_13
-    properties: {align: center, bold: true, text: Logout, foreground: '', icon: 'fa:sign-out'}
+  - layout_properties: {}
+    name: link_1
+    properties: {bold: true, icon: '', text: Home}
     type: Link
-    event_bindings: {click: link_13_click}
+  - event_bindings: {click: link_13_click}
     layout_properties: {}
-  - name: spacer_3_copy
+    name: link_13
+    properties: {align: center, bold: true, foreground: '', icon: 'fa:sign-out', text: Logout}
+    type: Link
+  - layout_properties: {width: 787.297}
+    name: spacer_3_copy
     properties: {height: -1.800018310546875}
     type: Spacer
-    layout_properties: {width: 787.297}
-- name: spacer_5
+  layout_properties: {full_width_row: true, grid_position: 'INIFXP,GHNYAJ'}
+  name: flow_panel_1
+  properties: {spacing: large, visible: true}
+  type: FlowPanel
+- layout_properties: {grid_position: 'MPDDBV,XVJCLB'}
+  name: spacer_5
   properties: {height: 32}
   type: Spacer
-  layout_properties: {grid_position: 'MPDDBV,XVJCLB'}
-- name: text_box_1
-  properties: {text: search, role: null, placeholder: search}
-  type: TextBox
+- event_bindings: {pressed_enter: text_box_1_pressed_enter}
   layout_properties: {grid_position: 'MPDDBV,OTJHEK'}
-  event_bindings: {pressed_enter: text_box_1_pressed_enter}
-- name: spacer_3
+  name: text_box_1
+  properties: {placeholder: search, role: null, text: search}
+  type: TextBox
+- layout_properties: {grid_position: 'MPDDBV,DXAQKD'}
+  name: spacer_3
   properties: {height: 29}
   type: Spacer
-  layout_properties: {grid_position: 'MPDDBV,DXAQKD'}
-- name: spacer_1
+- layout_properties: {grid_position: ''}
+  name: spacer_1
   properties: {height: 36}
   type: Spacer
-  layout_properties: {grid_position: ''}
-- name: repeating_panel_1
+- layout_properties: {grid_position: 'PUQNHD,GWNNUW'}
+  name: repeating_panel_1
   properties: {item_template: customer.paycontacts.ItemTemplate9}
   type: RepeatingPanel
-  layout_properties: {grid_position: 'PUQNHD,GWNNUW'}
+container:
+  properties: {col_widths: '{"XVJCLB":15,"OTJHEK":35,"DXAQKD":10}'}
+  type: ColumnPanel
 is_package: true

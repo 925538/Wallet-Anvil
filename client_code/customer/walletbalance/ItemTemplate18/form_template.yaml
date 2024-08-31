@@ -1,56 +1,56 @@
-is_package: true
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{"GBIMYL":10,"BIFVOB":40,"XGYOVI":10}'}
 components:
-- name: spacer_2
+- layout_properties: {grid_position: 'QXYXOK,GBIMYL'}
+  name: spacer_2
   properties: {height: 25}
   type: Spacer
-  layout_properties: {grid_position: 'QXYXOK,GBIMYL'}
-- name: card_1
-  properties: {role: card, col_widths: '{"WJNVSN":15,"RMUZHC":45}', background: '#badaee'}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'QXYXOK,BIFVOB'}
-  components:
-  - name: spacer_3
+- components:
+  - layout_properties: {grid_position: 'UHFRVM,WJNVSN MTWXJC,YERJTR'}
+    name: spacer_3
     properties: {height: 21}
     type: Spacer
-    layout_properties: {grid_position: 'UHFRVM,WJNVSN MTWXJC,YERJTR'}
-  - name: image_icon
+  - data_bindings:
+    - {code: 'self.item[''currency_icon'']', property: source, writeback: false}
+    layout_properties: {grid_position: 'UHFRVM,WJNVSN CAODLR,UGYSTN'}
+    name: image_icon
     properties: {height: 88}
     type: Image
-    layout_properties: {grid_position: 'UHFRVM,WJNVSN CAODLR,UGYSTN'}
-    data_bindings:
-    - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-  - name: label_1
-    properties: {font_size: 25, bold: true, align: right, foreground: white}
-    type: Label
+  - data_bindings:
+    - {code: 'self.item[''currency_type'']', property: text, writeback: false}
     layout_properties: {grid_position: 'UHFRVM,RMUZHC VITWJI,JHUSCP'}
-    data_bindings:
-    - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-  - name: label_2
-    properties: {font_size: 25, bold: true, align: left, foreground: white}
+    name: label_1
+    properties: {align: right, bold: true, font_size: 25, foreground: white}
     type: Label
+  - data_bindings:
+    - {code: 'self.item[''balance'']', property: text, writeback: false}
     layout_properties: {grid_position: 'UHFRVM,RMUZHC VITWJI,LAXCQH'}
-    data_bindings:
-    - {property: text, code: 'self.item[''balance'']', writeback: false}
-  - name: label_3
-    properties: {align: center, text: '', foreground: white}
+    name: label_2
+    properties: {align: left, bold: true, font_size: 25, foreground: white}
     type: Label
-    layout_properties: {grid_position: 'UHFRVM,RMUZHC HPMQWS,HDMRZF'}
-  - name: button_1
-    properties: {text: Deposit, foreground: white, bold: true, background: 'theme:Primary 500', role: raised}
+  - layout_properties: {grid_position: 'UHFRVM,RMUZHC HPMQWS,HDMRZF'}
+    name: label_3
+    properties: {align: center, foreground: white, text: ''}
+    type: Label
+  - layout_properties: {grid_position: 'UHFRVM,RMUZHC BBZYGZ,SHBYKH'}
+    name: button_1
+    properties: {background: 'theme:Primary 500', bold: true, foreground: white, role: raised, text: Deposit}
     type: Button
-    layout_properties: {grid_position: 'UHFRVM,RMUZHC BBZYGZ,SHBYKH'}
-  - name: button_2
-    properties: {text: Transfer, background: 'theme:Primary 500', foreground: white, bold: true, role: raised}
+  - layout_properties: {grid_position: 'UHFRVM,RMUZHC BBZYGZ,HSRHQJ'}
+    name: button_2
+    properties: {background: 'theme:Primary 500', bold: true, foreground: white, role: raised, text: Transfer}
     type: Button
-    layout_properties: {grid_position: 'UHFRVM,RMUZHC BBZYGZ,HSRHQJ'}
-  - name: button_3
-    properties: {text: Withdraw, role: raised, background: 'theme:Primary 500', foreground: white, bold: true}
+  - layout_properties: {grid_position: 'UHFRVM,RMUZHC BBZYGZ,LGCIZH'}
+    name: button_3
+    properties: {background: 'theme:Primary 500', bold: true, foreground: white, role: raised, text: Withdraw}
     type: Button
-    layout_properties: {grid_position: 'UHFRVM,RMUZHC BBZYGZ,LGCIZH'}
-- name: spacer_1
+  layout_properties: {grid_position: 'QXYXOK,BIFVOB'}
+  name: card_1
+  properties: {background: '#badaee', col_widths: '{"WJNVSN":15,"RMUZHC":45}', role: card}
+  type: ColumnPanel
+- layout_properties: {grid_position: 'QXYXOK,XGYOVI'}
+  name: spacer_1
   properties: {height: 32}
   type: Spacer
-  layout_properties: {grid_position: 'QXYXOK,XGYOVI'}
+container:
+  properties: {col_widths: '{"GBIMYL":10,"BIFVOB":40,"XGYOVI":10}'}
+  type: ColumnPanel
+is_package: true

@@ -13,82 +13,83 @@ import re
 import base64
 
 class admin_view_user_details(admin_view_user_detailsTemplate):
-    def __init__(self, user_data=None, phone_number=None, user=None, **properties):
+    def __init__(self, user_data=None, phone_number=None, fullname=None,email=None ,user=None, **properties):
         self.admin = user
         self.phone_number = phone_number
+        
         self.init_components(**properties)
         # self.user = user
-        if self.admin is not None:
-            self.label_6566.text = self.admin['users_username']
-            # if 'users_username' in self.user:
-            #     self.label_6566.text = self.user['users_username']
-            # else:
-            #     print("users_username not found in user object")
-        
-        # self.check_profile_pic()
+        if phone_number is not None:
+          self.label_401.text = phone_number
+          self.load_user_details(phone_number)
+        if fullname is not None:
+          self.label_100.text = fullname
+        if email is not None:
+          self.label_201.text = email
+        if self.admin:
+          self.label_6566.text = self.admin['user_fullname']
+
         self.populate_balances()
         self.edit_mode = False
-        self.user = user_data
-        # if self.user is not None:
-        #     self.label_6566.text = self.user['users_username']
 
-        if phone_number is not None:
-            self.label_401.text = phone_number
-
-            user_data = app_tables.wallet_users.get(users_phone=phone_number)
-            if user_data is not None:
-                self.label_100.text = user_data['users_username']
-                self.label_201.text = user_data['users_email']
-                self.label_501.text = user_data['users_aadhar']
-                self.label_601.text = user_data['users_pan']
-                self.label_401.text = user_data['users_phone']
-                self.label_801.text = user_data['users_address']
-                self.label_701.text = user_data['users_address']
-                
-                # Set the status label
+    def clear_labels(self):
+        self.label_100.text = ""
+        self.label_201.text = ""
+        self.label_401.text = ""
+        self.label_501.text = ""
+        self.label_601.text = ""
+        self.label_701.text = ""
+        self.label_801.text = ""
+        self.label_901.text = ""
+    
+    def load_user_details(self, phone_number):
+        try:
+            user_data = anvil.server.call('get_user_details_by_phone', phone_number)
+            if user_data:
+                self.label_100.text = user_data.get('user_fullname', '')
+                self.label_201.text = user_data.get('user_email', '')
+                self.label_501.text = user_data.get('user_aadhar_number', '')
+                self.label_601.text = user_data.get('user_pan_number', '')
+                self.label_401.text = user_data.get('user_phone_number', '')
+                self.label_701.text = user_data.get('user_address_line_1', '')
+                self.label_801.text = user_data.get('user_country', '')
                 self.set_status_label(user_data)
-
             else:
-                self.label_100.text = ""
-                self.label_201.text = ""
-                self.label_401.text = ""
-                self.label_501.text = ""
-                self.label_601.text = ""
-                self.label_701.text = ""
-                self.label_801.text = ""
-                self.label_901.text = ""
+                self.clear_labels()
+                alert("No user found with the provided phone number.", title="Error")
+        except Exception as e:
+            print("Error occurred while loading user details:", e)
 
             self.set_button_text()
-        self.check_profile_pic()
+    #     self.check_profile_pic()
 
-    def check_profile_pic(self):
-          # print(self.user['users_email'],type(self.user['users_email']))
-          user_data = app_tables.wallet_users.get(users_phone = self.phone_number) #changed
-          if user_data:
-            existing_img = user_data['users_profile_pic']
-            if existing_img != None:
-              self.image_1.source = existing_img
-            else: 
-              print('no pic')
-          else:
-            print('none')
+    # def check_profile_pic(self):
+    #       # print(self.user['users_email'],type(self.user['users_email']))
+    #       # user_data = app_tables.wallet_users.get(users_phone = self.phone_number) #changed
+    #       user_data=anvil.server.call('get_users')
+    #       if user_data:
+    #         existing_img = user_data['user_profile_photo']
+    #         if existing_img != None:
+    #           self.image_1.source = existing_img
+    #         else: 
+    #           print('no pic')
+    #       else:
+    #         print('none')
 
     def set_status_label(self, user_data):
-      if user_data:
-          if user_data['users_banned']:
-              self.label_901.text = "Hold"
-              self.label_901.foreground = "red"
-          
-          elif user_data['users_inactive']:
-              self.label_901.text = "Inactive"
-              self.label_901.foreground = "red"
-          else:
-              self.label_901.text = "Active   "
-              self.label_901.foreground = "green"
-      else:
-          self.label_901.text = "No Data"
-          self.label_901.foreground = "gray"
-
+        if user_data:
+            if user_data.get('user_hold'):
+                self.label_901.text = "Hold"
+                self.label_901.foreground = "red"
+            elif user_data.get('user_inactive'):
+                self.label_901.text = "Inactive"
+                self.label_901.foreground = "red"
+            else:
+                self.label_901.text = "Active"
+                self.label_901.foreground = "green"
+        else:
+            self.label_901.text = "No Data"
+            self.label_901.foreground = "gray"
   
 
 
@@ -218,90 +219,68 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
     #         print("Error occurred during fetching and displaying balance:", e)
 
     def button_5_click(self, **event_args):
-        username = self.label_100.text
-        user_to_update = app_tables.wallet_users.get(users_phone=self.phone_number)
+      """This method is called when the freeze/unfreeze button is clicked"""
+      username = self.label_100.text  # Get the username displayed on the label
+      phone_number = self.phone_number  # Get the phone number associated with the user
+      
+      # Call the server function to toggle the user's status (freeze/unfreeze)
+      updated_user = anvil.server.call('toggle_user_status', phone_number)
+      
+      if updated_user:
+          # Update the button text and status label based on the new state
+          self.set_button_text()  # Assuming this method updates the button's text based on the user's status
+          self.set_status_label(updated_user)  # Assuming this method updates the status label
+          
+          # Display an alert based on the action performed
+          alert_message = "User is frozen." if updated_user['user_hold'] else "User is unfrozen."
+          alert(alert_message, title="Status")
+          
+          # Log the action
+          changes = [alert_message]  # Prepare the message to be logged
+          admin_fullname = self.admin['user_fullname']  # Get the admin's full name from the session
+          admin_email = self.admin['user_email']  # Get the admin's email from the session
+          
+          # Call the server function to log the action
+          anvil.server.call('log_action', phone_number, changes, admin_fullname, admin_email)
+          print("Button 5 Clicked and action logged")  # Debug statement for confirmation
+      else:
+          alert("User not found.", title="Error")
 
-        if user_to_update is not None:
-            # Check the current state of 'hold' column
-            current_state = user_to_update['users_hold']
-
-            # If 'hold' is None or 'true', user is considered frozen, otherwise unfrozen
-            new_state = not current_state
-
-            # Update the 'hold' column in the 'users' table
-            user_to_update.update(users_hold=new_state if new_state else None)
-            
-            # Update the 'banned' column based on freeze/unfreeze action
-            user_to_update.update(users_banned=True if new_state else None)
-
-            # Update button text based on the new state
-            self.set_button_text()
-            self.set_status_label(user_to_update)
-
-            # Display alert based on the action
-            alert_message = "User is frozen." if new_state else "User is unfrozen."
-            alert(alert_message, title="Status")
-
-            # Log the action
-            self.log_action(username, [alert_message])
-            print("Button 5 Clicked and action logged")  # Debug statement
-
+  
     def set_button_text(self):
-        username = self.label_100.text
-        user_to_update = app_tables.wallet_users.get(users_phone=self.phone_number)
+      """Update the button text based on the current hold state"""
+      phone_number = self.phone_number
+      user_to_update = anvil.server.call('get_user', phone_number)
+      
+      # Set the button text based on the current hold state
+      self.button_5.text = "Unfreeze" if user_to_update and user_to_update['user_hold'] else "Freeze"
 
-        # Get the current hold state from the database
-        current_state = user_to_update['users_hold'] if user_to_update else None
-
-
-        # Set the button text based on the current hold state
-        self.button_5.text = "Unfreeze" if current_state else "Freeze"
 
     def button_2_click(self, **event_args):
-        """This method is called when the button is clicked"""
-        # Check if the user has balances
-        if not self.has_balances():
-            # Get the phone number from the form
-            phone_number = self.phone_number
-            
-            # Retrieve the user based on phone number
-            user_to_delete = app_tables.wallet_users.get(users_phone=phone_number)
-            
-            if user_to_delete is not None:
-                username = user_to_delete['users_username']  # Get the username before deleting the row
-                user_to_delete.delete()
-                
-                # Log the deletion action
-                self.log_action(username,["User deleted"])
-                
-                # Open the admin.account_management form
-                open_form('admin.account_management', user=self.admin)
-                
-                # Optionally, display an alert to inform the user
-                alert("User deleted successfully.", title="Status")
-        else:
-            # If the user has balances, inform the admin that they cannot delete the user
-            alert("User has balances. Please clear the balances before deleting.", title="Status")
-
-    def log_action(self, username, actions):
-    # Log the action to the app_tables.wallet_admins_actions table
-      timestamp = datetime.now()
-      action_log = ", ".join(actions)
-  
-      # Retrieve user data based on phone number
-      user_data = app_tables.wallet_users.get(users_phone=self.phone_number)
-  
-      if user_data:
-          # Insert the log entry into the table using user's phone number and username
-          app_tables.wallet_admins_actions.add_row(
-              admins_actions_name=self.admin['users_username'],
-              admins_actions_username=username,  # Use provided username
-              admins_actions_phone=user_data['users_phone'],  # Use user's phone number
-              admins_actions_date=timestamp,
-              admins_actions=action_log
-          )
+      """This method is called when the button is clicked to delete a user."""
+      phone_number = self.phone_number  # Phone number of the user to be deleted
+      
+      # Call the server function to delete the user if no balances are present
+      result = anvil.server.call('delete_user_if_no_balances', phone_number)
+      
+      if result and result.get('status') == 'User deleted successfully.':
+          user_fullname = result['user_fullname']
+          
+          # Log the deletion action
+          changes = [f"User {user_fullname} deleted by admin"]
+          admin_fullname = self.admin['user_fullname']  # Get the admin's full name from the session
+          admin_email = self.admin['user_email']  # Get the admin's email from the session
+          # Call the server function to log the action
+          anvil.server.call('log_action', phone_number, changes, admin_fullname, admin_email)
+          
+          # Open the admin.account_management form
+          open_form('admin.account_management', user=self.admin)
+          
+          # Optionally, display an alert to inform the user
+          alert("User deleted successfully.", title="Status")
       else:
-          print(f"User with phone number {self.phone_number} not found.")  # Handle case where user data is not found
+          # Inform the admin that the user has balances and cannot be deleted
+          alert(result.get('status', 'Error occurred during deletion.'), title="Status")
 
       # def check_profile_pic(self):
       #     phone_number = self.phone_number
@@ -329,13 +308,6 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
         if user_data is not None:
             user_data.update(users_profile_pic=None)
             self.image_1.source = None
-
-    def has_balances(self):
-        user_phone = self.phone_number
-        user_balances = app_tables.wallet_users_balance.search(users_balance_phone=user_phone)
-        
-        # Check if there are any balances for the user
-        return bool(list(user_balances))
 
     def button_8_click(self, **event_args):
         self.edit_mode = not self.edit_mode
@@ -438,8 +410,8 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
 
     def button_4_click(self, **event_args):
       """This method is called when the button is clicked"""
-      username = self.label_100.text
-      user_data = app_tables.wallet_users.get(users_phone=self.phone_number)  # Retrieve user_data
+      phone_number = self.label_401.text
+      user_data = anvil.server.call('get_user_details_by_phone', phone_number)  # Retrieve user_data
       
       # Log the action
       # self.log_action(username,self.label_100.text, ["User Setlimt changed"])

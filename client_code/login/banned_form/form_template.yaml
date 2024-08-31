@@ -1,165 +1,165 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{"DFELUW":50,"OWGIJP":10}'}
 components:
-- name: spacer_2
+- layout_properties: {grid_position: 'KQKPGJ,DFELUW'}
+  name: spacer_2
   properties: {height: 32}
   type: Spacer
-  layout_properties: {grid_position: 'KQKPGJ,DFELUW'}
-- name: button_1
-  properties: {text: Withdraw, role: raised, background: 'theme:Primary 500', foreground: 'theme:White'}
-  type: Button
+- event_bindings: {click: button_1_click}
   layout_properties: {grid_position: 'KQKPGJ,OWGIJP'}
-  event_bindings: {click: button_1_click}
-- name: card_1
-  properties: {role: card, col_widths: '{}', col_spacing: tiny}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'SIQCAM,CNCVAZ'}
-  components:
-  - name: label_1
-    properties: {bold: true, font_size: 20, foreground: 'theme:Primary 500', align: center}
+  name: button_1
+  properties: {background: 'theme:Primary 500', foreground: 'theme:White', role: raised, text: Withdraw}
+  type: Button
+- components:
+  - layout_properties: {grid_position: 'BTMRLQ,EJJDGG'}
+    name: label_1
+    properties: {align: center, bold: true, font_size: 20, foreground: 'theme:Primary 500'}
     type: Label
-    layout_properties: {grid_position: 'BTMRLQ,EJJDGG'}
-  - name: card_3
-    properties: {role: card, col_widths: '{"ONPGXE":5,"RTYHSZ":55}', border: 2px solid black}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'MZAGRP,MGEYYE'}
-    components:
-    - name: label_6
-      properties: {text: 'NOTE:', bold: true, italic: false, align: right}
+  - components:
+    - layout_properties: {grid_position: 'ZWVZSC,ONPGXE'}
+      name: label_6
+      properties: {align: right, bold: true, italic: false, text: 'NOTE:'}
       type: Label
-      layout_properties: {grid_position: 'ZWVZSC,ONPGXE'}
-    - name: label_7
+    - layout_properties: {grid_position: 'ZWVZSC,RTYHSZ'}
+      name: label_7
       properties: {text: 'Withdraw your amount with in 15 days ,your account will deactivate in 15 days .'}
       type: Label
-      layout_properties: {grid_position: 'ZWVZSC,RTYHSZ'}
-- name: card_2
-  properties: {role: card, col_widths: '{"JUKPCL":4,"WVJPMY":56,"ICVGMB":4,"TSNWKX":56,"LRYJAE":4,"LTYDLK":56,"FJSLCA":4,"UDPFPV":56,"ADBCID":4,"RIVXMI":56,"OVLBWR":4,"SNNWAI":56,"JKEGQS":4,"ZOXZDU":56,"RANASX":4,"CDTNLG":56,"JXVBKX":4,"MTLRMX":56,"ZXQSDI":4,"QSSWHF":56}', background: 'theme:Gray 50'}
+    layout_properties: {grid_position: 'MZAGRP,MGEYYE'}
+    name: card_3
+    properties: {border: 2px solid black, col_widths: '{"ONPGXE":5,"RTYHSZ":55}', role: card}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'SIQCAM,CNCVAZ'}
+  name: card_1
+  properties: {col_spacing: tiny, col_widths: '{}', role: card}
   type: ColumnPanel
+- components:
+  - layout_properties: {grid_position: 'FAYOXL,FFUSHQ'}
+    name: label_2
+    properties: {bold: true, font_size: 20, foreground: red, text: Terms and conditions for  banning}
+    type: Label
+  - layout_properties: {grid_position: 'HYKTBU,HNILFP'}
+    name: label_3
+    properties: {bold: true, font_size: 15, text: '1 Violation of Terms of Service:'}
+    type: Label
+  - layout_properties: {grid_position: 'KSEMHY,JUKPCL'}
+    name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'KSEMHY,WVJPMY'}
+    name: label_4
+    properties: {font_size: 15, icon: 'fa:dot-circle-o', text: 'You have repeatedly violated our Terms of Service, which all users agree to upon registration.'}
+    type: Label
+  - layout_properties: {grid_position: 'EQRFNC,YNZENN'}
+    name: label_5
+    properties: {bold: true, font_size: 15, text: '2 Fraudulent Activities:'}
+    type: Label
+  - layout_properties: {grid_position: 'VIDWZS,ICVGMB'}
+    name: spacer_1_copy
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'VIDWZS,TSNWKX'}
+    name: label_5_copy
+    properties: {align: left, bold: false, font_size: 15, icon: 'fa:dot-circle-o', icon_align: left_edge, text: 'We have detected activities on your account that are indicative of fraud or unauthorized transactions. This includes, but is not limited to, suspicious transactions, chargebacks, or use of the wallet for fraudulent purposes.'}
+    type: Label
+  - layout_properties: {grid_position: 'OLJHVP,GKVJJN'}
+    name: label_5_copy_2
+    properties: {bold: true, font_size: 15, text: '3 Multiple Accounts:'}
+    type: Label
+  - layout_properties: {grid_position: 'OSNHWG,LRYJAE'}
+    name: spacer_1_copy_copy
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'OSNHWG,LTYDLK'}
+    name: label_5_copy_copy
+    properties: {align: left, bold: false, font_size: 15, icon: 'fa:dot-circle-o', icon_align: left_edge, text: 'Our records show that you have created and used multiple accounts, which is against our policy designed to prevent fraud and abuse.'}
+    type: Label
+  - layout_properties: {grid_position: 'VNLYHG,SZBZIR'}
+    name: label_5_copy_2_copy
+    properties: {bold: true, font_size: 15, text: '4 Unauthorized Use:'}
+    type: Label
+  - layout_properties: {grid_position: 'MTSZCL,FJSLCA'}
+    name: spacer_1_copy_copy_copy
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'MTSZCL,UDPFPV'}
+    name: label_5_copy_copy_copy
+    properties: {align: left, bold: false, font_size: 15, icon: 'fa:dot-circle-o', icon_align: left_edge, text: 'Your account has been used in ways that indicate it is being accessed by unauthorized persons, which compromises the security of our platform.'}
+    type: Label
+  - layout_properties: {grid_position: 'VVOMPO,LIKAIT'}
+    name: label_5_copy_2_copy_copy
+    properties: {bold: true, font_size: 15, text: '5 Abuse of Referral Program:'}
+    type: Label
+  - layout_properties: {grid_position: 'CYVXTB,ADBCID'}
+    name: spacer_1_copy_copy_copy_copy
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'CYVXTB,RIVXMI'}
+    name: label_5_copy_copy_copy_copy
+    properties: {align: left, bold: false, font_size: 15, icon: 'fa:dot-circle-o', icon_align: left_edge, text: 'You have engaged in activities that abuse our referral program, such as creating fake accounts or providing false information to benefit from referral bonuses.'}
+    type: Label
+  - layout_properties: {grid_position: 'WVOMJM,VQUVPP'}
+    name: label_5_copy_2_copy_copy_copy
+    properties: {bold: true, font_size: 15, text: '6 Money Laundering Activities:'}
+    type: Label
+  - layout_properties: {grid_position: 'RPQVGG,OVLBWR'}
+    name: spacer_1_copy_copy_copy_copy_copy
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'RPQVGG,SNNWAI'}
+    name: label_5_copy_copy_copy_copy_copy
+    properties: {align: left, bold: false, font_size: 15, icon: 'fa:dot-circle-o', icon_align: left_edge, text: 'Your account has been flagged for transactions that are consistent with money laundering activities, which is strictly prohibited by law and our policies.'}
+    type: Label
+  - layout_properties: {grid_position: 'DYSAOG,JPXUJP'}
+    name: label_5_copy_2_copy_copy_copy_copy
+    properties: {bold: true, font_size: 15, text: '7 Chargeback Abuse:'}
+    type: Label
+  - layout_properties: {grid_position: 'EUVCOW,JKEGQS'}
+    name: spacer_1_copy_copy_copy_copy_copy_copy
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'EUVCOW,ZOXZDU'}
+    name: label_5_copy_copy_copy_copy_copy_copy
+    properties: {align: left, bold: false, font_size: 15, icon: 'fa:dot-circle-o', icon_align: left_edge, text: 'You have initiated multiple chargebacks without valid reasons, which is considered abuse of our system.'}
+    type: Label
+  - layout_properties: {grid_position: 'WRULMP,RTWAXY'}
+    name: label_5_copy_2_copy_copy_copy_copy_copy
+    properties: {bold: true, font_size: 15, text: '8 Security Threats:'}
+    type: Label
+  - layout_properties: {grid_position: 'VKKHVZ,RANASX'}
+    name: spacer_1_copy_copy_copy_copy_copy_copy_copy
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'VKKHVZ,CDTNLG'}
+    name: label_5_copy_copy_copy_copy_copy_copy_copy
+    properties: {align: left, bold: false, font_size: 15, icon: 'fa:dot-circle-o', icon_align: left_edge, text: Your account has been involved in activities that pose a security threat to our system and other users. This includes attempts to hack or breach our security protocols..}
+    type: Label
+  - layout_properties: {grid_position: 'VEVEHO,CTZOMQ'}
+    name: label_5_copy_2_copy_copy_copy_copy_copy_copy
+    properties: {bold: true, font_size: 15, text: '9 Spamming or Harassment:'}
+    type: Label
+  - layout_properties: {grid_position: 'TLBLPR,JXVBKX'}
+    name: spacer_1_copy_copy_copy_copy_copy_copy_copy_copy
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'TLBLPR,MTLRMX'}
+    name: label_5_copy_copy_copy_copy_copy_copy_copy_copy
+    properties: {align: left, bold: false, font_size: 15, icon: 'fa:dot-circle-o', icon_align: left_edge, text: 'There have been reports of spamming, harassment, or sending unsolicited messages to other users through our platform.'}
+    type: Label
+  - layout_properties: {grid_position: 'QWGCEQ,ALEFBO'}
+    name: label_5_copy_2_copy_copy_copy_copy_copy_copy_copy
+    properties: {bold: true, font_size: 15, text: '10 Illegal Transactions:'}
+    type: Label
+  - layout_properties: {grid_position: 'ZBDYKX,ZXQSDI'}
+    name: spacer_1_copy_copy_copy_copy_copy_copy_copy_copy_copy
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'ZBDYKX,QSSWHF'}
+    name: label_5_copy_copy_copy_copy_copy_copy_copy_copy_copy
+    properties: {align: left, bold: false, font_size: 15, icon: 'fa:dot-circle-o', icon_align: left_edge, text: 'Your account has been used for transactions involving illegal goods or services, which is against our policy and the law.'}
+    type: Label
   layout_properties: {grid_position: 'MIAJNT,IRDYPT'}
-  components:
-  - name: label_2
-    properties: {text: Terms and conditions for  banning, bold: true, foreground: red, font_size: 20}
-    type: Label
-    layout_properties: {grid_position: 'FAYOXL,FFUSHQ'}
-  - name: label_3
-    properties: {text: '1 Violation of Terms of Service:', bold: true, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'HYKTBU,HNILFP'}
-  - name: spacer_1
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'KSEMHY,JUKPCL'}
-  - name: label_4
-    properties: {text: 'You have repeatedly violated our Terms of Service, which all users agree to upon registration.', icon: 'fa:dot-circle-o', font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'KSEMHY,WVJPMY'}
-  - name: label_5
-    properties: {text: '2 Fraudulent Activities:', bold: true, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'EQRFNC,YNZENN'}
-  - name: spacer_1_copy
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'VIDWZS,ICVGMB'}
-  - name: label_5_copy
-    properties: {text: 'We have detected activities on your account that are indicative of fraud or unauthorized transactions. This includes, but is not limited to, suspicious transactions, chargebacks, or use of the wallet for fraudulent purposes.', bold: false, icon: 'fa:dot-circle-o', align: left, icon_align: left_edge, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'VIDWZS,TSNWKX'}
-  - name: label_5_copy_2
-    properties: {text: '3 Multiple Accounts:', bold: true, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'OLJHVP,GKVJJN'}
-  - name: spacer_1_copy_copy
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'OSNHWG,LRYJAE'}
-  - name: label_5_copy_copy
-    properties: {text: 'Our records show that you have created and used multiple accounts, which is against our policy designed to prevent fraud and abuse.', bold: false, icon: 'fa:dot-circle-o', align: left, icon_align: left_edge, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'OSNHWG,LTYDLK'}
-  - name: label_5_copy_2_copy
-    properties: {text: '4 Unauthorized Use:', bold: true, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'VNLYHG,SZBZIR'}
-  - name: spacer_1_copy_copy_copy
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'MTSZCL,FJSLCA'}
-  - name: label_5_copy_copy_copy
-    properties: {text: 'Your account has been used in ways that indicate it is being accessed by unauthorized persons, which compromises the security of our platform.', bold: false, icon: 'fa:dot-circle-o', align: left, icon_align: left_edge, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'MTSZCL,UDPFPV'}
-  - name: label_5_copy_2_copy_copy
-    properties: {text: '5 Abuse of Referral Program:', bold: true, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'VVOMPO,LIKAIT'}
-  - name: spacer_1_copy_copy_copy_copy
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'CYVXTB,ADBCID'}
-  - name: label_5_copy_copy_copy_copy
-    properties: {text: 'You have engaged in activities that abuse our referral program, such as creating fake accounts or providing false information to benefit from referral bonuses.', bold: false, icon: 'fa:dot-circle-o', align: left, icon_align: left_edge, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'CYVXTB,RIVXMI'}
-  - name: label_5_copy_2_copy_copy_copy
-    properties: {text: '6 Money Laundering Activities:', bold: true, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'WVOMJM,VQUVPP'}
-  - name: spacer_1_copy_copy_copy_copy_copy
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'RPQVGG,OVLBWR'}
-  - name: label_5_copy_copy_copy_copy_copy
-    properties: {text: 'Your account has been flagged for transactions that are consistent with money laundering activities, which is strictly prohibited by law and our policies.', bold: false, icon: 'fa:dot-circle-o', align: left, icon_align: left_edge, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'RPQVGG,SNNWAI'}
-  - name: label_5_copy_2_copy_copy_copy_copy
-    properties: {text: '7 Chargeback Abuse:', bold: true, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'DYSAOG,JPXUJP'}
-  - name: spacer_1_copy_copy_copy_copy_copy_copy
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'EUVCOW,JKEGQS'}
-  - name: label_5_copy_copy_copy_copy_copy_copy
-    properties: {text: 'You have initiated multiple chargebacks without valid reasons, which is considered abuse of our system.', bold: false, icon: 'fa:dot-circle-o', align: left, icon_align: left_edge, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'EUVCOW,ZOXZDU'}
-  - name: label_5_copy_2_copy_copy_copy_copy_copy
-    properties: {text: '8 Security Threats:', bold: true, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'WRULMP,RTWAXY'}
-  - name: spacer_1_copy_copy_copy_copy_copy_copy_copy
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'VKKHVZ,RANASX'}
-  - name: label_5_copy_copy_copy_copy_copy_copy_copy
-    properties: {text: Your account has been involved in activities that pose a security threat to our system and other users. This includes attempts to hack or breach our security protocols.., bold: false, icon: 'fa:dot-circle-o', align: left, icon_align: left_edge, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'VKKHVZ,CDTNLG'}
-  - name: label_5_copy_2_copy_copy_copy_copy_copy_copy
-    properties: {text: '9 Spamming or Harassment:', bold: true, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'VEVEHO,CTZOMQ'}
-  - name: spacer_1_copy_copy_copy_copy_copy_copy_copy_copy
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'TLBLPR,JXVBKX'}
-  - name: label_5_copy_copy_copy_copy_copy_copy_copy_copy
-    properties: {text: 'There have been reports of spamming, harassment, or sending unsolicited messages to other users through our platform.', bold: false, icon: 'fa:dot-circle-o', align: left, icon_align: left_edge, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'TLBLPR,MTLRMX'}
-  - name: label_5_copy_2_copy_copy_copy_copy_copy_copy_copy
-    properties: {text: '10 Illegal Transactions:', bold: true, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'QWGCEQ,ALEFBO'}
-  - name: spacer_1_copy_copy_copy_copy_copy_copy_copy_copy_copy
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'ZBDYKX,ZXQSDI'}
-  - name: label_5_copy_copy_copy_copy_copy_copy_copy_copy_copy
-    properties: {text: 'Your account has been used for transactions involving illegal goods or services, which is against our policy and the law.', bold: false, icon: 'fa:dot-circle-o', align: left, icon_align: left_edge, font_size: 15}
-    type: Label
-    layout_properties: {grid_position: 'ZBDYKX,QSSWHF'}
+  name: card_2
+  properties: {background: 'theme:Gray 50', col_widths: '{"JUKPCL":4,"WVJPMY":56,"ICVGMB":4,"TSNWKX":56,"LRYJAE":4,"LTYDLK":56,"FJSLCA":4,"UDPFPV":56,"ADBCID":4,"RIVXMI":56,"OVLBWR":4,"SNNWAI":56,"JKEGQS":4,"ZOXZDU":56,"RANASX":4,"CDTNLG":56,"JXVBKX":4,"MTLRMX":56,"ZXQSDI":4,"QSSWHF":56}', role: card}
+  type: ColumnPanel
+container:
+  properties: {col_widths: '{"DFELUW":50,"OWGIJP":10}'}
+  type: ColumnPanel
 is_package: true
